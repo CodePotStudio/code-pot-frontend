@@ -9,9 +9,6 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  html {
-    font-size: 10px;
-  }
   body {
     height: 100%;
   }
