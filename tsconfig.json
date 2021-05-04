@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/pages/components/atoms/avatar/index.tss"  ],
   "exclude": [
     "node_modules"
   ]
