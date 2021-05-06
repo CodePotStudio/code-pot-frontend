@@ -87,19 +87,18 @@ const theme = {
     `,
 	},
 	space: [
-		"0.25rem",
-		"0.5rem",
-		"0.75rem",
-		"1rem",
-		"1.5rem",
-		"2rem",
-		"3rem",
-		"4rem",
-		"6rem",
-		"8rem",
-		"12rem",
-		"16rem",
-		"24rem",
+		"0.25rem", // 4px
+		"0.75rem", // 8px
+		"1rem", // 16px
+		"1.5rem", // 24px
+		"2rem", // 32px
+		"3rem", // 48px
+		"4rem", // 64px
+		"6rem", // 96px
+		"8rem", // 128px
+		"12rem", // 192px
+		"16rem", // 256px
+		"24rem", // 384px
 	],
 };
 
