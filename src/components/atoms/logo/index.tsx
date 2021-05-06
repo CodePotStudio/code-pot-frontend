@@ -16,6 +16,7 @@ const Logo = ({ height, color }: Props) => (
 
 Logo.defaultProps = {
 	color: "black",
+	height: 16,
 };
 
 export default Logo;
