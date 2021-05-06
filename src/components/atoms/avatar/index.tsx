@@ -1,5 +1,4 @@
 import * as S from "./style";
-import Image from "next/image";
 
 export interface Props {
 	/** alternation img */
