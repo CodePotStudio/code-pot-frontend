@@ -13,7 +13,7 @@ const Avatar = ({ alt, src, size }: Props) => (
 	<S.Avatar alt={alt} src={src} size={size} />
 );
 Avatar.defaultProps = {
-	size: "40px",
+	size: "2rem",
 };
 
 export default Avatar;
