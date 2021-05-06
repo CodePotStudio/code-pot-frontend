@@ -9,14 +9,12 @@ export default {
 export const AvatarWithImage = () => (
 	<Avatar
 		src="https://avatars1.githubusercontent.com/u/3426196?v=4"
-		alt="avatar"
+		alt="avatar Image"
 	></Avatar>
 );
-
+export const AvatarWithDefaultImage = () => (
+	<Avatar alt="avatar with default Image"></Avatar>
+);
 export const AvatarWithSize = () => (
-	<Avatar
-		src="https://avatars1.githubusercontent.com/u/3426196?v=4"
-		alt="avatar"
-		size="5rem"
-	></Avatar>
+	<Avatar alt="avatar Image" size={200}></Avatar>
 );

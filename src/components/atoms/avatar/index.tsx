@@ -1,19 +1,21 @@
 import * as S from "./style";
+import Image from "next/image";
 
 export interface Props {
 	/** alternation img */
 	alt: string;
 	/** avatar src */
-	src: string;
+	src?: string;
 	/** avatar size */
-	size?: string;
+	size?: number;
 }
 
 const Avatar = ({ alt, src, size }: Props) => (
-	<S.Avatar alt={alt} src={src} size={size} />
+	<S.Avatar src={src} width={size} height={size} alt={alt}></S.Avatar>
 );
 Avatar.defaultProps = {
-	size: "2rem",
+	size: 32,
+	src: "/defaultAvatar.svg",
 };
 
 export default Avatar;
