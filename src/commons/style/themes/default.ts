@@ -20,6 +20,7 @@ const theme = {
 		warningscale: ["#FDB431", "#FDC35A", "#FED283"],
 		alertscale: ["#C8191F", "#E13338", "#EF8E91"],
 		grayscale: [
+			"#162637",
 			"#1A1A1A",
 			"#1F224B",
 			"#A1A1A1",
@@ -90,7 +91,7 @@ const theme = {
       letter-spacing: 0.05rem;
     `,
 		body2: `
-      font-size: 1.4rem;
+      font-size: 1rem;
       font-weight: 400;
       letter-spacing: 0.025rem;
     `,
