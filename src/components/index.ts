@@ -8,6 +8,7 @@ export { default as CheckBox } from "./atoms/checkBox";
 export { default as Divider } from "./atoms/divider";
 export { default as Heading } from "./atoms/heading";
 export { default as Input } from "./atoms/input";
+export { default as Label } from "./atoms/label";
 
 // Organisms
 export { default as Footer } from "./organisms/footer";
