@@ -16,6 +16,7 @@ const GlobalStyles = createGlobalStyle`
   a, button {
     text-decoration: none;
     cursor: pointer;
+    color: inherit;
   }
   h1 {
     font-size: 4.5rem;

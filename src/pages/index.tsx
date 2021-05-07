@@ -1,4 +1,4 @@
-import { Footer } from "components";
+import { Footer, Link } from "components";
 import Head from "next/head";
 
 export default function Home() {
