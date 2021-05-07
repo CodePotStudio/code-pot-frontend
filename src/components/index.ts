@@ -4,6 +4,7 @@ export { default as Logo } from "./atoms/logo";
 export { default as Icon } from "./atoms/icon";
 export { default as Button } from "./atoms/button";
 export { default as Badge } from "./atoms/badge";
+export { default as CheckBox } from "./atoms/checkBox";
 
 // Organisms
 export { default as Footer } from "./organisms/footer";
