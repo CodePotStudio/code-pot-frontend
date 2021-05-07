@@ -5,12 +5,13 @@ export interface Props {
 	name: ICONS;
 }
 
-const Icon = ({ size, name }: Props) => (
+const Icon = ({ size, name, ...props }: Props) => (
 	<svg
 		width={size}
 		height={size}
 		viewBox={IconSet[name].viewBox}
 		xmlns="http://www.w3.org/2000/svg"
+		{...props}
 	>
 		<path
 			d={IconSet[name].path}

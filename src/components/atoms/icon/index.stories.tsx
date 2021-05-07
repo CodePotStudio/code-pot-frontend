@@ -15,6 +15,9 @@ export const Icons = () => (
 		<Icon name={ICONS.copy}></Icon>
 		<Icon name={ICONS.menu}></Icon>
 		<Icon name={ICONS.warning}></Icon>
+		<Icon name={ICONS.checkedRadio}></Icon>
+		<Icon name={ICONS.emptyRadio}></Icon>
+		<Icon name={ICONS.arrowDown}></Icon>
 	</div>
 );
 

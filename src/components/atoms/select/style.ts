@@ -1,3 +1,4 @@
+import Icon from "../icon";
 import styled from "styled-components";
 import { palette } from "styled-tools";
 
@@ -24,4 +25,11 @@ export const Select = styled.select`
 		border-color: ${palette("primary")};
 		box-shadow: 0 0 0 1px ${palette("primary")};
 	}
+`;
+
+export const StyledIcon = styled(Icon)`
+	margin-left: -28px;
+	align-self: center;
+	width: 24px;
+	height: 24px;
 `;

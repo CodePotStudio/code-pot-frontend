@@ -1,3 +1,4 @@
+import { ICONS } from "../icon/constants";
 import * as S from "./style";
 
 type option = {
@@ -23,16 +24,7 @@ const Select = ({ options, defaultValue, name }: Props) => (
 				</option>
 			))}
 		</S.Select>
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			width="24"
-			height="24"
-			viewBox="0 0 24 24"
-			fill="currentcolor"
-			style={{ marginLeft: "-28px", alignSelf: "center" }}
-		>
-			<path d="M7 10l5 5 5-5z"></path>
-		</svg>
+		<S.StyledIcon name={ICONS.arrowDown} />
 	</S.SelectWrapper>
 );
 
