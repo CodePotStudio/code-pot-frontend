@@ -17,33 +17,38 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
     cursor: pointer;
   }
-
   h1 {
-    ${theme("fontStyle.h3")}
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1.8;
   }
-
   h2 {
-    ${theme("fontStyle.h4")}
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.8;
   }
-
-  h2 {
-    ${theme("fontStyle.h5")}
-  }
-
   h3 {
-    ${theme("fontStyle.subtitle1")}
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.8;
   }
-
   h4 {
-    ${theme("fontStyle.subtitle2")}
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.8;
   }
-
   h5 {
-    ${theme("fontStyle.body1")}
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.8;
   }
-
+  h6 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.8;
+  }
   p {
-    ${theme("fontStyle.body2")}
+    ${theme("fontStyle.body1")}
   }
 `;
 
