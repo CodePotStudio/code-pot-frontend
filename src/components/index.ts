@@ -10,6 +10,7 @@ export { default as Heading } from "./atoms/heading";
 export { default as Input } from "./atoms/input";
 export { default as Label } from "./atoms/label";
 export { default as Link } from "./atoms/link";
+export { default as Select } from "./atoms/select";
 
 // Organisms
 export { default as Footer } from "./organisms/footer";
