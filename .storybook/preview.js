@@ -1,4 +1,5 @@
 import * as nextImage from "next/image";
+import * as nextLink from "next/link";
 import { addDecorator } from "@storybook/react";
 import { withThemesProvider } from "storybook-addon-styled-component-theme";
 import { ThemeProvider } from "styled-components";
@@ -9,6 +10,12 @@ import GlobalStyles from "../src/commons/style/GlobalStyle";
 Object.defineProperty(nextImage, "default", {
 	configurable: true,
 	value: (props) => <img {...props} />,
+});
+
+// storybook에서 next/link 사용하도록 셋팅
+Object.defineProperty(nextLink, "default", {
+	configurable: true,
+	value: (props) => <a {...props} />,
 });
 
 export const parameters = {

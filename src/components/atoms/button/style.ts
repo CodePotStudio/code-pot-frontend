@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { palette } from "styled-tools";
+import nextLink from "next/link";
 
 export interface ButtonStyleProps {
 	variant: "primary" | "secondary";
@@ -52,5 +53,13 @@ const ButtonStyle = css<ButtonStyleProps>`
 `;
 
 export const Button = styled.button`
+	${ButtonStyle}
+`;
+
+export const Link = styled(nextLink)`
+	${ButtonStyle}
+`;
+
+export const Anchor = styled.a`
 	${ButtonStyle}
 `;
