@@ -1,13 +1,24 @@
 const theme = {
 	palette: {
-		primary: "#FF2D54",
-		secondary: "#55A6FC",
-		danger: "#d32f2f",
-		alert: "#ffa000",
+		primary: "#3221BF",
+		secondary: "#04BD8D",
+		warning: "#FDB431",
+		alert: "#C8191F",
 		success: "#388e3c",
 		white: "#ffffff",
 		black: "#1A1A1A",
 		transparent: "transparent",
+		primaryscale: [
+			"#3221BF",
+			"#3F29EE",
+			"#6554F2",
+			"#8C7FF5",
+			"#9F94F7",
+			"#C5BFFA",
+		],
+		secondaryscale: ["#04BD8D", "#06D19C", "#38DAB0"],
+		warningscale: ["#FDB431", "#FDC35A", "#FED283"],
+		alertscale: ["#C8191F", "#E13338", "#EF8E91"],
 		grayscale: [
 			"#1A1A1A",
 			"#1F224B",
