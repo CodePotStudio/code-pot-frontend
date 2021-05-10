@@ -11,6 +11,7 @@ export { default as Input } from "./atoms/input";
 export { default as Label } from "./atoms/label";
 export { default as Link } from "./atoms/link";
 export { default as Select } from "./atoms/select";
+export { default as Radio } from "./atoms/radio";
 
 // Organisms
 export { default as Footer } from "./organisms/footer";
