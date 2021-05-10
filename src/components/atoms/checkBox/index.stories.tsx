@@ -10,5 +10,5 @@ export const Default = () => (
 	<CheckBox
 		checked={false}
 		onClick={() => console.log("Button Clicked")}
-	></CheckBox>
+	>약관에 동의</CheckBox>
 );
