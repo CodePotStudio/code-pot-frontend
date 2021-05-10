@@ -10,8 +10,8 @@ const Radio = ({ children, checked }: Props) => (
 	<S.Label>
 		<S.Wrapper>
 			<S.Radio type="radio" checked={checked} />
-			<S.EmptyRadio name={ICONS.emptyRadio} size={24}></S.EmptyRadio>
-			<S.CheckedRadio name={ICONS.checkedRadio} size={24}></S.CheckedRadio>
+			<S.EmptyRadio name={ICONS.emptyRadio} size={16}></S.EmptyRadio>
+			<S.CheckedRadio name={ICONS.checkedRadio} size={16}></S.CheckedRadio>
 		</S.Wrapper>
 		{children}
 	</S.Label>

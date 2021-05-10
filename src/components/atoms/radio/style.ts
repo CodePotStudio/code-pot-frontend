@@ -4,10 +4,12 @@ import Icon from "../icon";
 export const CheckedRadio = styled(Icon)`
 	display: none;
 	margin: 0px 4px 0px 0px;
+	align-self: center;
 `;
 export const EmptyRadio = styled(Icon)`
 	display: block;
 	margin: 0px 4px 0px 0px;
+	align-self: center;
 `;
 
 export const Label = styled.label`
@@ -20,6 +22,7 @@ export const Label = styled.label`
 export const Wrapper = styled.div`
 	margin: 0px;
 	min-width: min-content;
+	display: flex;
 `;
 
 export const Radio = styled.input`
