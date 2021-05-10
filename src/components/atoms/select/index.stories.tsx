@@ -8,5 +8,10 @@ export default {
 };
 
 export const Default = () => (
-	<Select options={BANK_LIST} defaultValue="신한은행" name="bank_list"></Select>
+	<Select
+		options={BANK_LIST}
+		defaultValue="신한은행"
+		name="bank_list"
+		handleChange={(e) => console.log(e.target.value)}
+	></Select>
 );

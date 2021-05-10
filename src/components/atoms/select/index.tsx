@@ -13,13 +13,15 @@ interface Props {
 	defaultValue: string;
 	// select tag name
 	name: string;
+	// click handler
+	handleChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-const Select = ({ options, defaultValue, name }: Props) => (
+const Select = ({ options, defaultValue, name, handleChange }: Props) => (
 	<S.SelectWrapper>
-		<S.Select name={name}>
-			{options.map(({ value, key }) => (
-				<option key={key} selected={defaultValue === value}>
+		<S.Select name={name} onChange={handleChange} value={defaultValue}>
+			{options.map(({ key, value }) => (
+				<option key={key} value={value}>
 					{value}
 				</option>
 			))}
