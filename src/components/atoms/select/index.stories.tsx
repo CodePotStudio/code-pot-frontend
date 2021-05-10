@@ -1,4 +1,3 @@
-// FIXME: typescript Root 못찾음
 import { BANK_LIST } from "../../../commons/constants";
 import Select from ".";
 

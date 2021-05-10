@@ -1,7 +1,7 @@
-import { ICONS } from "../../atoms/icon/constants";
-import Icon from "../../atoms/icon";
-import * as S from "./style";
 import { useState } from "react";
+import * as S from "./style";
+import { Icon } from "components";
+import { ICONS } from "components/atoms/icon/constants";
 
 interface Props {
 	key: number;
