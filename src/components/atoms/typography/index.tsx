@@ -4,14 +4,24 @@ export interface Props extends S.HeadingStyleProps {
 	children: React.ReactNode;
 }
 
-const H1 = ({ children, hasBorder }: Props) => (
-	<S.H1 hasBorder={hasBorder}>{children}</S.H1>
+const H1 = ({ children, ...props }: Props) => (
+	<S.H1 {...props}>{children}</S.H1>
 );
-const H2 = ({ children }: Props) => <S.H2>{children}</S.H2>;
-const H3 = ({ children }: Props) => <S.H3>{children}</S.H3>;
-const H4 = ({ children }: Props) => <S.H4>{children}</S.H4>;
-const H5 = ({ children }: Props) => <S.H5>{children}</S.H5>;
-const H6 = ({ children }: Props) => <S.H6>{children}</S.H6>;
+const H2 = ({ children, ...props }: Props) => (
+	<S.H2 {...props}>{children}</S.H2>
+);
+const H3 = ({ children, ...props }: Props) => (
+	<S.H3 {...props}>{children}</S.H3>
+);
+const H4 = ({ children, ...props }: Props) => (
+	<S.H4 {...props}>{children}</S.H4>
+);
+const H5 = ({ children, ...props }: Props) => (
+	<S.H5 {...props}>{children}</S.H5>
+);
+const H6 = ({ children, ...props }: Props) => (
+	<S.H6 {...props}>{children}</S.H6>
+);
 const Subtitle1 = ({ children }: Props) => (
 	<S.Subtitle1>{children}</S.Subtitle1>
 );
