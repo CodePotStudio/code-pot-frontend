@@ -25,5 +25,8 @@ export {
 	Body2,
 } from "./atoms/typography";
 
+// mocules
+export { default as ClassCard } from "./molecules/ClassCard";
+
 // Organisms
 export { default as Footer } from "./organisms/footer";
