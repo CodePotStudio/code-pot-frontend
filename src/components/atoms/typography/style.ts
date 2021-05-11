@@ -46,10 +46,14 @@ export const Subtitle2 = styled.h6<HeadingStyleProps>`
 	${theme("fontStyle.subtitle2")}
 `;
 
-export const Body1 = styled.p<HeadingStyleProps>`
+export const Body1 = styled.p`
 	${theme("fontStyle.body1")}
 `;
 
-export const Body2 = styled.p<HeadingStyleProps>`
+export const Body2 = styled.p`
 	${theme("fontStyle.body2")}
+`;
+
+export const Caption = styled.span`
+	${theme("fontStyle.caption")}
 `;

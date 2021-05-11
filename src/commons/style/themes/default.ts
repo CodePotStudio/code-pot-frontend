@@ -104,9 +104,9 @@ const theme = {
       letter-spacing: 0.0125rem;
     `,
 		caption: `
-      font-size: 1rem;
+      font-size: 0.75rem;
       font-weight: 400;
-      letter-spacing: 0.04rem;
+      letter-spacing: 0.03333em;
     `,
 		overline: `
       font-size: 1rem;
