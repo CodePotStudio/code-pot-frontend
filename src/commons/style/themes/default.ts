@@ -77,7 +77,7 @@ const theme = {
     `,
 		subtitle1: `
       font-size: 1rem;
-      font-weight: 400;
+      font-weight: 500;
 			line-height: 1.75;
 			letter-spacing: 0.00938em;
     `,
