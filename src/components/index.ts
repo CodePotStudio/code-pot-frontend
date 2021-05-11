@@ -11,6 +11,7 @@ export { default as Label } from "./atoms/label";
 export { default as Link } from "./atoms/link";
 export { default as Select } from "./atoms/select";
 export { default as Radio } from "./atoms/radio";
+export { default as Image } from "./atoms/image";
 export {
 	H1,
 	H2,
