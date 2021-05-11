@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { palette, theme } from "styled-tools";
+import { palette } from "styled-tools";
 import { Text } from "components";
 
 export const Container = styled.div`
