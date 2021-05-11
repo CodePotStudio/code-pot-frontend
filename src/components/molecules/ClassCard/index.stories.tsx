@@ -1,11 +1,10 @@
 import ClassCard from ".";
+import { Story } from "@storybook/react";
 
 export default {
 	title: "Mocules/Class Card",
 	component: ClassCard,
 };
-
-import { Story } from "@storybook/react";
 
 const Template: Story = (args) => (
 	<div style={{ display: "inline-flex" }}>
