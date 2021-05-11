@@ -76,24 +76,27 @@ const theme = {
       line-height: 1.8;
     `,
 		subtitle1: `
-      font-size: 1.6rem;
-      font-weight: 400;
-      letter-spacing: 0.015rem;
-    `,
-		subtitle2: `
-      font-size: 1.4rem;
-      font-weight: 500;
-      letter-spacing: 0.01rem;
-    `,
-		body1: `
-      font-size: 1.6rem;
-      font-weight: 400;
-      letter-spacing: 0.05rem;
-    `,
-		body2: `
       font-size: 1rem;
       font-weight: 400;
-      letter-spacing: 0.025rem;
+			line-height: 1.75;
+			letter-spacing: 0.00938em;
+    `,
+		subtitle2: `
+      font-size: 0.875rem;
+      font-weight: 500;
+			line-height: 1.57;
+			letter-spacing: 0.00714em;
+    `,
+		body1: `
+      font-size: 1rem;
+      font-weight: 400;
+			line-height: 1.5;
+      letter-spacing: 0.00938em;
+    `,
+		body2: `
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.01071em;
     `,
 		button: `
       font-size: 1.4rem;
