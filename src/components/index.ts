@@ -23,13 +23,15 @@ export {
 	Subtitle2,
 	Body1,
 	Body2,
+	Caption,
 } from "./atoms/typography";
 
 // molcules
 export { default as ClassCard } from "./molecules/classCard";
 export { default as ChallangeDescription } from "./molecules/challangeDescription";
 export { default as Drawer } from "./molecules/drawer";
-export { default as epilogueCard } from "./molecules/epilogueCard";
+export { default as EpilogueCard } from "./molecules/epilogueCard";
+export { default as FormInput } from "./molecules/formInput";
 
 // Organisms
 export { default as Footer } from "./organisms/footer";
