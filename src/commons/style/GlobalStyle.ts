@@ -18,6 +18,10 @@ const GlobalStyles = createGlobalStyle`
     cursor: pointer;
     color: inherit;
   }
+  img {
+    max-width: 100%;
+    display: block;
+  }
 `;
 
 export default GlobalStyles;
