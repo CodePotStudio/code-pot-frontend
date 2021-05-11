@@ -1,36 +1,28 @@
-import {
-	H1,
-	H2,
-	H3,
-	H4,
-	H5,
-	H6,
-	Subtitle1,
-	Subtitle2,
-	Body1,
-	Body2,
-	Caption,
-} from ".";
+import { Heading, Body1, Body2, Caption } from ".";
 
 export default {
 	title: "Atoms/Typography",
-	component: [H1, H2, H3, H4, H5, H6],
+	component: [Heading],
 };
 
 export const Default = () => (
 	<>
-		<H1>Heading1</H1>
-		<H2>Heading2</H2>
-		<H3>Heading3</H3>
-		<H4>Heading4</H4>
-		<H5>Heading5</H5>
-		<H6>Heading6</H6>
-		<Subtitle1>subtitle1</Subtitle1>
-		<Subtitle2>subtitle2</Subtitle2>
+		<Heading variant="h1">Heading1</Heading>
+		<Heading variant="h2">Heading2</Heading>
+		<Heading variant="h3">Heading3</Heading>
+		<Heading variant="h4">Heading4</Heading>
+		<Heading variant="h5">Heading5</Heading>
+		<Heading variant="h6">Heading6</Heading>
+		<Heading variant="subtitle1">subTitle1</Heading>
+		<Heading variant="subtitle2">subTitle2</Heading>
 		<Body1>body1</Body1>
 		<Body2>body2</Body2>
 		<Caption>caption</Caption>
 	</>
 );
 
-export const WithDivider = () => <H1 hasBorder={true}>Section Title</H1>;
+export const WithDivider = () => (
+	<Heading variant="h1" hasBorder={true}>
+		Section Title
+	</Heading>
+);

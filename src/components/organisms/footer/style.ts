@@ -6,10 +6,6 @@ export const Container = styled.div`
 	grid-gap: ${palette("spaces", 1)};
 `;
 
-export const CompanyTitle = styled.div`
-	${theme("fontStyle.h6")}
-`;
-
 export const Content = styled.div`
 	${theme("fontStyle.caption")}
 	color: ${palette("grayscale", 2)};

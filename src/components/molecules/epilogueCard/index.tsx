@@ -1,4 +1,4 @@
-import { Avatar, Subtitle1 } from "components";
+import { Avatar, Heading } from "components";
 import { Body1 } from "components/atoms/typography/style";
 import * as S from "./style";
 
@@ -11,7 +11,7 @@ const EpilogueCard = ({ byline, content }: Props) => (
 	<S.Wrapper>
 		<S.EpilogueTitle>
 			<Avatar src="/defaultAvatar.svg" alt="epilogue avatar" />
-			<Subtitle1>{byline}</Subtitle1>
+			<Heading variant="subtitle1">{byline}</Heading>
 		</S.EpilogueTitle>
 		<Body1>{content}</Body1>
 	</S.Wrapper>

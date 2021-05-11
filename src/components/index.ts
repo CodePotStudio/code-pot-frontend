@@ -12,19 +12,7 @@ export { default as Link } from "./atoms/link";
 export { default as Select } from "./atoms/select";
 export { default as Radio } from "./atoms/radio";
 export { default as Image } from "./atoms/image";
-export {
-	H1,
-	H2,
-	H3,
-	H4,
-	H5,
-	H6,
-	Subtitle1,
-	Subtitle2,
-	Body1,
-	Body2,
-	Caption,
-} from "./atoms/typography";
+export { Heading, Body1, Body2, Caption } from "./atoms/typography";
 
 // molcules
 export { default as ClassCard } from "./molecules/classCard";

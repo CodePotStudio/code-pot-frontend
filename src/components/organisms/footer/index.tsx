@@ -1,9 +1,10 @@
 import { FOOTER_CONTENT } from "./constants";
 import * as S from "./style";
+import { Heading } from "components";
 
 const Footer = () => (
 	<S.Container>
-		<S.CompanyTitle>주식회사 코드팟컴퍼니</S.CompanyTitle>
+		<Heading variant="h6">주식회사 코드팟컴퍼니</Heading>
 		<S.Content>{FOOTER_CONTENT}</S.Content>
 	</S.Container>
 );

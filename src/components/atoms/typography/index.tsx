@@ -4,30 +4,32 @@ export interface Props extends S.HeadingStyleProps {
 	children: React.ReactNode;
 }
 
-const H1 = ({ children, ...props }: Props) => (
-	<S.H1 {...props}>{children}</S.H1>
-);
-const H2 = ({ children, ...props }: Props) => (
-	<S.H2 {...props}>{children}</S.H2>
-);
-const H3 = ({ children, ...props }: Props) => (
-	<S.H3 {...props}>{children}</S.H3>
-);
-const H4 = ({ children, ...props }: Props) => (
-	<S.H4 {...props}>{children}</S.H4>
-);
-const H5 = ({ children, ...props }: Props) => (
-	<S.H5 {...props}>{children}</S.H5>
-);
-const H6 = ({ children, ...props }: Props) => (
-	<S.H6 {...props}>{children}</S.H6>
-);
-const Subtitle1 = ({ children, ...props }: Props) => (
-	<S.Subtitle1 {...props}>{children}</S.Subtitle1>
-);
-const Subtitle2 = ({ children, ...props }: Props) => (
-	<S.Subtitle2 {...props}>{children}</S.Subtitle2>
-);
+interface HeadingProps extends S.HeadingStyleProps {
+	variant: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "subtitle1" | "subtitle2";
+	children: React.ReactNode;
+}
+
+const Heading = ({ variant, children, ...props }: HeadingProps) => {
+	switch (variant) {
+		case "h1":
+			return <S.H1 {...props}>{children}</S.H1>;
+		case "h2":
+			return <S.H2 {...props}>{children}</S.H2>;
+		case "h3":
+			return <S.H3 {...props}>{children}</S.H3>;
+		case "h4":
+			return <S.H4 {...props}>{children}</S.H4>;
+		case "h5":
+			return <S.H5 {...props}>{children}</S.H5>;
+		case "h6":
+			return <S.H6 {...props}>{children}</S.H6>;
+		case "subtitle1":
+			return <S.Subtitle1 {...props}>{children}</S.Subtitle1>;
+		case "subtitle2":
+			return <S.Subtitle1 {...props}>{children}</S.Subtitle1>;
+	}
+};
+
 const Body1 = ({ children, ...props }: Props) => (
 	<S.Body1 {...props}>{children}</S.Body1>
 );
@@ -38,4 +40,4 @@ const Caption = ({ children, ...props }: Props) => (
 	<S.Caption {...props}>{children}</S.Caption>
 );
 
-export { H1, H2, H3, H4, H5, H6, Subtitle1, Subtitle2, Body1, Body2, Caption };
+export { Body1, Body2, Caption, Heading };
