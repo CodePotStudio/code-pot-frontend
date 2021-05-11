@@ -1,7 +1,7 @@
 import { H1, H2, H3, H4, H5, H6, Subtitle1, Subtitle2, Body1, Body2 } from ".";
 
 export default {
-	title: "Atoms/typography",
+	title: "Atoms/Typography",
 	component: [H1, H2, H3, H4, H5, H6],
 };
 
