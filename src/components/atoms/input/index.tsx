@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import * as S from "./style";
 
 interface Props extends S.StyleInputProps {
@@ -15,7 +16,9 @@ interface Props extends S.StyleInputProps {
 	onFocusOut?: (e: React.FocusEvent<HTMLInputElement>) => void;
 }
 
-const Input = ({ inputName, ...props }: Props) => (
-	<S.Input name={inputName} {...props}></S.Input>
+const Input = forwardRef<HTMLInputElement, Props>(
+	({ inputName, ...props }: Props) => (
+		<S.Input name={inputName} {...props}></S.Input>
+	)
 );
 export default Input;
