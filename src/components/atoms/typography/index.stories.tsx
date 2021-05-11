@@ -1,4 +1,16 @@
-import { H1, H2, H3, H4, H5, H6, Subtitle1, Subtitle2, Body1, Body2 } from ".";
+import {
+	H1,
+	H2,
+	H3,
+	H4,
+	H5,
+	H6,
+	Subtitle1,
+	Subtitle2,
+	Body1,
+	Body2,
+	Caption,
+} from ".";
 
 export default {
 	title: "Atoms/Typography",
@@ -17,6 +29,7 @@ export const Default = () => (
 		<Subtitle2>subtitle2</Subtitle2>
 		<Body1>body1</Body1>
 		<Body2>body2</Body2>
+		<Caption>caption</Caption>
 	</>
 );
 
