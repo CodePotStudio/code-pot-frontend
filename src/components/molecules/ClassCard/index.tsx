@@ -1,4 +1,4 @@
-import { Heading, Body2 } from "components";
+import { Heading, Text } from "components";
 import { language, LanguageSet, status, StatusSet } from "./constants";
 import * as S from "./style";
 import "moment/locale/ko";
@@ -24,7 +24,9 @@ const ClassCard = ({ language, status, to, start_at }: Props) => {
 				<S.ContentWrapper>
 					<Heading variant="h5">{title}</Heading>
 					<Heading variant="subtitle1">{desc}</Heading>
-					<Body2> 첫 시작일 | {moment(start_at).format("MM/DD(dd)")}</Body2>
+					<Text variant="body2">
+						첫 시작일 | {moment(start_at).format("MM/DD(dd)")}
+					</Text>
 				</S.ContentWrapper>
 			</S.Wrapper>
 		</S.CardLink>

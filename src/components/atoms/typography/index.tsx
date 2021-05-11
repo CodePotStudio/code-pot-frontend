@@ -1,11 +1,12 @@
 import * as S from "./style";
 
-export interface Props extends S.HeadingStyleProps {
+interface HeadingProps extends S.HeadingStyleProps {
+	variant: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "subtitle1" | "subtitle2";
 	children: React.ReactNode;
 }
 
-interface HeadingProps extends S.HeadingStyleProps {
-	variant: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "subtitle1" | "subtitle2";
+interface TextProps {
+	variant: "body1" | "body2" | "caption";
 	children: React.ReactNode;
 }
 
@@ -30,14 +31,15 @@ const Heading = ({ variant, children, ...props }: HeadingProps) => {
 	}
 };
 
-const Body1 = ({ children, ...props }: Props) => (
-	<S.Body1 {...props}>{children}</S.Body1>
-);
-const Body2 = ({ children, ...props }: Props) => (
-	<S.Body2 {...props}>{children}</S.Body2>
-);
-const Caption = ({ children, ...props }: Props) => (
-	<S.Caption {...props}>{children}</S.Caption>
-);
+const Text = ({ children, variant, ...props }: TextProps) => {
+	switch (variant) {
+		case "body1":
+			return <S.Body1 {...props}>{children}</S.Body1>;
+		case "body2":
+			return <S.Body2 {...props}>{children}</S.Body2>;
+		case "caption":
+			return <S.Caption {...props}>{children}</S.Caption>;
+	}
+};
 
-export { Body1, Body2, Caption, Heading };
+export { Text, Heading };

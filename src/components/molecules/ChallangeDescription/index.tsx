@@ -1,4 +1,4 @@
-import { Heading, Body1 } from "components";
+import { Heading, Text } from "components";
 import * as S from "./style";
 interface Props {
 	title: string;
@@ -10,7 +10,7 @@ const ChallangeDescription = ({ title, content }: Props) => (
 		<Heading variant="h4" hasBorder={true}>
 			{title}
 		</Heading>
-		<Body1>{content}</Body1>
+		<Text variant="body1">{content}</Text>
 	</S.Wrapper>
 );
 export default ChallangeDescription;

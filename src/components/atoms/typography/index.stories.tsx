@@ -1,4 +1,4 @@
-import { Heading, Body1, Body2, Caption } from ".";
+import { Heading, Text } from ".";
 
 export default {
 	title: "Atoms/Typography",
@@ -15,9 +15,9 @@ export const Default = () => (
 		<Heading variant="h6">Heading6</Heading>
 		<Heading variant="subtitle1">subTitle1</Heading>
 		<Heading variant="subtitle2">subTitle2</Heading>
-		<Body1>body1</Body1>
-		<Body2>body2</Body2>
-		<Caption>caption</Caption>
+		<Text variant="body1">body1</Text>
+		<Text variant="body2">body2</Text>
+		<Text variant="caption">caption</Text>
 	</>
 );
 

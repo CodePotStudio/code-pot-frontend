@@ -11,7 +11,7 @@ interface Props {
 	label: string;
 	inputName: string;
 	placeholder: string;
-  // 잘못된 값이 입력되었을 경우, 나타내는 메시지
+	// 잘못된 값이 입력되었을 경우, 나타내는 메시지
 	caption?: string;
 	// 잘못된 값이 입력되었는지 여부
 	invalid?: boolean;
@@ -38,7 +38,7 @@ const FormInput = ({
 			invalid={invalid}
 			ref={register && register({ required })}
 		></Input>
-		{invalid && <S.FormCaption>{caption}</S.FormCaption>}
+		{invalid && <S.FormText variant="caption">{caption}</S.FormText>}
 	</S.FormWrapper>
 );
 export default FormInput;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Caption } from "components";
+import { Text } from "components";
 import { palette } from "styled-tools";
 
 export const FormWrapper = styled.div`
@@ -7,6 +7,6 @@ export const FormWrapper = styled.div`
 	flex-direction: column;
 `;
 
-export const FormCaption = styled(Caption)`
+export const FormText = styled(Text)`
 	color: ${palette("alertscale", 1)};
 `;
