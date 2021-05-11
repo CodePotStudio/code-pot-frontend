@@ -4,5 +4,5 @@ interface Props {
 	src: string;
 }
 
-const Image = ({ src }: Props) => <S.Image src={src} />;
+const Image = ({ src, ...props }: Props) => <S.Image src={src} {...props} />;
 export default Image;
