@@ -1,7 +1,7 @@
 import Drawers from ".";
 
 export default {
-	title: "Organisms/Drawers",
+	title: "Organisms/Drawer Grid",
 	component: [Drawers],
 };
 
