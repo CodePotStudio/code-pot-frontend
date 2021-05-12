@@ -1,4 +1,5 @@
-import { Avatar, Button } from "components";
+import { Avatar, NavigationMenu } from "components";
+import { useState } from "react";
 import * as S from "./style";
 
 interface Props {
@@ -7,22 +8,36 @@ interface Props {
 	avatarURL?: string | undefined | null;
 }
 
-const NavigationBar = ({ isLoggedIn, avatarURL }: Props) => (
-	<S.NavigationWrapper>
-		{isLoggedIn ? (
-			<S.NavigationItem>
-				<Avatar src={avatarURL} alt="navigation avatar"></Avatar>
-			</S.NavigationItem>
-		) : (
-			<>
-				<S.NavigationItem>
-					<Button variant="primary">로그인</Button>
-				</S.NavigationItem>
-				<S.NavigationItem>
-					<Button variant="secondary">회원가입</Button>
-				</S.NavigationItem>
-			</>
-		)}
-	</S.NavigationWrapper>
-);
+const NavigationBar = ({ isLoggedIn, avatarURL }: Props) => {
+	const [showNav, setShowNav] = useState<boolean>(false);
+	return (
+		<S.NavigationBarWrapper>
+			{isLoggedIn ? (
+				<>
+					<S.NavigationBarItem>
+						<Avatar
+							src={avatarURL}
+							alt="navigation avatar"
+							onClick={() => setShowNav((showNav) => !showNav)}
+						></Avatar>
+					</S.NavigationBarItem>
+					{showNav && <NavigationMenu />}
+				</>
+			) : (
+				<>
+					<S.NavigationBarItem>
+						<S.LoginButton variant="primary" to="/login">
+							로그인
+						</S.LoginButton>
+					</S.NavigationBarItem>
+					<S.NavigationBarItem>
+						<S.SignUpButton variant="secondary" to="/sign-up">
+							회원가입
+						</S.SignUpButton>
+					</S.NavigationBarItem>
+				</>
+			)}
+		</S.NavigationBarWrapper>
+	);
+};
 export default NavigationBar;
