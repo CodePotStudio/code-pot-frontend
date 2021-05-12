@@ -5,7 +5,12 @@ export default {
 	title: "Atoms/Button",
 	component: [Button],
 };
-
+export const Default = () => (
+	<>
+		<Button variant="primary">로그인</Button>
+		<Button variant="secondary">회원가입</Button>
+	</>
+)
 export const PrimaryButton = () => <Button>Primary Button</Button>;
 export const SecondaryButton = () => (
 	<Button variant="secondary">Secondary Button</Button>

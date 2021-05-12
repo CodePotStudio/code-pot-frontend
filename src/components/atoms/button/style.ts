@@ -38,17 +38,17 @@ const ButtonStyle = css<ButtonStyleProps>`
 		}
 	}};
 	&:hover {
-		${({ variant }) => {
+		background-color: ${({ variant }) => {
 			if (variant === "primary") {
-				return css`
-					background-color: ${palette("primaryscale", 0)};
-				`;
+				return palette("primaryscale", 0);
 			} else {
-				return css`
-					background-color: ${palette("primaryscale", 5)};
-				`;
+				return palette("primaryscale", 5);
 			}
-		}}
+		}};
+		color: ${(props) =>
+			props.variant === "secondary"
+				? palette("primaryscale", 0)
+				: palette("white")};
 	}
 `;
 
