@@ -7,7 +7,7 @@ interface Props extends S.StyleInputProps {
 	/** defaultValue of input */
 	defaultValue?: string;
 	/** placeholder content */
-	placeholder?: string;
+	placeholder: string;
 	/** input value(state) */
 	value?: string | number;
 	/** onChange handler(setState) */
