@@ -15,7 +15,7 @@ export { default as Image } from "./atoms/image";
 export { Heading, Text } from "./atoms/typography";
 
 // molcules
-export { default as ClassCard } from "./molecules/classCard";
+// export { default as ClassCard } from "./molecules/classCard";
 export { default as ChallangeDescription } from "./molecules/challangeDescription";
 export { default as Drawer } from "./molecules/drawer";
 export { default as EpilogueCard } from "./molecules/epilogueCard";
