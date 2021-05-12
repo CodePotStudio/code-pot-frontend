@@ -10,22 +10,22 @@ interface Props extends S.ButtonStyleProps {
 	onClick?: () => void;
 }
 
-const Button = ({ children, variant, to, href, onClick }: Props) => {
+const Button = ({ children, variant, to, href, onClick, ...props }: Props) => {
 	if (to) {
 		return (
-			<S.Link href={to} variant={variant}>
+			<S.Link href={to} variant={variant} {...props}>
 				{children}
 			</S.Link>
 		);
 	} else if (href) {
 		return (
-			<S.Anchor href={href} variant={variant}>
+			<S.Anchor href={href} variant={variant} {...props}>
 				{children}
 			</S.Anchor>
 		);
 	}
 	return (
-		<S.Button variant={variant} onClick={onClick}>
+		<S.Button variant={variant} onClick={onClick} {...props}>
 			{children}
 		</S.Button>
 	);
