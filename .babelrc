@@ -1,0 +1,14 @@
+{
+	"presets": ["next/babel"],
+	"plugins": [
+    // next에서 최초 rendering 시에 style 포함하도록 설정
+		[
+			"styled-components",
+			{
+				"ssr": true,
+				"displayName": true,
+				"preprocess": false
+			}
+		]
+	]
+}
