@@ -1,6 +1,6 @@
 import { useState } from "react";
 import * as S from "./style";
-import { Icon } from "components";
+import { Icon, Heading } from "components";
 import { ICONS } from "components/atoms/icon/constants";
 
 export interface DrawerProps {
@@ -24,11 +24,13 @@ const Drawer = ({ key, title, content }: DrawerProps) => {
 
 	return (
 		<S.Wrapper>
-			<S.DrawerTitle onClick={handleClick} key={key}>
-				{title}
+			<S.DrawerTitleWrapper onClick={handleClick} key={key}>
+				<Heading variant="subtitle1">{title}</Heading>
 				<Icon name={arrowIcon}></Icon>
-			</S.DrawerTitle>
-			{showContent && <S.ContentWrapper>{content}</S.ContentWrapper>}
+			</S.DrawerTitleWrapper>
+			{showContent && (
+				<S.ContentWrapper variant="body2">{content}</S.ContentWrapper>
+			)}
 		</S.Wrapper>
 	);
 };
