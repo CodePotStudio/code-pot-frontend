@@ -3,13 +3,13 @@ import * as S from "./style";
 import { Icon } from "components";
 import { ICONS } from "components/atoms/icon/constants";
 
-interface Props {
+export interface DrawerProps {
 	key: number;
 	title: string;
 	content: string;
 }
 
-const Drawer = ({ key, title, content }: Props) => {
+const Drawer = ({ key, title, content }: DrawerProps) => {
 	const [showContent, setShowContent] = useState<boolean>(false);
 	const [arrowIcon, setArrowIcon] = useState<ICONS>(ICONS.chevronRight);
 	const handleClick = () => {
