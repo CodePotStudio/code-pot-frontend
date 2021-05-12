@@ -8,7 +8,7 @@ export const Container = styled.div`
 `;
 
 export const FooterText = styled(Text)`
-	color: ${palette("grayscale", 2)};
+	color: ${palette("grayscale", 1)};
 	white-space: pre;
 	text-overflow: ellipsis;
 	overflow: hidden;
