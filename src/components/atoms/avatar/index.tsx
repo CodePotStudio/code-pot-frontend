@@ -13,7 +13,7 @@ const Avatar = ({ alt, src, size }: Props) => (
 	<S.Avatar src={src} width={size} height={size} alt={alt}></S.Avatar>
 );
 Avatar.defaultProps = {
-	size: 32,
+	size: 40,
 	src: "/defaultAvatar.svg",
 };
 
