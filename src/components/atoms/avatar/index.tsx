@@ -7,10 +7,19 @@ export interface Props {
 	src?: string;
 	/** avatar size */
 	size?: number;
+	/** avatar click event handler */
+	onClick?: () => void;
 }
 
-const Avatar = ({ alt, src, size }: Props) => (
-	<S.Avatar src={src} width={size} height={size} alt={alt}></S.Avatar>
+const Avatar = ({ alt, src, size, onClick, ...props }: Props) => (
+	<S.Avatar
+		src={src}
+		width={size}
+		height={size}
+		onClick={onClick}
+		alt={alt}
+		{...props}
+	></S.Avatar>
 );
 Avatar.defaultProps = {
 	size: 40,
