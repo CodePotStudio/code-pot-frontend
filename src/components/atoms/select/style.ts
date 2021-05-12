@@ -4,6 +4,7 @@ import { palette } from "styled-tools";
 
 export const SelectWrapper = styled.div`
 	display: flex;
+	width: 100%;
 `;
 
 export const Select = styled.select`
