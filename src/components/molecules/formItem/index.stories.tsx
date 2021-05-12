@@ -69,18 +69,3 @@ export const InvalidRowFormItem = () => (
 		</FormItem>
 	</>
 );
-
-export const FlexTest = () => (
-	<div style={{ display: "flex" }}>
-		<Label>Hellllllo</Label>
-		<Label>Hellllllo</Label>
-		<FormItem direction="row" label="환불 계좌">
-			<Select
-				options={BANK_LIST}
-				defaultValue="신한은행"
-				name="bank_list"
-				handleChange={(e) => console.log(e.target.value)}
-			></Select>
-		</FormItem>
-	</div>
-);
