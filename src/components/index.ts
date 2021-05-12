@@ -25,4 +25,5 @@ export { default as NavigationBar } from "./molecules/navigationBar";
 
 // Organisms
 export { default as Footer } from "./organisms/footer";
-export { default as Drawers } from "./organisms/drawerGrid";
+export { default as DrawerGrid } from "./organisms/drawerGrid";
+export { default as EPCardGrid } from "./organisms/epilogueCardGrid";

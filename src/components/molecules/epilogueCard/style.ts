@@ -15,7 +15,7 @@ export const EpilogueTitle = styled.div`
 	align-items: center;
 	margin-bottom: ${palette("spaces", 1)};
 	& > h6 {
-		margin-left: 8px;
+		margin-left: ${palette("spaces", 2)};
 	}
 `;
 
