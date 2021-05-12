@@ -13,9 +13,13 @@ const GlobalStyles = createGlobalStyle`
   body {
     height: 100%;
   }
-  a, button {
+  button {
     text-decoration: none;
     cursor: pointer;
+    color: inherit;
+  }
+  a, a:hover, a:focus, a:active {
+    text-decoration: none;
     color: inherit;
   }
   img {
