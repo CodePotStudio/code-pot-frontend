@@ -25,4 +25,4 @@ export { default as NavigationBar } from "./molecules/navigationBar";
 
 // Organisms
 export { default as Footer } from "./organisms/footer";
-export { default as Drawers } from "./organisms/drawers";
+export { default as Drawers } from "./organisms/drawerGrid";
