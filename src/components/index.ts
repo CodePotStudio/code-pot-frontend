@@ -20,6 +20,7 @@ export { default as ChallangeDescription } from "./molecules/challangeDescriptio
 export { default as Drawer } from "./molecules/drawer";
 export { default as EpilogueCard } from "./molecules/epilogueCard";
 export { default as FormInput } from "./molecules/formInput";
+export { default as NavigationMenu } from "./molecules/navigationMenu";
 
 // Organisms
 export { default as Footer } from "./organisms/footer";
