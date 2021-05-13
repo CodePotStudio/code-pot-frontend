@@ -3,9 +3,9 @@ import { LanguageSet, StatusSet } from "./constants";
 import * as S from "./style";
 import "moment/locale/ko";
 import moment from "moment";
-import { ChallangeCard } from "types/data";
+import { ChallangeCardType } from "types/data";
 
-interface Props extends ChallangeCard {}
+interface Props extends ChallangeCardType {}
 
 const ChallangeCard = ({ key, language, status, to, start_at }: Props) => {
 	const { src, desc, title } = LanguageSet[language];
