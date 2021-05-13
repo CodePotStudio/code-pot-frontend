@@ -4,18 +4,25 @@ import * as S from "./style";
 import "moment/locale/ko";
 import moment from "moment";
 
-interface Props {
+export interface ChallangeCard {
+	key: number;
 	language: language;
 	status: status;
 	to: string;
 	start_at: Date;
 }
 
-const ClassCard = ({ language, status, to, start_at }: Props) => {
+const ChallangeCard = ({
+	key,
+	language,
+	status,
+	to,
+	start_at,
+}: ChallangeCard) => {
 	const { src, desc, title } = LanguageSet[language];
 	const { variant, text: badgeText } = StatusSet[status];
 	return (
-		<S.CardLink to={to}>
+		<S.CardLink to={to} key={key}>
 			<S.Wrapper>
 				<S.ImageWrapper>
 					<S.CardBadge variant={variant}>{badgeText}</S.CardBadge>
@@ -32,4 +39,4 @@ const ClassCard = ({ language, status, to, start_at }: Props) => {
 		</S.CardLink>
 	);
 };
-export default ClassCard;
+export default ChallangeCard;

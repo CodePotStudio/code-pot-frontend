@@ -1,20 +1,21 @@
-import ClassCard from ".";
+import ChallangeCard from ".";
 import { Story } from "@storybook/react";
 
 export default {
 	title: "Mocules/Class Card",
-	component: ClassCard,
+	component: ChallangeCard,
 };
 
 const Template: Story = (args) => (
 	<div style={{ display: "inline-flex" }}>
-		<ClassCard
+		<ChallangeCard
+			key={1}
 			language="typescript"
 			status="inProgress"
 			to="/home"
 			start_at={new Date()}
 			{...args}
-		></ClassCard>
+		></ChallangeCard>
 	</div>
 );
 export const Basic = Template.bind({});

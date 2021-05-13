@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
 	border-radius: 8px;
 	transition: 0.2s ease;
 	overflow: hidden;
-	max-width: 250px;
 	&:hover {
 		transform: scale(1.02);
 	}
@@ -28,6 +27,7 @@ export const CardBadge = styled(Badge)`
 
 export const CardImage = styled(Image)`
 	background-color: ${palette("grayscale", 6)};
+	width: 100%;
 	overflow: hidden;
 `;
 
