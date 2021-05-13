@@ -14,7 +14,7 @@
 		"isolatedModules": true,
 		"jsx": "preserve",
 		// 런타임에 병합할 것으로 예상되는 roots 의 목록
-		// "rootDirs": ["src"],
+		"rootDirs": ["src"],
 		// 컴파일러가 찾는 최초 모듈 위치
 		"baseUrl": "src"
 	},
