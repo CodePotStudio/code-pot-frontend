@@ -1,4 +1,4 @@
-import { badgeVariant } from "components/atoms/badge/style";
+import { badgeVariant } from "../../atoms/badge/style";
 
 export type status = "inProgress" | "close";
 export type language =

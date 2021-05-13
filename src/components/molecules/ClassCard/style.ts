@@ -1,6 +1,8 @@
-import { Badge, Image, Link } from "components";
 import styled from "styled-components";
 import { palette } from "styled-tools";
+import Badge from "../../atoms/badge";
+import Image from "../../atoms/image";
+import Link from "../../atoms/link";
 
 export const Wrapper = styled.div`
 	display: grid;

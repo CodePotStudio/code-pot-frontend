@@ -1,4 +1,4 @@
-import { Label } from "components";
+import Label from "../../atoms/label";
 import * as S from "./style";
 
 interface Props extends S.FormItemStyleProps {

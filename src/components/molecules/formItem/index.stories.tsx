@@ -1,6 +1,8 @@
-import { BANK_LIST } from "commons/constants";
-import { CheckBox, Input, Select, Label } from "components";
+import { BANK_LIST } from "../../../commons/constants";
 import FormItem from ".";
+import CheckBox from "../../atoms/checkBox";
+import Input from "../../atoms/input";
+import Select from "../../atoms/select";
 
 export default {
 	title: "Mocules/Form Item",
