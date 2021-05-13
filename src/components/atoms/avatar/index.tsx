@@ -4,7 +4,7 @@ export interface Props {
 	/** alternation img */
 	alt: string;
 	/** avatar src */
-	src?: string;
+	src: string;
 	/** avatar size */
 	size?: number;
 	/** avatar click event handler */
