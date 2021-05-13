@@ -19,7 +19,7 @@ export { default as EpilogueCard } from "./molecules/epilogueCard";
 export { default as FormInput } from "./molecules/formInput";
 export { default as NavigationMenu } from "./molecules/navigationMenu";
 export { default as NavigationBar } from "./molecules/navigationBar";
-export { default as ClassCard } from "./molecules/classCard1";
+export { default as ClassCard } from "./molecules/classCard";
 export { default as ChallangeDescription } from "components/molecules/challangeDescription";
 
 export { default as Footer } from "./organisms/footer";

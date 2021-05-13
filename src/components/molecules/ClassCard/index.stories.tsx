@@ -8,7 +8,13 @@ export default {
 
 const Template: Story = (args) => (
 	<div style={{ display: "inline-flex" }}>
-		<ClassCard></ClassCard>
+		<ClassCard
+			language="typescript"
+			status="inProgress"
+			to="/home"
+			start_at={new Date()}
+			{...args}
+		></ClassCard>
 	</div>
 );
 export const Basic = Template.bind({});
