@@ -21,7 +21,8 @@ const ChallangeCard = ({
 			<S.Wrapper>
 				<S.ImageWrapper>
 					<S.CardBadge variant={variant}>{badgeText}</S.CardBadge>
-					<S.CardImage src={src} />
+					<S.CardImage src={src}/>
+					<S.ImageBackground status={status}/>
 				</S.ImageWrapper>
 				<S.ContentWrapper>
 					<Heading variant="h5">{title}</Heading>

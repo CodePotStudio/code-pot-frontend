@@ -2,8 +2,8 @@ import ChallangeCard from ".";
 import { Story } from "@storybook/react";
 
 export default {
-	title: "Mocules/Class Card",
-	component: ChallangeCard,
+	title: "Mocules/Challange Card",
+	component: [ChallangeCard],
 };
 
 const Template: Story = (args) => (

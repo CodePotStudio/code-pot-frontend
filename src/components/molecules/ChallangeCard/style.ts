@@ -1,6 +1,11 @@
 import styled from "styled-components";
-import { palette } from "styled-tools";
+import { palette, ifProp } from "styled-tools";
 import { Badge, Image, Link } from "components";
+import { status } from "types/data";
+
+export interface ImageStyleProps {
+	status: status;
+}
 
 export const Wrapper = styled.div`
 	display: grid;
@@ -23,12 +28,24 @@ export const CardBadge = styled(Badge)`
 	position: absolute;
 	top: 8px;
 	left: 8px;
+	z-index: 9999;
 `;
 
 export const CardImage = styled(Image)`
-	background-color: ${palette("grayscale", 6)};
 	width: 100%;
 	overflow: hidden;
+`;
+
+export const ImageBackground = styled.div<ImageStyleProps>`
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: "100%";
+	width: "100%";
+	background-color: ${palette("black")};
+	opacity: ${ifProp({ status: "close" }, palette("opacityscale", 4), 0)};
 `;
 
 export const ContentWrapper = styled.div`
