@@ -1,24 +1,13 @@
 import { Heading, Text } from "components";
-import { language, LanguageSet, status, StatusSet } from "./constants";
+import { LanguageSet, StatusSet } from "./constants";
 import * as S from "./style";
 import "moment/locale/ko";
 import moment from "moment";
+import { ChallangeCard } from "types/data";
 
-export interface ChallangeCard {
-	key: number;
-	language: language;
-	status: status;
-	to: string;
-	start_at: Date;
-}
+interface Props extends ChallangeCard {}
 
-const ChallangeCard = ({
-	key,
-	language,
-	status,
-	to,
-	start_at,
-}: ChallangeCard) => {
+const ChallangeCard = ({ key, language, status, to, start_at }: Props) => {
 	const { src, desc, title } = LanguageSet[language];
 	const { variant, text: badgeText } = StatusSet[status];
 	return (

@@ -1,10 +1,11 @@
 import styled, { css } from "styled-components";
 import { palette } from "styled-tools";
+import { variant } from "types/data";
 
-export type badgeVariant = "primary" | "secondary" | "warning" | "alert";
 export interface BadgeStyleProps {
-	variant: badgeVariant;
+	variant: variant;
 }
+
 const BadgeStyle = css<BadgeStyleProps>`
 	margin: 0;
 	min-width: 0;
