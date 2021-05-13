@@ -24,9 +24,6 @@ export { default as ChallangeCard } from "./molecules/ChallangeCard";
 export { default as ChallangeContent } from "components/molecules/ChallangeContent";
 
 // organisms
-export { default as ClassCard } from "./molecules/classCard1";
-export { default as ChallangeDescription } from "components/molecules/challangeDescription1";
-
 export { default as Footer } from "./organisms/footer";
 export { default as DrawerGrid } from "./organisms/drawerGrid";
 export { default as EPCardGrid } from "./organisms/epilogueCardGrid";
