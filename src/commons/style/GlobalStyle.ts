@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import { theme } from "styled-tools";
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -8,41 +7,29 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+    font-weight: 400;
   }
   body {
     height: 100%;
   }
-  a, button {
+  button {
     text-decoration: none;
     cursor: pointer;
+    color: inherit;
   }
-
-  h1 {
-    ${theme("fontStyle.h3")}
+  a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
   }
-
-  h2 {
-    ${theme("fontStyle.h4")}
+  img {
+    max-width: 100%;
+    display: block;
   }
-
-  h2 {
-    ${theme("fontStyle.h5")}
-  }
-
-  h3 {
-    ${theme("fontStyle.subtitle1")}
-  }
-
-  h4 {
-    ${theme("fontStyle.subtitle2")}
-  }
-
-  h5 {
-    ${theme("fontStyle.body1")}
-  }
-
-  p {
-    ${theme("fontStyle.body2")}
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 `;
 

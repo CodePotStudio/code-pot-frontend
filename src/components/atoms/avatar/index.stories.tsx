@@ -10,6 +10,7 @@ export const AvatarWithImage = () => (
 	<Avatar
 		src="https://avatars1.githubusercontent.com/u/3426196?v=4"
 		alt="avatar Image"
+		onClick={() => console.log("hello")}
 	></Avatar>
 );
 export const AvatarWithDefaultImage = () => (
