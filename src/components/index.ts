@@ -28,3 +28,4 @@ export { default as Footer } from "./organisms/footer";
 export { default as DrawerGrid } from "./organisms/drawerGrid";
 export { default as EPCardGrid } from "./organisms/epilogueCardGrid";
 export { default as CHCardGrid } from "./organisms/challangeCardGrid";
+export { default as Hero } from "./organisms/hero";
