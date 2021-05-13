@@ -1,4 +1,4 @@
-import { Heading, Text } from "../../atoms/typography";
+import { Heading, Text } from "components/atoms/typography";
 import { language, LanguageSet, status, StatusSet } from "./constants";
 import * as S from "./style";
 import "moment/locale/ko";
