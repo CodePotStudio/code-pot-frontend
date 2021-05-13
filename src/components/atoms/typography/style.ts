@@ -10,50 +10,50 @@ const HeadingStyle = css<HeadingStyleProps>`
 `;
 export const H1 = styled.h1<HeadingStyleProps>`
 	${HeadingStyle}
-	${theme("fontStyle.h1")}
+	${(props) => props.theme.fontStyle.h1}
 `;
 
 export const H2 = styled.h2<HeadingStyleProps>`
 	${HeadingStyle}
-	${theme("fontStyle.h2")}
+	${(props) => props.theme.fontStyle.h2}
 `;
 
 export const H3 = styled.h3<HeadingStyleProps>`
 	${HeadingStyle}
-	${theme("fontStyle.h3")}
+	${(props) => props.theme.fontStyle.h3}
 `;
 
 export const H4 = styled.h4<HeadingStyleProps>`
 	${HeadingStyle}
-	${theme("fontStyle.h4")}
+	${(props) => props.theme.fontStyle.h4}
 `;
 
 export const H5 = styled.h5<HeadingStyleProps>`
 	${HeadingStyle}
-	${theme("fontStyle.h5")}
+	${(props) => props.theme.fontStyle.h5}
 `;
 
 export const H6 = styled.h6<HeadingStyleProps>`
 	${HeadingStyle}
-	${theme("fontStyle.h6")}
+	${(props) => props.theme.fontStyle.h6}
 `;
 
 export const Subtitle1 = styled.h6<HeadingStyleProps>`
-	${theme("fontStyle.subtitle1")}
+	${(props) => props.theme.fontStyle.subtitle1}
 `;
 
 export const Subtitle2 = styled.h6<HeadingStyleProps>`
-	${theme("fontStyle.subtitle2")}
+	${(props) => props.theme.fontStyle.subtitle2}
 `;
 
 export const Body1 = styled.p`
-	${theme("fontStyle.body1")}
+	${(props) => props.theme.fontStyle.body1}
 `;
 
 export const Body2 = styled.p`
-	${theme("fontStyle.body2")}
+	${(props) => props.theme.fontStyle.body2}
 `;
 
 export const Caption = styled.span`
-	${theme("fontStyle.caption")}
+	${(props) => props.theme.fontStyle.caption}
 `;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ifProp, palette, theme } from "styled-tools";
+import { ifProp, palette} from "styled-tools";
 
 export interface StyleInputProps {
 	/** is invalid? */
@@ -9,7 +9,7 @@ export interface StyleInputProps {
 }
 
 export const Input = styled.input<StyleInputProps>`
-	${theme("fontStyle.body2")}
+	${(props) => props.theme.fontStyle.body2};
 	height: 2.5rem;
 	width: 100%;
 	padding: 0 0.5rem;
