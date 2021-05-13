@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { palette, theme } from "styled-tools";
+import { palette } from "styled-tools";
 
 export interface HeadingStyleProps {
 	hasBorder?: boolean;

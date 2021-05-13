@@ -1,5 +1,5 @@
-import { Heading, Text } from "../../atoms/typography";
 import * as S from "./style";
+import { Heading, Text } from "components";
 interface Props {
 	title: string;
 	content: string;

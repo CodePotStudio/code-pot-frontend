@@ -1,5 +1,6 @@
 import * as S from "./style";
-import Drawer, { DrawerProps } from "../../molecules/drawer";
+import { DrawerProps } from "components/molecules/drawer";
+import { Drawer } from "components";
 
 interface Props {
 	drawers: DrawerProps[];

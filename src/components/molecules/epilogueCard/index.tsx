@@ -1,5 +1,4 @@
-import Avatar from "../../atoms/avatar";
-import { Heading, Text } from "../../atoms/typography";
+import { Heading, Text, Avatar } from "components";
 import * as S from "./style";
 export interface EpilogueCardProps {
 	key: number;

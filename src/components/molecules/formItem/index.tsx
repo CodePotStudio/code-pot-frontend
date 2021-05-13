@@ -1,5 +1,5 @@
-import Label from "../../atoms/label";
 import * as S from "./style";
+import { Label } from "components";
 
 interface Props extends S.FormItemStyleProps {
 	label?: string;

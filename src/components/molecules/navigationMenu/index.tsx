@@ -1,5 +1,5 @@
-import Link from "../../atoms/link";
 import * as S from "./style";
+import { Link } from "components";
 
 const NavigationMenu = () => (
 	<S.NavigationWrapper>

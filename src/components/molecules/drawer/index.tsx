@@ -1,8 +1,7 @@
 import { useState } from "react";
 import * as S from "./style";
-import { ICONS } from "../../atoms/icon/constants";
-import Icon from "../../atoms/icon";
-import { Heading } from "../../atoms/typography";
+import { ICONS } from "components/atoms/icon/constants";
+import { Heading, Icon } from "components";
 
 export interface DrawerProps {
 	key: number;

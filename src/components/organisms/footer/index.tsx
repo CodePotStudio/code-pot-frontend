@@ -1,4 +1,4 @@
-import { Heading } from "../../atoms/typography";
+import { Heading } from "components";
 import { FOOTER_CONTENT } from "./constants";
 import * as S from "./style";
 

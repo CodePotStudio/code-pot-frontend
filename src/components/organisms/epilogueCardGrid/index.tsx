@@ -1,4 +1,5 @@
-import EpilogueCard, { EpilogueCardProps } from "../../molecules/epilogueCard";
+import { EpilogueCardProps } from "components/molecules/epilogueCard";
+import { EpilogueCard } from "components";
 import * as S from "./style";
 interface Props {
 	epCards: EpilogueCardProps[];

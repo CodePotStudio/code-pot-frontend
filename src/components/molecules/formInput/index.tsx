@@ -1,6 +1,5 @@
-import Input from "../../atoms/input";
-import Label from "../../atoms/label";
 import * as S from "./style";
+import { Input, Label } from "components";
 
 type RefReturn =
 	| React.RefObject<HTMLInputElement>

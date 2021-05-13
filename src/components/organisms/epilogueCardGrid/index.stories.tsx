@@ -1,5 +1,5 @@
 import EpilogueCardGrid from ".";
-import { EpilogueCardProps } from "../../molecules/epilogueCard";
+import { EpilogueCardProps } from "components/molecules/epilogueCard";
 
 export default {
 	title: "Organisms/Epilogue Card Grid",

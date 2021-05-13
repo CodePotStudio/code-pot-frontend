@@ -1,7 +1,5 @@
+import { Heading, Footer, Button } from "components";
 import Head from "next/head";
-import Button from "../components/atoms/button";
-import { Heading } from "../components/atoms/typography";
-import Footer from "../components/organisms/footer";
 
 export default function Home() {
 	return (
