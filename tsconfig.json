@@ -16,11 +16,6 @@
 		"rootDirs": ["src"],
 		"baseUrl": "src"
 	},
-	"include": [
-		"next-env.d.ts",
-		"**/*.ts",
-		"**/*.tsx",
-		"src/pages/components/atoms/avatar/index.tss"
-	],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
 	"exclude": ["node_modules"]
 }
