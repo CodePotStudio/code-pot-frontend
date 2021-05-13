@@ -1,3 +1,4 @@
+import { Heading, Footer, Button } from "components";
 import Head from "next/head";
 
 export default function Home() {
@@ -8,7 +9,9 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<main>Main</main>
-			<footer>footer</footer>
+			<Heading variant="h6">H1 TEST</Heading>
+			<Button variant="primary">Hello</Button>
+			<Footer></Footer>
 		</div>
 	);
 }

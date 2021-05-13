@@ -10,4 +10,5 @@ export const Avatar = styled(Image)`
 	border-radius: 9999px;
 	border-radius: 99999px;
 	display: block;
+	cursor: pointer;
 `;
