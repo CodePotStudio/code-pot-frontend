@@ -16,7 +16,7 @@ const NavigationBar = ({ isLoggedIn, avatarURL }: Props) => {
 				<>
 					<S.NavigationBarItem>
 						<Avatar
-							src={avatarURL}
+							src={avatarURL!}
 							alt="navigation avatar"
 							onClick={() => setShowNav((showNav) => !showNav)}
 						></Avatar>
