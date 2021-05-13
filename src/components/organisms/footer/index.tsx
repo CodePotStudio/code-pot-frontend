@@ -1,6 +1,6 @@
+import { Heading } from "../../atoms/typography";
 import { FOOTER_CONTENT } from "./constants";
 import * as S from "./style";
-import { Heading } from "components";
 
 const Footer = () => (
 	<S.Container>

@@ -4,10 +4,11 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
-		"build": "next build",
+		"build": "yarn run clean && next build",
 		"start": "next start",
 		"storybook": "start-storybook -p 6006 -s ./public",
-		"build-storybook": "build-storybook"
+		"build-storybook": "build-storybook",
+		"clean": "npx rimraf .next"
 	},
 	"dependencies": {
 		"moment": "^2.29.1",

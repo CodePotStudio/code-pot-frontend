@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { palette } from "styled-tools";
-import { Text } from "components";
+import { Text } from "../../atoms/typography";
 
 export const Container = styled.div`
 	display: grid;

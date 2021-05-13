@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Text } from "components";
 import { ifProp, prop, palette } from "styled-tools";
+import { Text } from "../../atoms/typography";
 
 export interface FormItemStyleProps {
 	direction?: "row" | "column";

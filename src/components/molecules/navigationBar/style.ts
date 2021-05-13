@@ -1,6 +1,6 @@
-import { Button } from "components";
 import styled from "styled-components";
 import { palette } from "styled-tools";
+import Button from "../../atoms/button";
 
 export const NavigationBarWrapper = styled.ul`
 	display: flex;

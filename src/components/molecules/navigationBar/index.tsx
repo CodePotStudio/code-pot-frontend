@@ -1,5 +1,6 @@
-import { Avatar, NavigationMenu } from "components";
 import { useState } from "react";
+import Avatar from "../../atoms/avatar";
+import NavigationMenu from "../navigationMenu";
 import * as S from "./style";
 
 interface Props {

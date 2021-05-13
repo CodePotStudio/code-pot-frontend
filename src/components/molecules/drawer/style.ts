@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Text } from "components";
 import { palette } from "styled-tools";
+import { Text } from "../../atoms/typography";
 
 export const Wrapper = styled.div`
 	border: 1px solid ${palette("grayscale", 4)};

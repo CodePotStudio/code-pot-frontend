@@ -1,4 +1,5 @@
-import { Input, Label } from "components";
+import Input from "../../atoms/input";
+import Label from "../../atoms/label";
 import * as S from "./style";
 
 type RefReturn =
