@@ -5,7 +5,7 @@ interface Props {
 	content: string;
 }
 
-const ChallangeDescription = ({ title, content }: Props) => (
+const ChallangeContent = ({ title, content }: Props) => (
 	<S.Wrapper>
 		<Heading variant="h4" hasBorder={true}>
 			{title}
@@ -13,4 +13,4 @@ const ChallangeDescription = ({ title, content }: Props) => (
 		<Text variant="body1">{content}</Text>
 	</S.Wrapper>
 );
-export default ChallangeDescription;
+export default ChallangeContent;
