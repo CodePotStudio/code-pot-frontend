@@ -5,9 +5,15 @@ import "moment/locale/ko";
 import moment from "moment";
 import { ChallangeCardType } from "types/data";
 
-interface Props extends ChallangeCardType {}
+export interface CHCardProps extends ChallangeCardType {}
 
-const ChallangeCard = ({ key, language, status, to, start_at }: Props) => {
+const ChallangeCard = ({
+	key,
+	language,
+	status,
+	to,
+	start_at,
+}: CHCardProps) => {
 	const { src, desc, title } = LanguageSet[language];
 	const { variant, text: badgeText } = StatusSet[status];
 	return (
