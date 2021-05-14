@@ -1,4 +1,4 @@
-import { Button, FormInput } from "components";
+import { Button, FormItem, Input } from "components";
 import * as S from "./style";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
@@ -31,22 +31,20 @@ const ActivationForm = ({ onSubmit }: ActivationFormProps) => {
 	return (
 		<S.FormWrapper onSubmit={handleSubmit(onSubmit)}>
 			<S.InputWrapper>
-				<FormInput
+				<FormItem
 					label="이름"
-					name="name"
-					register={register}
 					invalid={!!errors.name}
 					caption={errors.name?.message}
-					required
-				/>
-				<FormInput
+				>
+					<Input {...register("name")} invalid={!!errors.name}></Input>
+				</FormItem>
+				<FormItem
 					label="휴대폰 번호"
-					name="mobile"
-					register={register}
 					invalid={!!errors.mobile}
 					caption={errors.mobile?.message}
-					required
-				/>
+				>
+					<Input {...register("mobile")} invalid={!!errors.mobile}></Input>
+				</FormItem>
 			</S.InputWrapper>
 			<Button variant="primary" type="submit">
 				회원 가입하기
