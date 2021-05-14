@@ -1,22 +1,16 @@
 import * as S from "./style";
 import { Input, Label } from "components";
-
-type RefReturn =
-	| React.RefObject<HTMLInputElement>
-	| ((instance: HTMLInputElement | null) => void)
-	| null
-	| undefined;
-
+import { UseFormRegister } from "react-hook-form";
 interface Props {
 	label: string;
 	inputName: string;
-	placeholder: string;
+	placeholder?: string;
 	// 잘못된 값이 입력되었을 경우, 나타내는 메시지
 	caption?: string;
 	// 잘못된 값이 입력되었는지 여부
 	invalid?: boolean;
 	// ref에서 사용하는 함수
-	register?: ({ required }: { required?: boolean }) => RefReturn;
+	register: UseFormRegister<any>;
 	// 필수 여부
 	required?: boolean;
 }
@@ -36,7 +30,7 @@ const FormInput = ({
 			inputName={inputName}
 			placeholder={placeholder}
 			invalid={invalid}
-			ref={register && register({ required })}
+			{...register(inputName, { required })}
 		></Input>
 		{invalid && <S.FormText variant="caption">{caption}</S.FormText>}
 	</S.FormWrapper>
