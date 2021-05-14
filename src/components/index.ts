@@ -32,3 +32,4 @@ export { default as CHCardGrid } from "components/organisms/challangeCardGrid";
 export { default as CHBanner } from "components/organisms/challangeBanner";
 export { default as Hero } from "./organisms/hero";
 export { default as ActivationForm } from "./organisms/activationForm";
+export { default as checkoutSummary } from "./organisms/checkoutSummary";
