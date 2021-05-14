@@ -8,35 +8,35 @@ export default {
 
 const sampleCards: CHCardProps[] = [
 	{
-		key: 1,
+		id: 1,
 		language: "typescript",
 		status: "close",
 		start_at: new Date(),
 		to: "/",
 	},
 	{
-		key: 2,
+		id: 2,
 		language: "python",
 		status: "inProgress",
 		start_at: new Date(),
 		to: "/",
 	},
 	{
-		key: 3,
+		id: 3,
 		language: "graphql",
 		status: "close",
 		start_at: new Date(),
 		to: "/",
 	},
 	{
-		key: 4,
+		id: 4,
 		language: "react",
 		status: "inProgress",
 		start_at: new Date(),
 		to: "/",
 	},
 	{
-		key: 5,
+		id: 5,
 		language: "typescript",
 		status: "inProgress",
 		start_at: new Date(),
