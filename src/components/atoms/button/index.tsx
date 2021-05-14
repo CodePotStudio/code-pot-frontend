@@ -8,6 +8,8 @@ interface Props extends S.ButtonStyleProps {
 	href?: string;
 	// click handler
 	onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+	// button type
+	type: "button" | "submit" | "reset" | undefined;
 }
 
 const Button = ({ children, variant, to, href, onClick, ...props }: Props) => {
@@ -33,5 +35,6 @@ const Button = ({ children, variant, to, href, onClick, ...props }: Props) => {
 
 Button.defaultProps = {
 	variant: "primary",
+	type: "button",
 };
 export default Button;
