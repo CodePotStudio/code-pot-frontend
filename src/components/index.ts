@@ -34,3 +34,4 @@ export { default as ActivationForm } from "./organisms/activationForm";
 export { default as CheckoutSummary } from "./organisms/checkoutSummary";
 export { default as PaymentMethod } from "./organisms/paymentMethod";
 export { default as RefundAccountForm } from "./organisms/refundAccountForm";
+export { default as RegisterBanner } from "./organisms/registerBanner";
