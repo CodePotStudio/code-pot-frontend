@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import { ICONS } from "../icon/constants";
 import * as S from "./style";
 
@@ -17,17 +18,24 @@ interface Props {
 	handleChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-const Select = ({ options, defaultValue, name, handleChange }: Props) => (
-	<S.SelectWrapper>
-		<S.Select name={name} onChange={handleChange} value={defaultValue}>
-			{options.map(({ key, value }) => (
-				<option key={key} value={value}>
-					{value}
-				</option>
-			))}
-		</S.Select>
-		<S.StyledIcon name={ICONS.arrowDown} />
-	</S.SelectWrapper>
+const Select = forwardRef<HTMLSelectElement, Props>(
+	({ options, defaultValue, name, handleChange }: Props, ref) => (
+		<S.SelectWrapper>
+			<S.Select
+				name={name}
+				onChange={handleChange}
+				value={defaultValue}
+				ref={ref}
+			>
+				{options.map(({ key, value }) => (
+					<option key={key} value={value}>
+						{value}
+					</option>
+				))}
+			</S.Select>
+			<S.StyledIcon name={ICONS.arrowDown} />
+		</S.SelectWrapper>
+	)
 );
 
 export default Select;
