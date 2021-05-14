@@ -15,8 +15,7 @@ export const FormItemWrapper = styled.div<FormItemStyleProps>`
 		margin-right: ${ifProp({ direction: "row" }, "8px", "none")};
 	}
 	& > input {
-		border: 1px solid
-			${ifProp("invalid", palette("alert")};
+		border: 1px solid ${ifProp("invalid", palette("alert"))};
 	}
 `;
 
