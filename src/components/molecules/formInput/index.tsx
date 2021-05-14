@@ -10,7 +10,7 @@ interface Props {
 	// 잘못된 값이 입력되었는지 여부
 	invalid?: boolean;
 	// ref에서 사용하는 함수
-	register: UseFormRegister<any>;
+	register?: UseFormRegister<any>;
 	// 필수 여부
 	required?: boolean;
 }
@@ -30,7 +30,7 @@ const FormInput = ({
 			inputName={inputName}
 			placeholder={placeholder}
 			invalid={invalid}
-			{...register(inputName, { required })}
+			{...register!(inputName, { required })}
 		></Input>
 		{invalid && <S.FormText variant="caption">{caption}</S.FormText>}
 	</S.FormWrapper>
