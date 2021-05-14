@@ -48,7 +48,10 @@ const RefundAccountForm = ({ onSubmit }: ActivationFormProps) => {
 					invalid={!!errors.bankAccount}
 					caption={errors.bankAccount?.message}
 				>
-					<Input {...register("bankAccount")}></Input>
+					<Input
+						{...register("bankAccount")}
+						invalid={!!errors.bankAccount}
+					></Input>
 				</FormItem>
 			</S.InputWrapper>
 			<Button variant="primary" type="submit">
