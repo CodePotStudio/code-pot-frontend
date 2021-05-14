@@ -1,4 +1,4 @@
-import { Button, FormInput, FormItem, Input, Select } from "components";
+import { Button, FormItem, Input, Select } from "components";
 import * as S from "./style";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
