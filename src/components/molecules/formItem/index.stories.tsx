@@ -3,6 +3,7 @@ import FormItem from ".";
 import CheckBox from "../../atoms/checkBox";
 import Input from "../../atoms/input";
 import Select from "../../atoms/select";
+import { Radio } from "components";
 
 export default {
 	title: "Mocules/Form Item",
@@ -27,6 +28,9 @@ export const Default = () => (
 				약관 동의
 			</CheckBox>
 		</FormItem>
+		<FormItem>
+			<Radio checked={true}>계좌 이체</Radio>
+		</FormItem>
 	</>
 );
 
@@ -47,6 +51,9 @@ export const AlignRowForm = () => (
 			<CheckBox checked={false} onClick={() => console.log("clicked")}>
 				약관 동의
 			</CheckBox>
+		</FormItem>
+		<FormItem direction="row">
+			<Radio checked={true}>계좌 이체</Radio>
 		</FormItem>
 	</>
 );
