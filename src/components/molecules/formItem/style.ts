@@ -14,9 +14,6 @@ export const FormItemWrapper = styled.div<FormItemStyleProps>`
 	& > label {
 		margin-right: ${ifProp({ direction: "row" }, "8px", "none")};
 	}
-	& > input {
-		border: 1px solid ${ifProp("invalid", palette("alert"))};
-	}
 `;
 
 export const FormText = styled(Text)`
