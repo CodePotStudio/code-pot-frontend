@@ -30,3 +30,4 @@ export { default as DrawerGrid } from "./organisms/drawerGrid";
 export { default as EPCardGrid } from "./organisms/epilogueCardGrid";
 export { default as CHCardGrid } from "components/organisms/challangeCardGrid";
 export { default as Hero } from "./organisms/hero";
+export { default as ActivationForm } from "./organisms/activationForm";
