@@ -18,6 +18,7 @@ const NavigationBar = ({ isLoggedIn, avatarURL }: Props) => {
 						<Avatar
 							src={avatarURL!}
 							alt="navigation avatar"
+							size={48}
 							onClick={() => setShowNav((showNav) => !showNav)}
 						></Avatar>
 					</S.NavigationBarItem>
