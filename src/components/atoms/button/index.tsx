@@ -7,7 +7,7 @@ interface Props extends S.ButtonStyleProps {
 	// external routing
 	href?: string;
 	// click handler
-	onClick?: () => void;
+	onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 const Button = ({ children, variant, to, href, onClick, ...props }: Props) => {
