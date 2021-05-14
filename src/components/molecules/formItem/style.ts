@@ -4,6 +4,7 @@ import { Text } from "../../atoms/typography";
 
 export interface FormItemStyleProps {
 	direction?: "row" | "column";
+	invalid?: boolean;
 }
 
 export const FormItemWrapper = styled.div<FormItemStyleProps>`
@@ -12,6 +13,10 @@ export const FormItemWrapper = styled.div<FormItemStyleProps>`
 	align-items: ${ifProp({ direction: "row" }, "center", "flex-start")};
 	& > label {
 		margin-right: ${ifProp({ direction: "row" }, "8px", "none")};
+	}
+	& > input {
+		border: 1px solid
+			${ifProp("invalid", palette("alert")};
 	}
 `;
 

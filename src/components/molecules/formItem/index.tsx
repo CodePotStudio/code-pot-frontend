@@ -10,7 +10,7 @@ interface Props extends S.FormItemStyleProps {
 
 const FormItem = ({ label, children, direction, invalid, caption }: Props) => (
 	<>
-		<S.FormItemWrapper direction={direction}>
+		<S.FormItemWrapper direction={direction} invalid={invalid}>
 			{label && <Label>{label}</Label>}
 			{children}
 		</S.FormItemWrapper>
