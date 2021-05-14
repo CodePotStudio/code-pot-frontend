@@ -3,7 +3,7 @@ import { Input, Label } from "components";
 import { UseFormRegister } from "react-hook-form";
 interface Props {
 	label: string;
-	inputName: string;
+	name: string;
 	placeholder?: string;
 	// 잘못된 값이 입력되었을 경우, 나타내는 메시지
 	caption?: string;
@@ -16,7 +16,7 @@ interface Props {
 }
 
 const FormInput = ({
-	inputName,
+	name,
 	label,
 	placeholder,
 	caption,
@@ -27,10 +27,9 @@ const FormInput = ({
 	<S.FormWrapper>
 		<Label>{label}</Label>
 		<Input
-			inputName={inputName}
 			placeholder={placeholder}
 			invalid={invalid}
-			{...register!(inputName, { required })}
+			{...register!(name, { required })}
 		></Input>
 		{invalid && <S.FormText variant="caption">{caption}</S.FormText>}
 	</S.FormWrapper>

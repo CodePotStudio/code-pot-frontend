@@ -7,18 +7,18 @@ export default {
 
 export const Default = () => (
 	<>
-		<Input inputName="ID" placeholder="id를 입력해 주세요" />
+		<Input name="ID" placeholder="id를 입력해 주세요" />
 	</>
 );
 
 export const DisabledInput = () => (
 	<>
-		<Input inputName="ID" placeholder="id를 입력해 주세요" disabled={true} />
+		<Input name="ID" placeholder="id를 입력해 주세요" disabled={true} />
 	</>
 );
 
 export const InvalidInput = () => (
 	<>
-		<Input inputName="ID" placeholder="id를 입력해 주세요" invalid={true} />
+		<Input name="ID" placeholder="id를 입력해 주세요" invalid={true} />
 	</>
 );

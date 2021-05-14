@@ -33,7 +33,7 @@ const ActivationForm = ({ onSubmit }: ActivationFormProps) => {
 			<S.InputWrapper>
 				<FormInput
 					label="이름"
-					inputName="name"
+					name="name"
 					register={register}
 					invalid={!!errors.name}
 					caption={errors.name?.message}
@@ -41,7 +41,7 @@ const ActivationForm = ({ onSubmit }: ActivationFormProps) => {
 				/>
 				<FormInput
 					label="휴대폰 번호"
-					inputName="mobile"
+					name="mobile"
 					register={register}
 					invalid={!!errors.mobile}
 					caption={errors.mobile?.message}

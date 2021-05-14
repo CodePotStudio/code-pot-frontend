@@ -13,7 +13,7 @@ export default {
 export const Default = () => (
 	<>
 		<FormItem label="ID">
-			<Input inputName="ID" placeholder="ID를 입력해 주세요"></Input>
+			<Input name="ID" placeholder="ID를 입력해 주세요"></Input>
 		</FormItem>
 		<FormItem label="환불 계좌">
 			<Select
@@ -37,7 +37,7 @@ export const Default = () => (
 export const AlignRowForm = () => (
 	<>
 		<FormItem label="ID" direction="row">
-			<Input inputName="ID" placeholder="ID를 입력해 주세요"></Input>
+			<Input name="ID" placeholder="ID를 입력해 주세요"></Input>
 		</FormItem>
 		<FormItem direction="row" label="환불 계좌">
 			<Select
@@ -61,7 +61,7 @@ export const AlignRowForm = () => (
 export const InvalidFormItem = () => (
 	<>
 		<FormItem label="ID" invalid={true} caption="잘못된 ID입니다.">
-			<Input inputName="ID" placeholder="ID를 입력해 주세요"></Input>
+			<Input name="ID" placeholder="ID를 입력해 주세요"></Input>
 		</FormItem>
 	</>
 );
@@ -74,7 +74,7 @@ export const InvalidRowFormItem = () => (
 			direction="row"
 			caption="잘못된 ID입니다."
 		>
-			<Input inputName="ID" placeholder="ID를 입력해 주세요"></Input>
+			<Input name="ID" placeholder="ID를 입력해 주세요"></Input>
 		</FormItem>
 	</>
 );

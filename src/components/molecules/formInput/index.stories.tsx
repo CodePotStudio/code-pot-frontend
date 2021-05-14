@@ -9,7 +9,7 @@ export const Default = () => (
 	<>
 		<FormInput
 			label="이름"
-			inputName="name"
+			name="name"
 			placeholder="이름을 입력해 주세요."
 		></FormInput>
 	</>
@@ -18,7 +18,7 @@ export const Default = () => (
 export const InvalidInput = () => (
 	<FormInput
 		label="ID"
-		inputName="id"
+		name="id"
 		invalid={true}
 		placeholder="id를 입력해주세요."
 		caption="잘못된 문자가 포함되어 있습니다."
