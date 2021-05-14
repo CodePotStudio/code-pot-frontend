@@ -7,6 +7,8 @@ export interface FormItemStyleProps {
 	invalid?: boolean;
 }
 
+export const Wrapper = styled.div``;
+
 export const FormItemWrapper = styled.div<FormItemStyleProps>`
 	display: flex;
 	flex-direction: ${prop("direction", "column")};
