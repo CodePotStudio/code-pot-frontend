@@ -1,6 +1,7 @@
 import ContentContainer from "../../containers/contentContainer";
 import styled from "styled-components";
 import { palette } from "styled-tools";
+import { Heading } from "components/atoms/typography";
 
 export const HeroWrapper = styled(ContentContainer)`
 	padding: ${palette("spaces", 4)} 0px;
@@ -17,4 +18,8 @@ export const EpilogueGridWrapper = styled(ContentContainer)`
 `;
 export const FAQGridWrapper = styled(ContentContainer)`
 	padding: ${palette("spaces", 4)} 0px;
+`;
+
+export const HeadingWrapper = styled(Heading)`
+	margin-bottom: ${palette("spaces", 2)};
 `;
