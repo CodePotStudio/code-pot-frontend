@@ -39,6 +39,7 @@ export { default as RegisterBanner } from "./organisms/registerBanner";
 
 //templates
 export { default as BaseTemplate } from "./templates/baseTemplate";
+export { default as MainPageTemplate } from "./templates/main";
 
 // container
 export { default as ContentContainer } from "./containers/contentContainer";
