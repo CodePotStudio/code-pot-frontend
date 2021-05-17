@@ -36,3 +36,9 @@ export { default as CheckoutSummary } from "./organisms/checkoutSummary";
 export { default as PaymentMethod } from "./organisms/paymentMethod";
 export { default as RefundAccountForm } from "./organisms/refundAccountForm";
 export { default as RegisterBanner } from "./organisms/registerBanner";
+
+//templates
+export { default as BaseTemplate } from "./templates/baseTemplate";
+
+// container
+export { default as ContentContainer } from "./containers/contentContainer";
