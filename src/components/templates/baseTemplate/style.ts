@@ -13,7 +13,6 @@ export const HeaderInnerWrapper = styled.div`
 
 export const ChildrenWrapper = styled.div`
 	min-height: 70vh;
-	padding: ${palette("spaces", 5)} 0px;
 `;
 
 export const FooterWrapper = styled.div`
