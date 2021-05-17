@@ -45,7 +45,11 @@ export const ImageBackground = styled.div<ImageStyleProps>`
 	height: "100%";
 	width: "100%";
 	background-color: ${palette("black")};
-	opacity: ${ifProp({ status: "close" }, palette("opacityscale", 4), 0)};
+	opacity: ${ifProp(
+		{ status: "close" },
+		palette("opacityscale", 4),
+		palette("opacityscale", 10)
+	)};
 `;
 
 export const ContentWrapper = styled.div`
