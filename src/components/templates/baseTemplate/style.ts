@@ -1,17 +1,6 @@
-import styled, { css } from "styled-components";
+import ContainerStyle from "commons/style/ContainerStyle";
+import styled from "styled-components";
 import { palette } from "styled-tools";
-
-const commonStyle = css`
-	max-width: 100%;
-	padding: 0 ${palette("spaces", 2)};
-
-	@media screen and (min-width: 64rem) {
-		width: 100%;
-		max-width: 1060px;
-		margin: auto;
-		padding: 0 ${palette("spaces", 3)};
-	}
-`;
 
 export const HeaderWrapper = styled.div`
 	border-bottom: 1px solid ${palette("grayscale", 5)};
@@ -19,7 +8,7 @@ export const HeaderWrapper = styled.div`
 `;
 
 export const HeaderInnerWrapper = styled.div`
-	${commonStyle};
+	${ContainerStyle};
 `;
 
 export const ChildrenWrapper = styled.div`
@@ -33,5 +22,5 @@ export const FooterWrapper = styled.div`
 `;
 
 export const FooterInnerWraper = styled.div`
-	${commonStyle}
+	${ContainerStyle};
 `;
