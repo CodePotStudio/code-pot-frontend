@@ -3,7 +3,7 @@ import { ChallangeCardType } from "types/data";
 import MainPageTemplate from ".";
 
 export default {
-	title: "Templates/Main Page Template",
+	title: "Templates/Main Template",
 	component: [MainPageTemplate],
 };
 

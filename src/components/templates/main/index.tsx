@@ -1,4 +1,4 @@
-import { BaseTemplate, Heading } from "components";
+import { BaseTemplate } from "components";
 import * as S from "./style";
 import React from "react";
 
