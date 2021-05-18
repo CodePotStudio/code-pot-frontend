@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
 import { palette } from "styled-tools";
-import nextLink from "next/link";
 
 export interface ButtonStyleProps {
 	variant: "primary" | "secondary";
