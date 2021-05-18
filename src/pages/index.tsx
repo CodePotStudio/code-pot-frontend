@@ -13,35 +13,35 @@ import { MainPageFAQ } from "components/organisms/drawerGrid/constants";
 // TODO: 임시 데이터
 const sampleCards: ChallangeCardType[] = [
 	{
-		id: 1,
+		id: "1",
 		language: "typescript",
 		status: "close",
 		start_at: new Date(),
 		to: "/",
 	},
 	{
-		id: 2,
+		id: "2",
 		language: "python",
 		status: "inProgress",
 		start_at: new Date(),
 		to: "/",
 	},
 	{
-		id: 3,
+		id: "3",
 		language: "graphql",
 		status: "close",
 		start_at: new Date(),
 		to: "/",
 	},
 	{
-		id: 4,
+		id: "4",
 		language: "react",
 		status: "inProgress",
 		start_at: new Date(),
 		to: "/",
 	},
 	{
-		id: 5,
+		id: "5",
 		language: "typescript",
 		status: "inProgress",
 		start_at: new Date(),
