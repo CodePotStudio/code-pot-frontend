@@ -5,12 +5,17 @@ import * as S from "./style";
 import "moment/locale/ko";
 import moment from "moment";
 
-interface Props extends ChallangeCardType {}
+interface Props extends ChallangeCardType, S.CHBannerStyledProps {}
 
-const ChallangeBanner = ({ language, start_at }: Props) => {
+const ChallangeBanner = ({
+	language,
+	start_at,
+	color,
+	backgroundColor,
+}: Props) => {
 	const { src, desc, title } = LanguageSet[language];
 	return (
-		<S.Wrapper>
+		<S.Wrapper color={color} backgroundColor={backgroundColor}>
 			<Image src={src} width="100%"></Image>
 			<S.ContentWrapper>
 				<Badge>4주</Badge>

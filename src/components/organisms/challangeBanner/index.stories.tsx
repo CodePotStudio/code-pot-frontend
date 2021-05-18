@@ -14,3 +14,15 @@ export const Default = () => (
 		start_at={new Date()}
 	></ChallangeBanner>
 );
+
+export const BannerWithColor = () => (
+	<ChallangeBanner
+		id="1"
+		language="typescript"
+		status="inProgress"
+		to="/home"
+		start_at={new Date()}
+		color="black"
+		backgroundColor="white"
+	></ChallangeBanner>
+);
