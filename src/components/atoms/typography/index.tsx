@@ -1,7 +1,16 @@
 import * as S from "./style";
 
 interface HeadingProps extends S.HeadingStyleProps {
-	variant: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "subtitle1" | "subtitle2";
+	variant:
+		| "h1"
+		| "h2"
+		| "h3"
+		| "h4"
+		| "h5"
+		| "h6"
+		| "h7"
+		| "subtitle1"
+		| "subtitle2";
 	children: React.ReactNode;
 }
 
@@ -24,6 +33,8 @@ const Heading = ({ variant, children, ...props }: HeadingProps) => {
 			return <S.H5 {...props}>{children}</S.H5>;
 		case "h6":
 			return <S.H6 {...props}>{children}</S.H6>;
+		case "h7":
+			return <S.H7 {...props}>{children}</S.H7>;
 		case "subtitle1":
 			return <S.Subtitle1 {...props}>{children}</S.Subtitle1>;
 		case "subtitle2":

@@ -38,6 +38,11 @@ export const H6 = styled.h6<HeadingStyleProps>`
 	${(props) => props.theme.fontStyle.h6}
 `;
 
+export const H7 = styled.h6<HeadingStyleProps>`
+	${HeadingStyle}
+	${(props) => props.theme.fontStyle.h7}
+`;
+
 export const Subtitle1 = styled.h6<HeadingStyleProps>`
 	${(props) => props.theme.fontStyle.subtitle1}
 `;

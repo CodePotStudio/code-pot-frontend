@@ -75,6 +75,11 @@ const theme = {
       font-weight: 700;
       line-height: 1.8;
     `,
+		h7: `
+      font-size: 1.125rem;
+      font-weight: 700;
+      line-height: 1.8;
+    `,
 		subtitle1: `
       font-size: 1rem;
       font-weight: 500;
