@@ -1,3 +1,4 @@
+import Link from "next/link";
 import * as S from "./style";
 
 interface Props extends S.ButtonStyleProps {
@@ -15,9 +16,11 @@ interface Props extends S.ButtonStyleProps {
 const Button = ({ children, variant, to, href, onClick, ...props }: Props) => {
 	if (to) {
 		return (
-			<S.Link href={to} variant={variant} {...props}>
-				{children}
-			</S.Link>
+			<Link href={to}>
+				<S.Anchor variant={variant} {...props}>
+					{children}
+				</S.Anchor>
+			</Link>
 		);
 	} else if (href) {
 		return (

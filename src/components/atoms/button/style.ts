@@ -56,10 +56,6 @@ export const Button = styled.button`
 	${ButtonStyle}
 `;
 
-export const Link = styled(nextLink)`
-	${ButtonStyle}
-`;
-
 export const Anchor = styled.a`
 	${ButtonStyle}
 `;
