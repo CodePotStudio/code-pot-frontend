@@ -7,7 +7,7 @@ export default {
 
 export const Default = () => (
 	<ChallangeBanner
-		id={1}
+		id="1"
 		language="typescript"
 		status="inProgress"
 		to="/home"

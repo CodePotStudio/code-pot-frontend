@@ -9,7 +9,7 @@ export default {
 const Template: Story = (args) => (
 	<div style={{ display: "inline-flex" }}>
 		<ChallangeCard
-			id={1}
+			id="1"
 			language="typescript"
 			status="inProgress"
 			to="/home"

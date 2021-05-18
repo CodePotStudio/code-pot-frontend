@@ -5,4 +5,4 @@ export default {
 	component: [RegisterBanner],
 };
 
-export const Default = () => <RegisterBanner challangeId={1} />;
+export const Default = () => <RegisterBanner challangeId="1" />;

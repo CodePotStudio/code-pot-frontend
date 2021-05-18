@@ -12,13 +12,13 @@ export const Default = () => (
 		descriptions={DESCRIPTION}
 		challangeBanner={
 			<CHBanner
-				id={1}
+				id="1"
 				language="typescript"
 				status="inProgress"
 				to="/home"
 				start_at={new Date()}
 			/>
 		}
-		registerBannder={<RegisterBanner challangeId={1} />}
+		registerBannder={<RegisterBanner challangeId="1" />}
 	></CHDetailTemplate>
 );

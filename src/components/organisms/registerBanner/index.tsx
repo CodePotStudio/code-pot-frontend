@@ -1,7 +1,7 @@
 import * as S from "./style";
 
 interface Props {
-	challangeId: number;
+	challangeId: string;
 }
 
 const RegisterBanner = ({ challangeId }: Props) => (
