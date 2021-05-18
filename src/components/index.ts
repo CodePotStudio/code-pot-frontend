@@ -40,7 +40,8 @@ export { default as RegisterBanner } from "./organisms/registerBanner";
 //templates
 export { default as BaseTemplate } from "./templates/baseTemplate";
 export { default as MainPageTemplate } from "./templates/main";
-export { default as ChallangeDetail } from "./templates/challangeDetail";
+export { default as NotFoundTemplate } from "./templates/notFound";
+export { default as ChallangeDetailTemplate } from "./templates/challangeDetail";
 
 // container
 export { default as ContentContainer } from "./containers/contentContainer";
