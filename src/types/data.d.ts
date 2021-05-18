@@ -20,7 +20,7 @@ type languageObj = {
 export type variant = "primary" | "secondary" | "warning" | "alert";
 
 export interface ChallangeCardType {
-	id: number;
+	id: string;
 	language: language;
 	status: status;
 	to: string;
