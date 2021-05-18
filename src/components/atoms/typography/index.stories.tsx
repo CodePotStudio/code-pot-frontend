@@ -27,3 +27,14 @@ export const WithDivider = () => (
 		Section Title
 	</Heading>
 );
+
+export const WithColor = () => (
+	<>
+		<Text variant="body1" color="warning">
+			waring
+		</Text>
+		<Text variant="body1" color="alert">
+			alert
+		</Text>
+	</>
+);

@@ -14,7 +14,7 @@ interface HeadingProps extends S.HeadingStyleProps {
 	children: React.ReactNode;
 }
 
-interface TextProps {
+interface TextProps extends S.TextStyleProps {
 	variant: "body1" | "body2" | "caption";
 	children: React.ReactNode;
 }
