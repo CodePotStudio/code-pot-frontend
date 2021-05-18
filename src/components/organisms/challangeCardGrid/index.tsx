@@ -6,8 +6,8 @@ interface Props {
 	CHCards: CHCardProps[];
 }
 
-const ChallangeCardGrid = ({ CHCards }: Props) => (
-	<S.Wrapper>
+const ChallangeCardGrid = ({ CHCards, ...props }: Props) => (
+	<S.Wrapper {...props}>
 		{CHCards.map((CHCard) => (
 			<ChallangeCard {...CHCard}></ChallangeCard>
 		))}
