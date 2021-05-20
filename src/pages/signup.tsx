@@ -1,3 +1,3 @@
-import { SignUpTemplate } from "components";
+import { SignupTemplate } from "components";
 
-export default () => <SignUpTemplate></SignUpTemplate>;
+export default () => <SignupTemplate></SignupTemplate>;
