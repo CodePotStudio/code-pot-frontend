@@ -46,7 +46,7 @@ export { default as ChallangeDetailTemplate } from "./templates/challangeDetail"
 export { default as MyPageTemplate } from "./templates/myPage";
 export { default as CheckoutTemplate } from "./templates/checkout";
 export { default as TransferGuideTemplate } from "./templates/transferGuide";
-export { default as SignUpTemplate } from "./templates/signUp";
+export { default as SignUpTemplate } from "./templates/signup";
 
 // container
 export { default as ContentContainer } from "./containers/contentContainer";
