@@ -1,4 +1,4 @@
-import ContainerStyle from "commons/style/ContainerStyle";
+import { largeContainerStyle } from "commons/style/ContainerStyle";
 import styled from "styled-components";
 import { palette } from "styled-tools";
 
@@ -8,7 +8,7 @@ export const HeaderWrapper = styled.div`
 `;
 
 export const HeaderInnerWrapper = styled.div`
-	${ContainerStyle};
+	${largeContainerStyle};
 `;
 
 export const ChildrenWrapper = styled.div`
@@ -21,5 +21,5 @@ export const FooterWrapper = styled.div`
 `;
 
 export const FooterInnerWraper = styled.div`
-	${ContainerStyle};
+	${largeContainerStyle};
 `;
