@@ -1,4 +1,5 @@
-import { AuthTemplate, Button } from "components";
+import { AuthTemplate } from "components";
+import { ICONS } from "components/atoms/icon/constants";
 import * as S from "./style";
 
 const SignUpTemplate = () => (
@@ -10,7 +11,9 @@ const SignUpTemplate = () => (
 			<br />
 			프로젝트
 		</S.StyledHeading>
-		<S.StyledButton to="/">github으로 회원가입하기</S.StyledButton>
+		<S.StyledButton to="/" variant="github" icon={ICONS.github}>
+			github으로 회원가입하기
+		</S.StyledButton>
 	</AuthTemplate>
 );
 export default SignUpTemplate;
