@@ -31,6 +31,7 @@ const githubStyle = css`
 	color: ${palette("white")};
 	background-color: ${palette("grayscale", 1)};
 	&:hover {
+		color: ${palette("white")};
 		background-color: ${palette("grayscale", 0)};
 	}
 `;
