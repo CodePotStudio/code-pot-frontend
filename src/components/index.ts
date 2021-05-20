@@ -39,6 +39,7 @@ export { default as RegisterBanner } from "./organisms/registerBanner";
 
 //templates
 export { default as BaseTemplate } from "./templates/baseTemplate";
+export { default as AuthTemplate } from "./templates/authTemplate";
 export { default as MainPageTemplate } from "./templates/main";
 export { default as NotFoundTemplate } from "./templates/notFound";
 export { default as ChallangeDetailTemplate } from "./templates/challangeDetail";
