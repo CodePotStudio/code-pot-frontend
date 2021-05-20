@@ -1,3 +1,4 @@
+import { ICONS } from "../icon/constants";
 import Link from "next/link";
 import * as S from "./style";
 
@@ -11,13 +12,23 @@ interface Props extends S.ButtonStyleProps {
 	onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 	// button type
 	type: "button" | "submit" | "reset" | undefined;
+	icon?: ICONS;
 }
 
-const Button = ({ children, variant, to, href, onClick, ...props }: Props) => {
+const Button = ({
+	children,
+	variant,
+	to,
+	href,
+	onClick,
+	icon,
+	...props
+}: Props) => {
 	if (to) {
 		return (
 			<Link href={to}>
 				<S.Anchor variant={variant} {...props}>
+					{icon && <S.StyledIcon name={icon} size={20}></S.StyledIcon>}
 					{children}
 				</S.Anchor>
 			</Link>
@@ -25,12 +36,14 @@ const Button = ({ children, variant, to, href, onClick, ...props }: Props) => {
 	} else if (href) {
 		return (
 			<S.Anchor href={href} variant={variant} {...props}>
+				{icon && <S.StyledIcon name={icon} size={20}></S.StyledIcon>}
 				{children}
 			</S.Anchor>
 		);
 	}
 	return (
 		<S.Button variant={variant} onClick={onClick} {...props}>
+			{icon && <S.StyledIcon name={icon} size={20}></S.StyledIcon>}
 			{children}
 		</S.Button>
 	);
