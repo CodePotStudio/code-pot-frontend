@@ -1,4 +1,4 @@
-import { largeContainerStyle } from "commons/style/ContainerStyle";
+import { smallContainerStyle } from "commons/style/ContainerStyle";
 import styled from "styled-components";
 
 export interface ContainerStyleProps {
@@ -10,5 +10,5 @@ export const ContentWrapper = styled.div<ContainerStyleProps>`
 `;
 
 export const ContentInnerWrapper = styled.div`
-	${largeContainerStyle};
+	${smallContainerStyle};
 `;
