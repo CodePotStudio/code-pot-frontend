@@ -48,3 +48,4 @@ export { default as TransferGuideTemplate } from "./templates/transferGuide";
 
 // container
 export { default as ContentContainer } from "./containers/contentContainer";
+export { default as AuthContainer } from "./containers/authContainer";
