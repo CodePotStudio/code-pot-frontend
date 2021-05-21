@@ -3,11 +3,11 @@ import * as S from "./style";
 
 interface Props extends S.StyleInputProps {
 	/** name of input */
-	inputName: string;
+	name: string;
 	/** defaultValue of input */
 	defaultValue?: string;
 	/** placeholder content */
-	placeholder: string;
+	placeholder?: string;
 	/** input value(state) */
 	value?: string | number;
 	/** onChange handler(setState) */
@@ -17,8 +17,8 @@ interface Props extends S.StyleInputProps {
 }
 
 const Input = forwardRef<HTMLInputElement, Props>(
-	({ inputName, ...props }: Props) => (
-		<S.Input name={inputName} {...props}></S.Input>
+	({ name, ...props }: Props, ref) => (
+		<S.Input name={name} ref={ref} {...props}></S.Input>
 	)
 );
 export default Input;

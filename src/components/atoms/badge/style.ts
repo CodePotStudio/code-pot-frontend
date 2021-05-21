@@ -1,10 +1,13 @@
 import styled, { css } from "styled-components";
-import { palette } from "styled-tools";
+import { ifProp, palette } from "styled-tools";
+import { variant } from "types/data";
 
-export type badgeVariant = "primary" | "secondary" | "warning" | "alert";
 export interface BadgeStyleProps {
-	variant: badgeVariant;
+	variant: variant;
+	// margin-left
+	ml?: number;
 }
+
 const BadgeStyle = css<BadgeStyleProps>`
 	margin: 0;
 	min-width: 0;
@@ -17,6 +20,7 @@ const BadgeStyle = css<BadgeStyleProps>`
 	font-size: 14px;
 	padding-left: 4px;
 	padding-right: 4px;
+	margin-left: ${({ ml }) => (ml ? `${ml}px` : "0px")};
 	background-color: ${({ variant }) => {
 		if (variant === "primary") {
 			return palette("primaryscale", 1);

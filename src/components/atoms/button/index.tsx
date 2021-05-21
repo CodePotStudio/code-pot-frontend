@@ -1,3 +1,5 @@
+import { ICONS } from "../icon/constants";
+import Link from "next/link";
 import * as S from "./style";
 
 interface Props extends S.ButtonStyleProps {
@@ -7,25 +9,41 @@ interface Props extends S.ButtonStyleProps {
 	// external routing
 	href?: string;
 	// click handler
-	onClick?: () => void;
+	onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+	// button type
+	type: "button" | "submit" | "reset" | undefined;
+	icon?: ICONS;
 }
 
-const Button = ({ children, variant, to, href, onClick, ...props }: Props) => {
+const Button = ({
+	children,
+	variant,
+	to,
+	href,
+	onClick,
+	icon,
+	...props
+}: Props) => {
 	if (to) {
 		return (
-			<S.Link href={to} variant={variant} {...props}>
-				{children}
-			</S.Link>
+			<Link href={to}>
+				<S.Anchor variant={variant} {...props}>
+					{icon && <S.StyledIcon name={icon} size={20}></S.StyledIcon>}
+					{children}
+				</S.Anchor>
+			</Link>
 		);
 	} else if (href) {
 		return (
 			<S.Anchor href={href} variant={variant} {...props}>
+				{icon && <S.StyledIcon name={icon} size={20}></S.StyledIcon>}
 				{children}
 			</S.Anchor>
 		);
 	}
 	return (
 		<S.Button variant={variant} onClick={onClick} {...props}>
+			{icon && <S.StyledIcon name={icon} size={20}></S.StyledIcon>}
 			{children}
 		</S.Button>
 	);
@@ -33,5 +51,6 @@ const Button = ({ children, variant, to, href, onClick, ...props }: Props) => {
 
 Button.defaultProps = {
 	variant: "primary",
+	type: "button",
 };
 export default Button;

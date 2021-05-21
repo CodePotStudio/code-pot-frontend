@@ -14,3 +14,9 @@ export const WarningBadge = () => (
 	<Badge variant="warning">Warning Badge</Badge>
 );
 export const AlertBadge = () => <Badge variant="alert">Alert Badge</Badge>;
+export const BadgeWithMargin = () => (
+	<div>
+		<Badge>Hello</Badge>
+		<Badge ml={4}>World</Badge>
+	</div>
+);

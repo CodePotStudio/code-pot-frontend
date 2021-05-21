@@ -26,6 +26,7 @@ declare module "styled-components" {
 			h4: string;
 			h5: string;
 			h6: string;
+			h7: string;
 			subtitle1: string;
 			subtitle2: string;
 			body1: string;

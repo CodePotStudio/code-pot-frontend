@@ -7,10 +7,11 @@ export interface Props {
 	color: "black" | "white";
 }
 
-const Logo = ({ height, color }: Props) => (
+const Logo = ({ height = 16, color }: Props) => (
 	<S.Logo
-		src={color == "white" ? "codepotWhiteLogo.svg" : "./codepotBlackLogo.svg"}
+		src={color == "white" ? "/codepotWhiteLogo.svg" : "/codepotBlackLogo.svg"}
 		height={height}
+		width={height * 5}
 	/>
 );
 

@@ -1,10 +1,41 @@
 import styled, { css } from "styled-components";
+import Icon from "../../atoms/icon";
 import { palette } from "styled-tools";
-import nextLink from "next/link";
 
 export interface ButtonStyleProps {
-	variant: "primary" | "secondary";
+	variant: "primary" | "secondary" | "github";
 }
+
+const primaryStyle = css`
+	border: none;
+	color: ${palette("white")};
+	background-color: ${palette("primaryscale", 1)};
+	&:hover {
+		background-color: ${palette("primaryscale", 0)};
+		color: ${palette("white")};
+	}
+`;
+
+const secondaryStyle = css`
+	border: 1px solid ${palette("primaryscale", 0)};
+	color: ${palette("primaryscale", 0)};
+	background-color: ${palette("white")};
+	&:hover {
+		background-color: ${palette("primaryscale", 5)};
+		color: ${palette("primaryscale", 0)};
+	}
+`;
+
+const githubStyle = css`
+	border: none;
+	color: ${palette("white")};
+	background-color: ${palette("grayscale", 1)};
+	&:hover {
+		color: ${palette("white")};
+		background-color: ${palette("grayscale", 0)};
+	}
+`;
+
 const ButtonStyle = css<ButtonStyleProps>`
 	font-weight: 600;
 	margin: 0;
@@ -24,42 +55,27 @@ const ButtonStyle = css<ButtonStyleProps>`
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
-	border: ${({ variant }) =>
-		variant === "secondary" ? css`1px solid ${palette("primaryscale", 0)}` : 0};
-	color: ${(props) =>
-		props.variant === "secondary"
-			? palette("primaryscale", 0)
-			: palette("white")};
-	background-color: ${({ variant }) => {
-		if (variant === "primary") {
-			return palette("primaryscale", 1);
-		} else {
-			return palette("white");
+	// variant에 따른 버튼 스타일
+	${({ variant }) => {
+		switch (variant) {
+			case "secondary":
+				return secondaryStyle;
+			case "github":
+				return githubStyle;
+			default:
+				return primaryStyle;
 		}
-	}};
-	&:hover {
-		background-color: ${({ variant }) => {
-			if (variant === "primary") {
-				return palette("primaryscale", 0);
-			} else {
-				return palette("primaryscale", 5);
-			}
-		}};
-		color: ${(props) =>
-			props.variant === "secondary"
-				? palette("primaryscale", 0)
-				: palette("white")};
-	}
+	}}
 `;
 
 export const Button = styled.button`
 	${ButtonStyle}
 `;
 
-export const Link = styled(nextLink)`
+export const Anchor = styled.a`
 	${ButtonStyle}
 `;
 
-export const Anchor = styled.a`
-	${ButtonStyle}
+export const StyledIcon = styled(Icon)`
+	margin-right: ${palette("spaces", 1)};
 `;

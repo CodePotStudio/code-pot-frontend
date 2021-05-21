@@ -1,6 +1,6 @@
 import * as S from "./style";
 
-interface Props {
+interface Props extends S.ImageStyleProps {
 	src: string;
 }
 
