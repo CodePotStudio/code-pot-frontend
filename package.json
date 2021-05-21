@@ -11,7 +11,9 @@
 		"build-storybook": "build-storybook"
 	},
 	"dependencies": {
+		"@apollo/client": "^3.3.19",
 		"@hookform/resolvers": "^2.5.0",
+		"graphql": "^15.5.0",
 		"moment": "^2.29.1",
 		"next": "^10.0.0",
 		"react": "17.0.1",
