@@ -53,4 +53,3 @@ export { default as RegisterRefundAccountTemplate } from "./templates/registerRe
 
 // container
 export { default as ContentContainer } from "./containers/contentContainer";
-export { default as AuthContainer } from "./containers/authContainer";
