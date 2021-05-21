@@ -1,5 +1,5 @@
 import { Header } from "components";
-import AuthContainer from "components/containers/authContainer";
+import AuthContainer from "../../containers/authContainer";
 import * as S from "./style";
 
 interface Props {
