@@ -1,4 +1,4 @@
-import { BANK_LIST } from "commons/constants";
+import { BANK_LIST } from "common/constants";
 import Select from ".";
 
 export default {

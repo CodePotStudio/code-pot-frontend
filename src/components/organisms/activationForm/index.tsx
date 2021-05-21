@@ -3,7 +3,7 @@ import * as S from "./style";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { mobileValidator, nameValidator } from "commons/validator";
+import { mobileValidator, nameValidator } from "common/validator";
 
 interface ActivationFormValues {
 	name: string;

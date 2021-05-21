@@ -1,4 +1,4 @@
-import routes from "commons/constants/routes";
+import routes from "common/constants/routes";
 import { AuthTemplate } from "components";
 import { ICONS } from "components/atoms/icon/constants";
 import * as S from "./style";
