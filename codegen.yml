@@ -1,0 +1,12 @@
+overwrite: true
+schema:
+  - ${NEXT_PUBLIC_GRAPHQL_SERVER_URL}
+documents: "./src/**/*.{tsx,ts}"
+generates:
+  src/types/graphql/generated.d.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+    config:
+      withHooks: true
