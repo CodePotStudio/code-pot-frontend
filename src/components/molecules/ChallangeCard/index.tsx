@@ -1,25 +1,22 @@
 import { Heading, Text } from "components";
-import { language, LanguageSet, status, StatusSet } from "./constants";
+import { LanguageSet, StatusSet } from "./constants";
 import * as S from "./style";
 import "moment/locale/ko";
 import moment from "moment";
+import { ChallangeCardType } from "types/data";
 
-interface Props {
-	language: language;
-	status: status;
-	to: string;
-	start_at: Date;
-}
+export interface CHCardProps extends ChallangeCardType {}
 
-const ClassCard = ({ language, status, to, start_at }: Props) => {
+const ChallangeCard = ({ id, language, status, to, start_at }: CHCardProps) => {
 	const { src, desc, title } = LanguageSet[language];
 	const { variant, text: badgeText } = StatusSet[status];
 	return (
-		<S.CardLink to={to}>
+		<S.CardLink to={to} key={id}>
 			<S.Wrapper>
 				<S.ImageWrapper>
 					<S.CardBadge variant={variant}>{badgeText}</S.CardBadge>
 					<S.CardImage src={src} />
+					<S.ImageBackground status={status} />
 				</S.ImageWrapper>
 				<S.ContentWrapper>
 					<Heading variant="h5">{title}</Heading>
@@ -32,4 +29,4 @@ const ClassCard = ({ language, status, to, start_at }: Props) => {
 		</S.CardLink>
 	);
 };
-export default ClassCard;
+export default ChallangeCard;

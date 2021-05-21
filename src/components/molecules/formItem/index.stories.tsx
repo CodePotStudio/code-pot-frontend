@@ -3,6 +3,7 @@ import FormItem from ".";
 import CheckBox from "../../atoms/checkBox";
 import Input from "../../atoms/input";
 import Select from "../../atoms/select";
+import { Radio } from "components";
 
 export default {
 	title: "Mocules/Form Item",
@@ -12,7 +13,7 @@ export default {
 export const Default = () => (
 	<>
 		<FormItem label="ID">
-			<Input inputName="ID" placeholder="ID를 입력해 주세요"></Input>
+			<Input name="ID" placeholder="ID를 입력해 주세요"></Input>
 		</FormItem>
 		<FormItem label="환불 계좌">
 			<Select
@@ -27,13 +28,16 @@ export const Default = () => (
 				약관 동의
 			</CheckBox>
 		</FormItem>
+		<FormItem>
+			<Radio checked={true}>계좌 이체</Radio>
+		</FormItem>
 	</>
 );
 
 export const AlignRowForm = () => (
 	<>
 		<FormItem label="ID" direction="row">
-			<Input inputName="ID" placeholder="ID를 입력해 주세요"></Input>
+			<Input name="ID" placeholder="ID를 입력해 주세요"></Input>
 		</FormItem>
 		<FormItem direction="row" label="환불 계좌">
 			<Select
@@ -48,13 +52,16 @@ export const AlignRowForm = () => (
 				약관 동의
 			</CheckBox>
 		</FormItem>
+		<FormItem direction="row">
+			<Radio checked={true}>계좌 이체</Radio>
+		</FormItem>
 	</>
 );
 
 export const InvalidFormItem = () => (
 	<>
 		<FormItem label="ID" invalid={true} caption="잘못된 ID입니다.">
-			<Input inputName="ID" placeholder="ID를 입력해 주세요"></Input>
+			<Input name="ID" placeholder="ID를 입력해 주세요"></Input>
 		</FormItem>
 	</>
 );
@@ -67,7 +74,7 @@ export const InvalidRowFormItem = () => (
 			direction="row"
 			caption="잘못된 ID입니다."
 		>
-			<Input inputName="ID" placeholder="ID를 입력해 주세요"></Input>
+			<Input name="ID" placeholder="ID를 입력해 주세요"></Input>
 		</FormItem>
 	</>
 );

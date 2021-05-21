@@ -1,4 +1,5 @@
 import * as S from "./style";
+import Link from "next/link";
 
 interface Props {
 	children: React.ReactNode;
@@ -10,8 +11,7 @@ interface Props {
 	onClick?: () => void;
 }
 
-//FIXME: Hover 시에 색이 안바뀌는데 왜 안바뀌는지 모르겠음.
-const Link = ({ children, to, href, onClick, ...props }: Props) => {
+const CustomLink = ({ children, to, href, onClick, ...props }: Props) => {
 	if (href) {
 		return (
 			<S.Anchor href={href} {...props}>
@@ -20,9 +20,9 @@ const Link = ({ children, to, href, onClick, ...props }: Props) => {
 		);
 	} else if (to) {
 		return (
-			<S.Link href={to} {...props}>
-				{children}
-			</S.Link>
+			<Link href={to} passHref>
+				<S.Anchor {...props}>{children}</S.Anchor>
+			</Link>
 		);
 	} else {
 		return (
@@ -33,4 +33,4 @@ const Link = ({ children, to, href, onClick, ...props }: Props) => {
 	}
 };
 
-export default Link;
+export default CustomLink;

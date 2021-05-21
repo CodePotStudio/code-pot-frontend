@@ -6,6 +6,9 @@ export const NavigationBarWrapper = styled.ul`
 	display: flex;
 	position: relative;
 	align-items: center;
+	margin: 0;
+	padding: 0;
+	list-style: none;
 	& > li:not(:first-of-type) {
 		margin-left: ${palette("spaces", 1)};
 	}

@@ -28,7 +28,7 @@ const theme = {
 			"#E4E4E4",
 			"#F9FAFB",
 		],
-		opacityscale: [0.9, 0.8, 0.7, 0.6, 0.5],
+		opacityscale: [0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.05],
 		spaces: [
 			"0.25rem", // 4px
 			"0.75rem", // 8px
@@ -72,6 +72,11 @@ const theme = {
     `,
 		h6: `
       font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.8;
+    `,
+		h7: `
+      font-size: 1.125rem;
       font-weight: 700;
       line-height: 1.8;
     `,

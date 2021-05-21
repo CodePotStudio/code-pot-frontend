@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import Image from "next/image";
 
-export const Avatar = styled(Image)`
+export const Avatar = styled.img`
 	box-sizing: border-box;
 	margin: 0;
 	min-width: 0;

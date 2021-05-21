@@ -4,7 +4,10 @@ import { Text } from "../../atoms/typography";
 
 export interface FormItemStyleProps {
 	direction?: "row" | "column";
+	invalid?: boolean;
 }
+
+export const Wrapper = styled.div``;
 
 export const FormItemWrapper = styled.div<FormItemStyleProps>`
 	display: flex;
