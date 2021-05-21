@@ -6,9 +6,9 @@ import {
 	EPCardGrid,
 } from "components";
 import { ChallangeCardType } from "types/data";
-import Head from "next/head";
 import { EpilogueCardData } from "components/organisms/epilogueCardGrid/constants";
 import { MainPageFAQ } from "components/organisms/drawerGrid/constants";
+import Seo from "components/molecules/Seo";
 
 // TODO: 임시 데이터
 const sampleCards: ChallangeCardType[] = [
@@ -52,10 +52,7 @@ const sampleCards: ChallangeCardType[] = [
 export default function Home() {
 	return (
 		<>
-			<Head>
-				<title>습관처럼 꾸준히 코딩하자.</title>
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
+			<Seo></Seo>
 			<MainPageTemplate
 				hero={<Hero />}
 				challangeGrid={<CHCardGrid CHCards={sampleCards} />}

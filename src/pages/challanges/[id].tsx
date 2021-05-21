@@ -1,4 +1,5 @@
 import { CHBanner, RegisterBanner, ChallangeDetailTemplate } from "components";
+import Seo from "components/molecules/Seo";
 import { DESCRIPTION } from "components/templates/challangeDetail/constants";
 import { ChallangeCardType } from "types/data";
 
@@ -23,13 +24,12 @@ export async function getServerSideProps() {
 const ChallangeDetail = ({ data }: Props) => {
 	return (
 		<>
-			(
+			<Seo></Seo>
 			<ChallangeDetailTemplate
 				descriptions={DESCRIPTION}
 				challangeBanner={<CHBanner {...data} />}
 				registerBannder={<RegisterBanner challangeId={data.id} />}
 			></ChallangeDetailTemplate>
-			)
 		</>
 	);
 };

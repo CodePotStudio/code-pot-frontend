@@ -1,3 +1,9 @@
 import { SignupTemplate } from "components";
+import Seo from "components/molecules/Seo";
 
-export default () => <SignupTemplate></SignupTemplate>;
+export default () => (
+	<>
+		<Seo></Seo>
+		<SignupTemplate></SignupTemplate>
+	</>
+);
