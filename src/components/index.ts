@@ -48,6 +48,7 @@ export { default as CheckoutTemplate } from "./templates/checkout";
 export { default as TransferGuideTemplate } from "./templates/transferGuide";
 export { default as SignupTemplate } from "./templates/signup";
 export { default as LoginTemplate } from "./templates/login";
+export { default as ActivateAccountTemplate } from "./templates/activateAccount";
 
 // container
 export { default as ContentContainer } from "./containers/contentContainer";
