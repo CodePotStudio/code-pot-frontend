@@ -49,6 +49,7 @@ export { default as TransferGuideTemplate } from "./templates/transferGuide";
 export { default as SignupTemplate } from "./templates/signup";
 export { default as LoginTemplate } from "./templates/login";
 export { default as ActivateAccountTemplate } from "./templates/activateAccount";
+export { default as RegisterRefundAccountTemplate } from "./templates/registerRefundAccount";
 
 // container
 export { default as ContentContainer } from "./containers/contentContainer";
