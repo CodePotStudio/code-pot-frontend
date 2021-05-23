@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as S from "./style";
 import { Avatar, NavigationMenu } from "components";
-import routes from "commons/constants/routes";
+import routes from "common/constants/routes";
 
 interface Props {
 	isLoggedIn: boolean;

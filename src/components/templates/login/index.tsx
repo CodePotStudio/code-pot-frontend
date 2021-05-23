@@ -1,3 +1,4 @@
+import routes from "common/constants/routes";
 import { AuthTemplate } from "components";
 import { ICONS } from "components/atoms/icon/constants";
 import * as S from "./style";
@@ -11,7 +12,11 @@ const LoginTemplate = () => (
 			<br />
 			프로젝트
 		</S.StyledHeading>
-		<S.StyledButton to="/" variant="github" icon={ICONS.github}>
+		<S.StyledButton
+			href={routes.GITHUB_LOGIN}
+			variant="github"
+			icon={ICONS.github}
+		>
 			github으로 로그인하기
 		</S.StyledButton>
 	</AuthTemplate>

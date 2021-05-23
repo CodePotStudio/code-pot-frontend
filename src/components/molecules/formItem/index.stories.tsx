@@ -1,4 +1,4 @@
-import { BANK_LIST } from "../../../commons/constants";
+import { BANK_LIST } from "../../../common/constants";
 import FormItem from ".";
 import CheckBox from "../../atoms/checkBox";
 import Input from "../../atoms/input";
