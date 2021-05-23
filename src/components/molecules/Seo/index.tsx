@@ -1,4 +1,4 @@
-import { SEO_CONFIG } from "commons/constants";
+import { SEO_CONFIG } from "common/constants";
 import Head from "next/head";
 
 interface Props {

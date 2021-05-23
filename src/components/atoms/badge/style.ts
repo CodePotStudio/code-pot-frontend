@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { ifProp, palette } from "styled-tools";
+import { palette } from "styled-tools";
 import { variant } from "types/data";
 
 export interface BadgeStyleProps {

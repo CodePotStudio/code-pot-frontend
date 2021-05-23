@@ -1,4 +1,4 @@
-import { largeContainerStyle } from "commons/style/ContainerStyle";
+import { largeContainerStyle } from "common/style/ContainerStyle";
 import styled from "styled-components";
 import { palette } from "styled-tools";
 
