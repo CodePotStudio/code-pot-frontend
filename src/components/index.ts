@@ -22,6 +22,7 @@ export { default as NavigationMenu } from "./molecules/navigationMenu";
 export { default as NavigationBar } from "./molecules/navigationBar";
 export { default as ChallangeCard } from "./molecules/ChallangeCard";
 export { default as ChallangeContent } from "components/molecules/ChallangeContent";
+export { default as Seo } from "components/molecules/Seo";
 
 // organisms
 export { default as Footer } from "./organisms/footer";
