@@ -14,5 +14,23 @@ export default NextAuth({
 		async redirect(url, baseUrl) {
 			return "/";
 		},
+		async signIn(user, account, _) {
+			if (account.provider === "github") {
+				const emailRes = await fetch("https://api.github.com/user/emails", {
+					headers: {
+						Authorization: `token ${account.accessToken}`,
+					},
+				});
+				const emails = await emailRes.json();
+				const primaryEmail = emails.find((e: any) => e.primary).email;
+				user.email = primaryEmail;
+
+				if (primaryEmail) {
+					return true;
+				}
+				return false;
+			}
+			return true;
+		},
 	},
 });
