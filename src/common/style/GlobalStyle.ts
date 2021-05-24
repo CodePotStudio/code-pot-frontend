@@ -19,6 +19,7 @@ const GlobalStyles = createGlobalStyle`
     color: inherit;
   }
   a, a:hover, a:focus, a:active {
+    cursor: pointer;
     text-decoration: none;
     color: inherit;
   }

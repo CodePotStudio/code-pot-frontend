@@ -20,9 +20,9 @@ const CustomLink = ({ children, to, href, onClick, ...props }: Props) => {
 		);
 	} else if (to) {
 		return (
-			<Link href={to} passHref>
+			<S.Link href={to} passHref>
 				<S.Anchor {...props}>{children}</S.Anchor>
-			</Link>
+			</S.Link>
 		);
 	} else {
 		return (
