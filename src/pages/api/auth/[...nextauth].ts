@@ -1,3 +1,4 @@
+import { createUser } from "libs/data";
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
 
@@ -20,8 +21,9 @@ export default NextAuth({
 		async redirect(url, baseUrl) {
 			return "/";
 		},
-		async signIn(user, account, _) {
+		async signIn(user, account, profile) {
 			if (account.provider === "github") {
+				// github에서 email 가져오기
 				const emailRes = await fetch("https://api.github.com/user/emails", {
 					headers: {
 						Authorization: `token ${account.accessToken}`,
@@ -30,13 +32,24 @@ export default NextAuth({
 				const emails = await emailRes.json();
 				const primaryEmail = emails.find((e: any) => e.primary).email;
 				user.email = primaryEmail;
-
-				if (primaryEmail) {
-					return true;
-				}
-				return false;
+				// user 생성하기
+				const createdUser = await createUser(
+					primaryEmail,
+					user.image,
+					account.id
+				);
+				// user 객체에 codepot user id 저장하기
+				user.id = createdUser.data.createUser.id;
+				return true;
 			}
 			return true;
+		},
+		async jwt(token, user) {
+			// user에 있는 codepot user id 토큰에 저장하기
+			if (user) {
+				token = { id: user.id };
+			}
+			return token;
 		},
 	},
 });

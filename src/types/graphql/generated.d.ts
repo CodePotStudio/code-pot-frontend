@@ -20,6 +20,7 @@ export type Mutation = {
   activateUser: User;
   logout?: Maybe<Scalars['Boolean']>;
   createAuthToken?: Maybe<AccessToken>;
+  createUser: User;
 };
 
 
@@ -34,11 +35,17 @@ export type MutationActivateUserArgs = {
   name: Scalars['String'];
 };
 
+
+export type MutationCreateUserArgs = {
+  email: Scalars['String'];
+  avatar?: Maybe<Scalars['String']>;
+  githubId: Scalars['Int'];
+};
+
 export type Profile = {
   __typename?: 'Profile';
   avatar?: Maybe<Scalars['String']>;
   bio?: Maybe<Scalars['String']>;
-  githubUrl?: Maybe<Scalars['String']>;
 };
 
 export type Query = {
@@ -90,6 +97,21 @@ export type CreateAuthTokenMutation = (
   )> }
 );
 
+export type CreateUserMutationVariables = Exact<{
+  email: Scalars['String'];
+  avatar?: Maybe<Scalars['String']>;
+  githubId: Scalars['Int'];
+}>;
+
+
+export type CreateUserMutation = (
+  { __typename?: 'Mutation' }
+  & { createUser: (
+    { __typename?: 'User' }
+    & UserFieldsFragment
+  ) }
+);
+
 export type GetMeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -102,7 +124,7 @@ export type GetMeQuery = (
       & UserFieldsFragment
     ), profile?: Maybe<(
       { __typename?: 'Profile' }
-      & Pick<Profile, 'avatar' | 'githubUrl'>
+      & Pick<Profile, 'avatar'>
     )> }
   )> }
 );
@@ -163,6 +185,41 @@ export function useCreateAuthTokenMutation(baseOptions?: Apollo.MutationHookOpti
 export type CreateAuthTokenMutationHookResult = ReturnType<typeof useCreateAuthTokenMutation>;
 export type CreateAuthTokenMutationResult = Apollo.MutationResult<CreateAuthTokenMutation>;
 export type CreateAuthTokenMutationOptions = Apollo.BaseMutationOptions<CreateAuthTokenMutation, CreateAuthTokenMutationVariables>;
+export const CreateUserDocument = gql`
+    mutation createUser($email: String!, $avatar: String, $githubId: Int!) {
+  createUser(email: $email, avatar: $avatar, githubId: $githubId) {
+    ...UserFields
+  }
+}
+    ${UserFieldsFragmentDoc}`;
+export type CreateUserMutationFn = Apollo.MutationFunction<CreateUserMutation, CreateUserMutationVariables>;
+
+/**
+ * __useCreateUserMutation__
+ *
+ * To run a mutation, you first call `useCreateUserMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateUserMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createUserMutation, { data, loading, error }] = useCreateUserMutation({
+ *   variables: {
+ *      email: // value for 'email'
+ *      avatar: // value for 'avatar'
+ *      githubId: // value for 'githubId'
+ *   },
+ * });
+ */
+export function useCreateUserMutation(baseOptions?: Apollo.MutationHookOptions<CreateUserMutation, CreateUserMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreateUserMutation, CreateUserMutationVariables>(CreateUserDocument, options);
+      }
+export type CreateUserMutationHookResult = ReturnType<typeof useCreateUserMutation>;
+export type CreateUserMutationResult = Apollo.MutationResult<CreateUserMutation>;
+export type CreateUserMutationOptions = Apollo.BaseMutationOptions<CreateUserMutation, CreateUserMutationVariables>;
 export const GetMeDocument = gql`
     query getMe {
   me {
@@ -171,7 +228,6 @@ export const GetMeDocument = gql`
     }
     profile {
       avatar
-      githubUrl
     }
   }
 }
