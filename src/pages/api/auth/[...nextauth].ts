@@ -9,6 +9,12 @@ export default NextAuth({
 			clientSecret: process.env.GITHUB_SECRET,
 		}),
 	],
+	session: {
+		jwt: true,
+	},
+	jwt: {
+		secret: process.env.JWT_SECRET,
+	},
 	callbacks: {
 		// TODO: 왔던 곳으로 되돌아가도록 셋팅하기
 		async redirect(url, baseUrl) {
