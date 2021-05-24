@@ -15,7 +15,7 @@ const LoginTemplate = () => (
 		<S.StyledButton
 			variant="github"
 			icon={ICONS.github}
-			onClick={() => signIn()}
+			onClick={() => signIn("github")}
 		>
 			github으로 로그인하기
 		</S.StyledButton>

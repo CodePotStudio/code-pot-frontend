@@ -1,6 +1,6 @@
 import { AuthTemplate } from "components";
 import { ICONS } from "components/atoms/icon/constants";
-import { signOut } from "next-auth/client";
+import { signIn } from "next-auth/client";
 import * as S from "./style";
 
 const SignUpTemplate = () => (
@@ -13,7 +13,7 @@ const SignUpTemplate = () => (
 			프로젝트
 		</S.StyledHeading>
 		<S.StyledButton
-			onClick={() => signOut}
+			onClick={() => signIn("github")}
 			variant="github"
 			icon={ICONS.github}
 		>
