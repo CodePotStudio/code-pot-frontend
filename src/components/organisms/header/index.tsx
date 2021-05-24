@@ -1,23 +1,34 @@
 import { Link, Logo, NavigationBar } from "components";
+import { Session } from "next-auth";
+import { useSession } from "next-auth/client";
 import * as S from "./style";
 
 interface Props {
-	isLoggedIn: boolean;
 	navless?: boolean;
 }
+interface HeaderProps extends Props {
+	session?: Session | null;
+	loading?: boolean;
+}
 
-const Header = ({ isLoggedIn, navless }: Props) => (
+export const Header = ({ session, navless, loading }: HeaderProps) => (
 	<S.Wrapper>
 		<Link to="/">
 			<Logo height={24} />
 		</Link>
-		{!navless && <NavigationBar isLoggedIn={isLoggedIn}></NavigationBar>}
+		{loading ? (
+			<></>
+		) : (
+			!navless && <NavigationBar session={session}></NavigationBar>
+		)}
 	</S.Wrapper>
 );
 
-Header.defaultProps = {
-	isLoggedIn: false,
-	navless: false,
+const HeaderContainer = ({ navless }: Props) => {
+	const [session, loading] = useSession();
+	return (
+		<Header session={session} loading={loading} navless={navless}></Header>
+	);
 };
 
-export default Header;
+export default HeaderContainer;
