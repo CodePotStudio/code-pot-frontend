@@ -5,16 +5,19 @@ import GlobalStyles from "../common/style/GlobalStyle";
 import { AppProps } from "next/app";
 import { ApolloProvider } from "@apollo/client/react";
 import client from "apollo/client";
+import { Provider } from "next-auth/client";
 
 function App({ Component, pageProps }: AppProps) {
 	return (
-		<ApolloProvider client={client}>
-			<ThemeProvider theme={defaultTheme}>
-				<Normalize />
-				<GlobalStyles />
-				<Component {...pageProps} />
-			</ThemeProvider>
-		</ApolloProvider>
+		<Provider session={pageProps.session}>
+			<ApolloProvider client={client}>
+				<ThemeProvider theme={defaultTheme}>
+					<Normalize />
+					<GlobalStyles />
+					<Component {...pageProps} />
+				</ThemeProvider>
+			</ApolloProvider>
+		</Provider>
 	);
 }
 export default App;

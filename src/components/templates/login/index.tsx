@@ -1,6 +1,6 @@
-import routes from "common/constants/routes";
 import { AuthTemplate } from "components";
 import { ICONS } from "components/atoms/icon/constants";
+import { signIn } from "next-auth/client";
 import * as S from "./style";
 
 const LoginTemplate = () => (
@@ -13,9 +13,9 @@ const LoginTemplate = () => (
 			프로젝트
 		</S.StyledHeading>
 		<S.StyledButton
-			href={routes.GITHUB_LOGIN}
 			variant="github"
 			icon={ICONS.github}
+			onClick={() => signIn()}
 		>
 			github으로 로그인하기
 		</S.StyledButton>

@@ -9,7 +9,8 @@ import { ChallangeCardType } from "types/data";
 import { EpilogueCardData } from "components/organisms/epilogueCardGrid/constants";
 import { MainPageFAQ } from "components/organisms/drawerGrid/constants";
 import Seo from "components/molecules/Seo";
-import { useQuery, gql } from "@apollo/client";
+import { gql } from "@apollo/client";
+import { useSession } from "next-auth/client";
 
 // TODO: 임시 데이터
 const sampleCards: ChallangeCardType[] = [
@@ -61,8 +62,6 @@ const GET_ME = gql`
 `;
 
 export default function Home() {
-	const { loading, error, data } = useQuery(GET_ME);
-	console.log(loading, error, data);
 	return (
 		<>
 			<Seo></Seo>
