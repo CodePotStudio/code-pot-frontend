@@ -61,7 +61,7 @@ const GET_ME = gql`
 	}
 `;
 
-export default function Home() {
+export default () => {
 	return (
 		<>
 			<Seo></Seo>
@@ -73,4 +73,4 @@ export default function Home() {
 			></MainPageTemplate>
 		</>
 	);
-}
+};
