@@ -9,8 +9,6 @@ import { ChallangeCardType } from "types/data";
 import { EpilogueCardData } from "components/organisms/epilogueCardGrid/constants";
 import { MainPageFAQ } from "components/organisms/drawerGrid/constants";
 import Seo from "components/molecules/Seo";
-import { gql } from "@apollo/client";
-import { useSession } from "next-auth/client";
 
 // TODO: 임시 데이터
 const sampleCards: ChallangeCardType[] = [
