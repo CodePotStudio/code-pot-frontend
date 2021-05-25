@@ -1,8 +1,8 @@
 import { CHBanner, RegisterBanner, ChallangeDetailTemplate } from "components";
 import Seo from "components/molecules/Seo";
-import WithAuth from "components/router";
 import { DESCRIPTION } from "components/templates/challangeDetail/constants";
 import moment from "moment";
+import { ComponentWithAuth } from "pages/_app";
 import { ChallangeCardType } from "types/data";
 
 interface Props {
@@ -23,7 +23,7 @@ export async function getServerSideProps() {
 	return { props: { data } };
 }
 
-const ChallangeDetail = ({ data }: Props) => {
+const ChallangeDetail: ComponentWithAuth = ({ data }: Props) => {
 	return (
 		<>
 			<Seo></Seo>
@@ -35,5 +35,7 @@ const ChallangeDetail = ({ data }: Props) => {
 		</>
 	);
 };
+
+ChallangeDetail.auth = true;
 
 export default ChallangeDetail;

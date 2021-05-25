@@ -5,16 +5,67 @@ import GlobalStyles from "../common/style/GlobalStyle";
 import { AppProps } from "next/app";
 import { ApolloProvider } from "@apollo/client/react";
 import client from "apollo/client";
-import { Provider } from "next-auth/client";
+import { Provider, useSession, signIn } from "next-auth/client";
+import { useEffect } from "react";
+import { NextComponentType, NextPageContext } from "next";
 
-function App({ Component, pageProps }: AppProps) {
+interface Props {
+	children: React.ReactNode;
+}
+
+/**
+ * Authentication configuration
+ */
+export interface AuthEnabledComponentConfig {
+	auth: boolean;
+}
+
+/**
+ * A component with authentication configuration
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type ComponentWithAuth<PropsType = any> = React.FC<PropsType> &
+	AuthEnabledComponentConfig;
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any,@typescript-eslint/ban-types
+type NextComponentWithAuth = NextComponentType<NextPageContext, any, {}> &
+	Partial<AuthEnabledComponentConfig>;
+
+interface AppWithAuthProps extends AppProps {
+	Component: NextComponentWithAuth;
+}
+
+function Auth({ children }: Props) {
+	const [session, loading] = useSession();
+	const isUser = !!session?.user;
+	useEffect(() => {
+		if (loading) return; // Do nothing while loading
+		if (!isUser) signIn(); // If not authenticated, force log in
+	}, [isUser, loading]);
+
+	if (isUser) {
+		return <>{children}</>;
+	}
+
+	// Session is being fetched, or no user.
+	// If no user, useEffect() will redirect.
+	return <div>Loading...</div>;
+}
+
+function App({ Component, pageProps }: AppWithAuthProps) {
 	return (
 		<Provider session={pageProps.session}>
 			<ApolloProvider client={client}>
 				<ThemeProvider theme={defaultTheme}>
 					<Normalize />
 					<GlobalStyles />
-					<Component {...pageProps} />
+					{Component.auth ? (
+						<Auth>
+							<Component {...pageProps} />
+						</Auth>
+					) : (
+						<Component {...pageProps} />
+					)}
 				</ThemeProvider>
 			</ApolloProvider>
 		</Provider>
