@@ -20,7 +20,7 @@ export type Mutation = {
   activateUser: User;
   logout?: Maybe<Scalars['Boolean']>;
   createAuthToken?: Maybe<AccessToken>;
-  createUser: User;
+  createUser: CreateUserResponse;
 };
 
 
@@ -75,6 +75,12 @@ export type AccessToken = {
   token: Scalars['String'];
 };
 
+export type CreateUserResponse = {
+  __typename?: 'createUserResponse';
+  token: Scalars['String'];
+  user: User;
+};
+
 export type Me = {
   __typename?: 'me';
   user: User;
@@ -107,8 +113,12 @@ export type CreateUserMutationVariables = Exact<{
 export type CreateUserMutation = (
   { __typename?: 'Mutation' }
   & { createUser: (
-    { __typename?: 'User' }
-    & UserFieldsFragment
+    { __typename?: 'createUserResponse' }
+    & Pick<CreateUserResponse, 'token'>
+    & { user: (
+      { __typename?: 'User' }
+      & UserFieldsFragment
+    ) }
   ) }
 );
 
@@ -188,7 +198,10 @@ export type CreateAuthTokenMutationOptions = Apollo.BaseMutationOptions<CreateAu
 export const CreateUserDocument = gql`
     mutation createUser($email: String!, $avatar: String, $githubId: Int!) {
   createUser(email: $email, avatar: $avatar, githubId: $githubId) {
-    ...UserFields
+    token
+    user {
+      ...UserFields
+    }
   }
 }
     ${UserFieldsFragmentDoc}`;

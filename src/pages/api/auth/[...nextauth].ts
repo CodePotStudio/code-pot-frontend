@@ -10,6 +10,7 @@ export default NextAuth({
 			clientSecret: process.env.GITHUB_SECRET,
 		}),
 	],
+	secret: process.env.JWT_SECRET,
 	session: {
 		jwt: true,
 	},
@@ -39,7 +40,7 @@ export default NextAuth({
 					account.id
 				);
 				// user 객체에 codepot user id 저장하기
-				user.id = createdUser.data.createUser.id;
+				user.accessToken = createdUser.data.createUser.token;
 				return true;
 			}
 			return true;
@@ -47,9 +48,13 @@ export default NextAuth({
 		async jwt(token, user) {
 			// user에 있는 codepot user id 토큰에 저장하기
 			if (user) {
-				token = { id: user.id };
+				token = { accessToken: user.accessToken };
 			}
 			return token;
+		},
+		async session(session, token) {
+			session.accessToken = token.accessToken;
+			return session;
 		},
 	},
 });

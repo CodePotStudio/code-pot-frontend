@@ -62,6 +62,8 @@ const GET_ME = gql`
 `;
 
 export default () => {
+	const [session, loading] = useSession();
+	console.log(session);
 	return (
 		<>
 			<Seo></Seo>
