@@ -1,6 +1,7 @@
 import { createUser } from "libs/data";
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
+import queryString from "query-string";
 
 export default NextAuth({
 	// Configure one or more authentication providers
@@ -21,9 +22,13 @@ export default NextAuth({
 		signIn: "/auth/login",
 	},
 	callbacks: {
-		// TODO: 왔던 곳으로 되돌아가도록 셋팅하기
 		async redirect(url, baseUrl) {
-			return "/";
+			const {
+				query: { callbackUrl },
+			} = queryString.parseUrl(url);
+			return callbackUrl && String(callbackUrl).startsWith(baseUrl)
+				? String(callbackUrl)
+				: baseUrl;
 		},
 		async signIn(user, account, profile) {
 			if (account.provider === "github") {
