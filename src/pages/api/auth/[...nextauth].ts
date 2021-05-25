@@ -17,6 +17,9 @@ export default NextAuth({
 	jwt: {
 		secret: process.env.JWT_SECRET,
 	},
+	pages: {
+		signIn: "/auth/login",
+	},
 	callbacks: {
 		// TODO: 왔던 곳으로 되돌아가도록 셋팅하기
 		async redirect(url, baseUrl) {

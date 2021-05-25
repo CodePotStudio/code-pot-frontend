@@ -20,6 +20,7 @@ export interface AuthEnabledComponentConfig {
 	auth: boolean;
 }
 
+// TODO: 글로벌 Type으로 만들기
 /**
  * A component with authentication configuration
  */
