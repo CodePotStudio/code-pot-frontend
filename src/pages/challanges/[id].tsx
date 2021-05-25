@@ -1,6 +1,8 @@
 import { CHBanner, RegisterBanner, ChallangeDetailTemplate } from "components";
 import Seo from "components/molecules/Seo";
+import WithAuth from "components/router";
 import { DESCRIPTION } from "components/templates/challangeDetail/constants";
+import moment from "moment";
 import { ChallangeCardType } from "types/data";
 
 interface Props {
@@ -14,7 +16,7 @@ export async function getServerSideProps() {
 		language: "typescript",
 		status: "inProgress",
 		to: "/home",
-		start_at: new Date(),
+		start_at: moment(new Date()).format("MM/DD(dd)"),
 	};
 
 	// Pass data to the page via props
@@ -33,4 +35,5 @@ const ChallangeDetail = ({ data }: Props) => {
 		</>
 	);
 };
+
 export default ChallangeDetail;
