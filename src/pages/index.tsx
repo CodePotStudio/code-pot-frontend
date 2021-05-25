@@ -51,19 +51,7 @@ const sampleCards: ChallangeCardType[] = [
 	},
 ];
 
-const GET_ME = gql`
-	query GET_ME {
-		me {
-			user {
-				name
-			}
-		}
-	}
-`;
-
 export default () => {
-	const [session, loading] = useSession();
-	console.log(session);
 	return (
 		<>
 			<Seo></Seo>

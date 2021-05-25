@@ -41,6 +41,7 @@ export default NextAuth({
 				);
 				// user 객체에 codepot user id 저장하기
 				user.accessToken = createdUser.data.createUser.token;
+				user.id = createdUser.data.createUser.id;
 				return true;
 			}
 			return true;
@@ -48,12 +49,16 @@ export default NextAuth({
 		async jwt(token, user) {
 			// user에 있는 codepot user id 토큰에 저장하기
 			if (user) {
-				token = { accessToken: user.accessToken };
+				token = { ...user };
 			}
 			return token;
 		},
 		async session(session, token) {
-			session.accessToken = token.accessToken;
+			const { accessToken, ...restInfo } = token;
+			session = {
+				accessToken,
+				user: { ...restInfo },
+			};
 			return session;
 		},
 	},
