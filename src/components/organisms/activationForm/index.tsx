@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { mobileValidator, nameValidator } from "common/validator";
 
-interface ActivationFormValues {
+export interface ActivationFormValues {
 	name: string;
 	mobile: string;
 }
@@ -16,7 +16,7 @@ const activationFormSchema = yup.object().shape({
 });
 
 interface ActivationFormProps {
-	onSubmit: (props: any) => void;
+	onSubmit: (props: ActivationFormValues) => void;
 }
 
 const ActivationForm = ({ onSubmit }: ActivationFormProps) => {
