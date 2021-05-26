@@ -51,6 +51,7 @@ export { default as SignupTemplate } from "./templates/signUp";
 export { default as LoginTemplate } from "./templates/login";
 export { default as ActivateAccountTemplate } from "./templates/activateAccount";
 export { default as RegisterRefundAccountTemplate } from "./templates/registerRefundAccount";
+export { default as LoadingTemplate } from "./templates/loading";
 
 // container
 export { default as ContentContainer } from "./containers/contentContainer";

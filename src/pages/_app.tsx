@@ -8,7 +8,7 @@ import client from "apollo/client";
 import { Provider, useSession, signIn } from "next-auth/client";
 import { useEffect } from "react";
 import { NextComponentType, NextPageContext } from "next";
-
+import { LoadingTemplate } from "components";
 interface Props {
 	children: React.ReactNode;
 }
@@ -50,7 +50,7 @@ function Auth({ children }: Props) {
 
 	// Session is being fetched, or no user.
 	// If no user, useEffect() will redirect.
-	return <div>Loading...</div>;
+	return <LoadingTemplate></LoadingTemplate>;
 }
 
 function App({ Component, pageProps }: AppWithAuthProps) {
