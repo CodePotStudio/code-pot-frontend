@@ -8,18 +8,20 @@ declare module "next-auth" {
 		user: {
 			name: string;
 			email: string;
-			id: string;
+			id: number;
 			image: string;
+			isActive: boolean;
 		};
 		accessToken: string;
 	}
 	interface User {
 		accessToken: string;
-		id: string;
+		id: number;
 		name: string;
 		email: string;
 		id: string;
 		image: string;
+		isActive: boolean;
 	}
 }
 
@@ -30,7 +32,8 @@ declare module "next-auth/jwt" {
 		accessToken: string;
 		name: string;
 		email: string;
-		id: string;
+		id: number;
 		image: string;
+		isActive: boolean;
 	}
 }

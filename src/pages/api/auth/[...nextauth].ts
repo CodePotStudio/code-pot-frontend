@@ -42,14 +42,11 @@ export default NextAuth({
 				const primaryEmail = emails.find((e: any) => e.primary).email;
 				user.email = primaryEmail;
 				// user 생성하기
-				const createdUser = await createUser(
-					primaryEmail,
-					user.image,
-					account.id
-				);
+				const result = await createUser(primaryEmail, user.image, account.id);
 				// user 객체에 codepot user id 저장하기
-				user.accessToken = createdUser.data.createUser.token;
-				user.id = createdUser.data.createUser.id;
+				user.accessToken = result.token;
+				user.id = result.user.id;
+				user.isActive = result.user.isActive;
 				return true;
 			}
 			return true;

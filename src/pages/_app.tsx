@@ -9,6 +9,8 @@ import { Provider, useSession, signIn } from "next-auth/client";
 import { useEffect } from "react";
 import { NextComponentType, NextPageContext } from "next";
 import { LoadingTemplate } from "components";
+import { useRouter } from "next/router";
+import routes from "common/constants/routes";
 interface Props {
 	children: React.ReactNode;
 }
@@ -38,13 +40,20 @@ interface AppWithAuthProps extends AppProps {
 
 function Auth({ children }: Props) {
 	const [session, loading] = useSession();
+	const router = useRouter();
 	const isUser = !!session?.user;
+	const isActivated = !!session?.user.isActive;
 	useEffect(() => {
 		if (loading) return; // Do nothing while loading
 		if (!isUser) signIn(); // If not authenticated, force log in
-	}, [isUser, loading]);
+		if (!isActivated) {
+			// If not activate, force to activate
+			router.push(routes.ACTIVATE);
+		}
+	}, [session, loading]);
 
-	if (isUser) {
+	// 활성화 되었을 때만 컴포넌트 렌더링
+	if (isUser && isActivated) {
 		return <>{children}</>;
 	}
 

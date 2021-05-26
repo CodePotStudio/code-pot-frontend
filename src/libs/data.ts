@@ -1,5 +1,9 @@
 import createUserMutation from "graphql/mutations/createUser.mutation";
 import getMeQuery from "graphql/queries/getMe.query";
+import {
+	CreateUserMutation,
+	CreateUserMutationVariables,
+} from "types/graphql/generated";
 import client from "../apollo/client";
 
 // 신규 유저 생성하기
@@ -8,7 +12,10 @@ export const createUser = async (
 	avatar: string | undefined | null,
 	githubId: string | undefined
 ) => {
-	const data = await client.mutate({
+	const result = await client.mutate<
+		CreateUserMutation,
+		CreateUserMutationVariables
+	>({
 		mutation: createUserMutation,
 		variables: {
 			email: email,
@@ -16,7 +23,7 @@ export const createUser = async (
 			githubId: Number(githubId),
 		},
 	});
-	return data;
+	return result.data!.createUser;
 };
 
 export const getMe = async () => {
