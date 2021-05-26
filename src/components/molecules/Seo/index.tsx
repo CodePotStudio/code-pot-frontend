@@ -41,10 +41,14 @@ const Seo = ({ title, mainImage, pageURL, description }: Props) => {
 			<link href="manifest.json" rel="manifest" />
 
 			{Object.keys(metaName).map((name) => (
-				<meta name={name} content={metaName[name]} />
+				<meta name={name} content={metaName[name]} key={name} />
 			))}
 			{Object.keys(metaProperty).map((property) => (
-				<meta property={property} content={metaProperty[property]} />
+				<meta
+					property={property}
+					content={metaProperty[property]}
+					key={property}
+				/>
 			))}
 		</Head>
 	);
