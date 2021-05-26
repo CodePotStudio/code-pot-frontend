@@ -3,7 +3,7 @@ import getMeQuery from "graphql/queries/getMe.query";
 import {
 	CreateUserMutation,
 	CreateUserMutationVariables,
-} from "types/graphql/generated";
+} from "types/graphql/generated-types";
 import client from "../apollo/client";
 
 // 신규 유저 생성하기
