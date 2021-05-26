@@ -46,7 +46,6 @@ export default NextAuth({
 				// user 객체에 codepot user id 저장하기
 				user.accessToken = result.token;
 				user.id = result.user.id;
-				user.isActive = result.user.isActive;
 				return true;
 			}
 			return true;

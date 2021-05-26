@@ -9,6 +9,7 @@ import { Provider, useSession, signIn } from "next-auth/client";
 import { useEffect } from "react";
 import { NextComponentType, NextPageContext } from "next";
 import { LoadingTemplate } from "components";
+import { useGetMeQuery } from "types/graphql/generated-types";
 import { useRouter } from "next/router";
 import routes from "common/constants/routes";
 interface Props {
@@ -40,15 +41,22 @@ interface AppWithAuthProps extends AppProps {
 
 function Auth({ children }: Props) {
 	const [session, loading] = useSession();
+	const { data } = useGetMeQuery();
+	const router = useRouter();
 	const isUser = !!session?.user;
-	console.log(session?.user);
+	const isActive = data?.me?.user.isActive;
+
 	useEffect(() => {
 		if (loading) return; // Do nothing while loading
+		// 로그인은 되어 있으나, 활성화가 안되어 있는 경우
+		if (isUser && data && !isActive) {
+			router.push(routes.ACTIVATE);
+		}
 		if (!isUser) signIn(); // If not authenticated, force log in
-	}, [session, loading]);
+	}, [session, loading, isActive]);
 
 	// 활성화 되었을 때만 컴포넌트 렌더링
-	if (isUser) {
+	if (isUser && data && isActive) {
 		return <>{children}</>;
 	}
 
