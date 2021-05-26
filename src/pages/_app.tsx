@@ -40,20 +40,15 @@ interface AppWithAuthProps extends AppProps {
 
 function Auth({ children }: Props) {
 	const [session, loading] = useSession();
-	const router = useRouter();
 	const isUser = !!session?.user;
-	const isActivated = !!session?.user.isActive;
+	console.log(session?.user);
 	useEffect(() => {
 		if (loading) return; // Do nothing while loading
 		if (!isUser) signIn(); // If not authenticated, force log in
-		if (!isActivated) {
-			// If not activate, force to activate
-			router.push(routes.ACTIVATE);
-		}
 	}, [session, loading]);
 
 	// 활성화 되었을 때만 컴포넌트 렌더링
-	if (isUser && isActivated) {
+	if (isUser) {
 		return <>{children}</>;
 	}
 

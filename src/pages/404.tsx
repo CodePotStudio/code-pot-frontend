@@ -1,9 +1,11 @@
 import { NotFoundTemplate } from "components";
 import Seo from "components/molecules/Seo";
 
-export default () => (
+const NotFound = () => (
 	<>
 		<Seo></Seo>
 		<NotFoundTemplate></NotFoundTemplate>
 	</>
 );
+
+export default NotFound;

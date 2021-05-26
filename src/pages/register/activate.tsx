@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useActivateUserMutation } from "types/graphql/generated-types";
 import { ActivationFormValues } from "../../components/organisms/activationForm";
 
-export default () => {
+const activate = () => {
 	const router = useRouter();
 	const [activateUser, { data }] = useActivateUserMutation();
 	const handleSubmit = async ({
@@ -33,3 +33,5 @@ export default () => {
 		</>
 	);
 };
+
+export default activate;

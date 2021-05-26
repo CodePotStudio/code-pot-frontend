@@ -49,7 +49,7 @@ const sampleCards: ChallangeCardType[] = [
 	},
 ];
 
-export default () => {
+const Home = () => {
 	return (
 		<>
 			<Seo></Seo>
@@ -62,3 +62,5 @@ export default () => {
 		</>
 	);
 };
+
+export default Home;
