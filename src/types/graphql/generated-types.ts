@@ -92,15 +92,18 @@ export type UserFieldsFragment = (
   & Pick<User, 'id' | 'name' | 'email' | 'mobile' | 'isActive' | 'RBankAccount'>
 );
 
-export type CreateAuthTokenMutationVariables = Exact<{ [key: string]: never; }>;
+export type ActivateUserMutationVariables = Exact<{
+  mobile: Scalars['String'];
+  name: Scalars['String'];
+}>;
 
 
-export type CreateAuthTokenMutation = (
+export type ActivateUserMutation = (
   { __typename?: 'Mutation' }
-  & { createAuthToken?: Maybe<(
-    { __typename?: 'accessToken' }
-    & Pick<AccessToken, 'token'>
-  )> }
+  & { activateUser: (
+    { __typename?: 'User' }
+    & UserFieldsFragment
+  ) }
 );
 
 export type CreateUserMutationVariables = Exact<{
@@ -139,20 +142,6 @@ export type GetMeQuery = (
   )> }
 );
 
-export type Get_MeQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type Get_MeQuery = (
-  { __typename?: 'Query' }
-  & { me?: Maybe<(
-    { __typename?: 'me' }
-    & { user: (
-      { __typename?: 'User' }
-      & Pick<User, 'name'>
-    ) }
-  )> }
-);
-
 export const UserFieldsFragmentDoc = gql`
     fragment UserFields on User {
   id
@@ -163,38 +152,40 @@ export const UserFieldsFragmentDoc = gql`
   RBankAccount
 }
     `;
-export const CreateAuthTokenDocument = gql`
-    mutation createAuthToken {
-  createAuthToken {
-    token
+export const ActivateUserDocument = gql`
+    mutation activateUser($mobile: String!, $name: String!) {
+  activateUser(mobile: $mobile, name: $name) {
+    ...UserFields
   }
 }
-    `;
-export type CreateAuthTokenMutationFn = Apollo.MutationFunction<CreateAuthTokenMutation, CreateAuthTokenMutationVariables>;
+    ${UserFieldsFragmentDoc}`;
+export type ActivateUserMutationFn = Apollo.MutationFunction<ActivateUserMutation, ActivateUserMutationVariables>;
 
 /**
- * __useCreateAuthTokenMutation__
+ * __useActivateUserMutation__
  *
- * To run a mutation, you first call `useCreateAuthTokenMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useCreateAuthTokenMutation` returns a tuple that includes:
+ * To run a mutation, you first call `useActivateUserMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useActivateUserMutation` returns a tuple that includes:
  * - A mutate function that you can call at any time to execute the mutation
  * - An object with fields that represent the current status of the mutation's execution
  *
  * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
  *
  * @example
- * const [createAuthTokenMutation, { data, loading, error }] = useCreateAuthTokenMutation({
+ * const [activateUserMutation, { data, loading, error }] = useActivateUserMutation({
  *   variables: {
+ *      mobile: // value for 'mobile'
+ *      name: // value for 'name'
  *   },
  * });
  */
-export function useCreateAuthTokenMutation(baseOptions?: Apollo.MutationHookOptions<CreateAuthTokenMutation, CreateAuthTokenMutationVariables>) {
+export function useActivateUserMutation(baseOptions?: Apollo.MutationHookOptions<ActivateUserMutation, ActivateUserMutationVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<CreateAuthTokenMutation, CreateAuthTokenMutationVariables>(CreateAuthTokenDocument, options);
+        return Apollo.useMutation<ActivateUserMutation, ActivateUserMutationVariables>(ActivateUserDocument, options);
       }
-export type CreateAuthTokenMutationHookResult = ReturnType<typeof useCreateAuthTokenMutation>;
-export type CreateAuthTokenMutationResult = Apollo.MutationResult<CreateAuthTokenMutation>;
-export type CreateAuthTokenMutationOptions = Apollo.BaseMutationOptions<CreateAuthTokenMutation, CreateAuthTokenMutationVariables>;
+export type ActivateUserMutationHookResult = ReturnType<typeof useActivateUserMutation>;
+export type ActivateUserMutationResult = Apollo.MutationResult<ActivateUserMutation>;
+export type ActivateUserMutationOptions = Apollo.BaseMutationOptions<ActivateUserMutation, ActivateUserMutationVariables>;
 export const CreateUserDocument = gql`
     mutation createUser($email: String!, $avatar: String, $githubId: Int!) {
   createUser(email: $email, avatar: $avatar, githubId: $githubId) {
@@ -272,39 +263,3 @@ export function useGetMeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetM
 export type GetMeQueryHookResult = ReturnType<typeof useGetMeQuery>;
 export type GetMeLazyQueryHookResult = ReturnType<typeof useGetMeLazyQuery>;
 export type GetMeQueryResult = Apollo.QueryResult<GetMeQuery, GetMeQueryVariables>;
-export const Get_MeDocument = gql`
-    query GET_ME {
-  me {
-    user {
-      name
-    }
-  }
-}
-    `;
-
-/**
- * __useGet_MeQuery__
- *
- * To run a query within a React component, call `useGet_MeQuery` and pass it any options that fit your needs.
- * When your component renders, `useGet_MeQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGet_MeQuery({
- *   variables: {
- *   },
- * });
- */
-export function useGet_MeQuery(baseOptions?: Apollo.QueryHookOptions<Get_MeQuery, Get_MeQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<Get_MeQuery, Get_MeQueryVariables>(Get_MeDocument, options);
-      }
-export function useGet_MeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Get_MeQuery, Get_MeQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<Get_MeQuery, Get_MeQueryVariables>(Get_MeDocument, options);
-        }
-export type Get_MeQueryHookResult = ReturnType<typeof useGet_MeQuery>;
-export type Get_MeLazyQueryHookResult = ReturnType<typeof useGet_MeLazyQuery>;
-export type Get_MeQueryResult = Apollo.QueryResult<Get_MeQuery, Get_MeQueryVariables>;
