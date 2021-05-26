@@ -13,6 +13,7 @@ interface Props {
 	name: string;
 	email: string;
 	refundAccountNo: string;
+	image?: string;
 	refundAccountBankName: string;
 	inProgressCards: CHCardProps[];
 	waitingDepositCards: CHCardProps[];
@@ -35,6 +36,7 @@ const SectionContainer = ({ title, children }: SectionContainerProps) => (
 const MyPageTemplate = ({
 	name,
 	email,
+	image,
 	refundAccountNo,
 	refundAccountBankName,
 	inProgressCards,
@@ -45,7 +47,7 @@ const MyPageTemplate = ({
 			<S.Wrapper>
 				<S.HeaderSectionWrapper>
 					<S.AvatarWrapper>
-						<Avatar alt="mypage avatar" size={64}></Avatar>
+						<Avatar alt="mypage avatar" size={64} src={image}></Avatar>
 					</S.AvatarWrapper>
 					<S.BylineWrapper>
 						<Heading variant="h4">{name}님</Heading>
