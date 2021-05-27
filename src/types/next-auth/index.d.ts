@@ -6,9 +6,10 @@ declare module "next-auth" {
 	 */
 	interface Session {
 		user: {
-			email: string;
-			id: number;
-			image: string;
+			email?: string;
+			id?: number;
+			image?: string | undefined | null;
+			isActive?: boolean;
 		};
 		accessToken: string;
 	}
@@ -25,8 +26,6 @@ declare module "next-auth/jwt" {
 	interface JWT {
 		/** OpenID ID Token */
 		accessToken: string;
-		email: string;
 		id: number;
-		image: string;
 	}
 }

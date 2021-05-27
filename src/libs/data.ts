@@ -3,6 +3,7 @@ import getMeQuery from "graphql/queries/getMe.query";
 import {
 	CreateUserMutation,
 	CreateUserMutationVariables,
+	GetMeQuery,
 } from "types/graphql/generated-types";
 import client from "../apollo/client";
 
@@ -26,9 +27,15 @@ export const createUser = async (
 	return result.data!.createUser;
 };
 
-export const getMe = async () => {
-	const data = await client.query({
+export const getMe = async (accessToken: string) => {
+	const result = await client.query<GetMeQuery>({
 		query: getMeQuery,
+		fetchPolicy: "no-cache",
+		context: {
+			headers: {
+				Authorization: `Bearer ${accessToken}`,
+			},
+		},
 	});
-	return data;
+	return { user: result.data!.me?.user, profile: result.data!.me?.profile };
 };
