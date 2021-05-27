@@ -1,5 +1,4 @@
 import { ActivateAccountTemplate, ActivationForm, Seo } from "components";
-import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useActivateUserMutation } from "types/graphql/generated-types";
 import { ActivationFormValues } from "../../components/organisms/activationForm";
