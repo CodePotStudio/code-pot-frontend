@@ -4,20 +4,15 @@ import {
 	LoadingTemplate,
 	Seo,
 } from "components";
-import { getSession } from "next-auth/client";
+import { useSession } from "next-auth/client";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useActivateUserMutation } from "types/graphql/generated-types";
 import { ActivationFormValues } from "../../components/organisms/activationForm";
-import { Session } from "next-auth";
-import { GetServerSideProps } from "next";
 
-interface Props {
-	session: Session | null;
-}
-
-const activate: React.FC<Props> = ({ session }) => {
+const activate = () => {
 	const router = useRouter();
+	const [session, loading] = useSession();
 	const isActive = session?.user?.isActive;
 	const [activateUser] = useActivateUserMutation({
 		onCompleted: () => router.push("/"),
@@ -39,7 +34,7 @@ const activate: React.FC<Props> = ({ session }) => {
 
 	return (
 		<>
-			{isActive ? (
+			{isActive || loading ? (
 				<LoadingTemplate />
 			) : (
 				<>
@@ -54,11 +49,6 @@ const activate: React.FC<Props> = ({ session }) => {
 			)}
 		</>
 	);
-};
-
-export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
-	const session = await getSession(ctx);
-	return { props: { session } };
 };
 
 export default activate;
