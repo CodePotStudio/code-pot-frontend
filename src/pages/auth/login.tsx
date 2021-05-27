@@ -1,7 +1,7 @@
 import Seo from "components/molecules/Seo";
 import { LoginTemplate } from "components";
 
-export default ({}) => {
+const Login = () => {
 	return (
 		<>
 			<Seo></Seo>
@@ -9,3 +9,5 @@ export default ({}) => {
 		</>
 	);
 };
+
+export default Login;
