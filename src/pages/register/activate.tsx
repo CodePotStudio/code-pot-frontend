@@ -1,9 +1,11 @@
 import { ActivateAccountTemplate, ActivationForm, Seo } from "components";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useActivateUserMutation } from "types/graphql/generated-types";
 import { ActivationFormValues } from "../../components/organisms/activationForm";
 
 const activate = () => {
+	const router = useRouter();
 	const [activateUser, { data }] = useActivateUserMutation();
 	const handleSubmit = async ({
 		name,
@@ -15,8 +17,7 @@ const activate = () => {
 
 	useEffect(() => {
 		if (data) {
-			// TODO: router.back이 동작 안함.
-			window.history.back();
+			router.push("/");
 		}
 	});
 

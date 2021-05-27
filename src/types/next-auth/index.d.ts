@@ -10,6 +10,7 @@ declare module "next-auth" {
 			id?: number;
 			image?: string | undefined | null;
 			isActive?: boolean;
+			name?: string | null;
 		};
 		accessToken: string;
 	}

@@ -1,7 +1,6 @@
 import { createUser, getMe } from "libs/data";
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
-import queryString from "query-string";
 
 export default NextAuth({
 	// Configure one or more authentication providers
@@ -22,14 +21,6 @@ export default NextAuth({
 		signIn: "/auth/login",
 	},
 	callbacks: {
-		async redirect(url, baseUrl) {
-			const {
-				query: { callbackUrl },
-			} = queryString.parseUrl(url);
-			return callbackUrl && String(callbackUrl).startsWith(baseUrl)
-				? String(callbackUrl)
-				: baseUrl;
-		},
 		async signIn(user, account, profile) {
 			if (account.provider === "github") {
 				// github에서 email 가져오기
@@ -66,6 +57,7 @@ export default NextAuth({
 					id: id,
 					image: profile?.avatar,
 					isActive: user?.isActive,
+					name: user?.name,
 				},
 			};
 			return session;

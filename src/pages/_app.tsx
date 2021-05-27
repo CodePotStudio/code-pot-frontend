@@ -45,14 +45,13 @@ function Auth({ children }: Props) {
 	const isUser = !!session?.user;
 	const isActive = !!session?.user.isActive;
 
-	console.log("route path", router.pathname, isUser, isActive);
 	useEffect(() => {
 		if (loading) return; // Do nothing while loading
 		// 로그인은 되어 있으나, 활성화가 안되어 있는 경우
 		if (isUser && !isActive) {
 			router.push(routes.ACTIVATE);
 		}
-		if (!isUser) signIn(); // If not authenticated, force log in
+		if (!isUser) router.push(routes.LOGIN); // If not authenticated, force log in
 	}, [session, loading, isActive]);
 
 	// 활성화 되었을 때만 컴포넌트 렌더링
