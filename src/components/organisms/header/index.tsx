@@ -3,32 +3,23 @@ import { Session } from "next-auth";
 import { useSession } from "next-auth/client";
 import * as S from "./style";
 
-interface Props {
-	navless?: boolean;
-}
-interface HeaderProps extends Props {
+interface HeaderProps {
 	session?: Session | null;
 	loading?: boolean;
 }
 
-export const Header = ({ session, navless, loading }: HeaderProps) => (
+export const Header = ({ session, loading }: HeaderProps) => (
 	<S.Wrapper>
 		<Link to="/">
 			<Logo height={24} />
 		</Link>
-		{loading ? (
-			<></>
-		) : (
-			!navless && <NavigationBar session={session}></NavigationBar>
-		)}
+		{loading ? <></> : <NavigationBar session={session}></NavigationBar>}
 	</S.Wrapper>
 );
 
-const HeaderContainer = ({ navless }: Props) => {
+const HeaderContainer = () => {
 	const [session, loading] = useSession();
-	return (
-		<Header session={session} loading={loading} navless={navless}></Header>
-	);
+	return <Header session={session} loading={loading}></Header>;
 };
 
 export default HeaderContainer;

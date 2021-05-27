@@ -5,6 +5,18 @@ export default {
 	component: [Header],
 };
 
-export const LoginStatusHeader = () => <Header session={{}} />;
+export const LoginStatusHeader = () => (
+	<Header
+		session={{
+			user: {
+				email: "abc",
+				id: 123,
+				name: "kim",
+				image: "temp",
+				isActive: true,
+			},
+			accessToken: "abcd",
+		}}
+	/>
+);
 export const LogoutStatusHeader = () => <Header />;
-export const HeaderWithNavless = () => <Header navless={true} />;

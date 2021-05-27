@@ -1,4 +1,4 @@
-import { Header, AuthContainer } from "components";
+import { Logo, AuthContainer } from "components";
 import * as S from "./style";
 
 interface Props {
@@ -9,7 +9,7 @@ const AuthTemplate = ({ children }: Props) => (
 	<>
 		<AuthContainer>
 			<S.HeaderWrapper>
-				<Header navless={true} />
+				<Logo height={24} />
 			</S.HeaderWrapper>
 			<S.ChildrenWrapper>{children}</S.ChildrenWrapper>
 		</AuthContainer>
