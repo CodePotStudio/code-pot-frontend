@@ -19,7 +19,9 @@ interface Props {
 const activate: React.FC<Props> = ({ session }) => {
 	const router = useRouter();
 	const isActive = session?.user?.isActive;
-	const [activateUser, { data }] = useActivateUserMutation();
+	const [activateUser] = useActivateUserMutation({
+		onCompleted: () => router.push("/"),
+	});
 	const handleSubmit = async ({
 		name,
 		mobile: originMobile,
@@ -28,12 +30,7 @@ const activate: React.FC<Props> = ({ session }) => {
 		await activateUser({ variables: { name, mobile } });
 	};
 
-	useEffect(() => {
-		if (data) {
-			router.push("/");
-		}
-	});
-  // 비활성화일 시 홈으로 보내기
+	// 활성화된 유저가 들어 왔을 때 홈으로 보내기
 	useEffect(() => {
 		if (isActive) {
 			router.push("/");

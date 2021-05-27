@@ -11,7 +11,7 @@ const NavigationBar = ({ session }: Props) => {
 	const [showNav, setShowNav] = useState<boolean>(false);
 	return (
 		<S.NavigationBarWrapper>
-			{session ? (
+			{session && session.user.isActive ? (
 				<>
 					<S.NavigationBarItem>
 						<Avatar
