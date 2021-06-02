@@ -14,9 +14,12 @@ const activate = () => {
 	const router = useRouter();
 	const [session, loading] = useSession();
 	const isActive = session?.user?.isActive;
+
+	// session이 업데이트 된 것을 감지 시키기 위해 강제 새로고침
 	const [activateUser] = useActivateUserMutation({
-		onCompleted: () => router.push("/"),
+		onCompleted: () => window.location.replace("/"),
 	});
+
 	const handleSubmit = async ({
 		name,
 		mobile: originMobile,
