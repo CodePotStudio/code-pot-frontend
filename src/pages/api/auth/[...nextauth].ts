@@ -53,17 +53,19 @@ export default NextAuth({
 		},
 		async session(session, token) {
 			const { accessToken, id } = token;
-			const { user, profile } = await getMe(accessToken);
-			session = {
-				accessToken: accessToken,
-				user: {
-					email: user?.email,
-					id: id,
-					image: profile?.avatar,
-					isActive: user?.isActive,
-					name: user?.name,
-				},
-			};
+			if (accessToken) {
+				const { user, profile } = await getMe(accessToken);
+				session = {
+					accessToken: accessToken,
+					user: {
+						email: user?.email,
+						id: id,
+						image: profile?.avatar,
+						isActive: user?.isActive,
+						name: user?.name,
+					},
+				};
+			}
 			return session;
 		},
 	},
