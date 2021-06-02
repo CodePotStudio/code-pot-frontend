@@ -1,10 +1,11 @@
-import { MyPageTemplate } from "components";
+import { LoadingTemplate, MyPageTemplate } from "components";
 import Seo from "components/molecules/Seo";
-import { getSession } from "next-auth/client";
+import { getSession, useSession } from "next-auth/client";
 import { GetServerSideProps } from "next";
 import { ChallangeCardType } from "types/data";
 import { Session } from "next-auth";
 import { ComponentWithAuth } from "pages/_app";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 const inProgressExampleCard: ChallangeCardType[] = [
 	{
@@ -27,29 +28,29 @@ interface Props {
 	session: Session | null;
 }
 
-const myPage: ComponentWithAuth<Props> = ({ session }) => {
-	const user = session!.user;
+const myPage = () => {
+	const [session, loading] = useSession();
+	const user = session?.user;
 	return (
 		<div>
 			<Seo></Seo>
-			<MyPageTemplate
-				name={user.name}
-				email={user.email}
-				image={user.image}
-				refundAccountNo="110-217-985246"
-				refundAccountBankName="신한은행"
-				inProgressCards={inProgressExampleCard}
-				waitingDepositCards={inProgressExampleCard}
-			></MyPageTemplate>
+			{loading ? (
+				<LoadingTemplate></LoadingTemplate>
+			) : (
+				<MyPageTemplate
+					name={user?.name!}
+					email={user?.email!}
+					image={user?.image!}
+					refundAccountNo="110-217-985246"
+					refundAccountBankName="신한은행"
+					inProgressCards={inProgressExampleCard}
+					waitingDepositCards={inProgressExampleCard}
+				></MyPageTemplate>
+			)}
 		</div>
 	);
 };
 
 myPage.auth = true;
-
-export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
-	const session = await getSession(ctx);
-	return { props: { session } };
-};
 
 export default myPage;
