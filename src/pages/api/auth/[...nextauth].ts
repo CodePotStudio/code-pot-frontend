@@ -31,12 +31,16 @@ export default NextAuth({
 				});
 				const emails = await emailRes.json();
 				const primaryEmail = emails.find((e: any) => e.primary).email;
-				// user 생성하기
-				const result = await createUser(primaryEmail, user.image, account.id);
-				// user 객체에 codepot user id 저장하기
-				user.accessToken = result.token;
-				user.id = result.user.id;
-				return true;
+				if (primaryEmail) {
+					// user 생성하기
+					const result = await createUser(primaryEmail, user.image, account.id);
+					// user 객체에 codepot user id 저장하기
+					user.accessToken = result.token;
+					user.id = result.user.id;
+					return true;
+				} else {
+					return false;
+				}
 			}
 			return true;
 		},
