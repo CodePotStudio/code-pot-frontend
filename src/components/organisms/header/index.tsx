@@ -5,21 +5,20 @@ import * as S from "./style";
 
 interface HeaderProps {
 	session?: Session | null;
-	loading?: boolean;
 }
 
-export const Header = ({ session, loading }: HeaderProps) => (
+export const Header = ({ session }: HeaderProps) => (
 	<S.Wrapper>
 		<Link to="/">
 			<Logo height={24} />
 		</Link>
-		{loading ? <></> : <NavigationBar session={session}></NavigationBar>}
+		{<NavigationBar session={session}></NavigationBar>}
 	</S.Wrapper>
 );
 
 const HeaderContainer = () => {
 	const [session, loading] = useSession();
-	return <Header session={session} loading={loading}></Header>;
+	return <Header session={session}></Header>;
 };
 
 export default HeaderContainer;
