@@ -17,7 +17,7 @@ export const Header = ({ session }: HeaderProps) => (
 );
 
 const HeaderContainer = () => {
-	const [session, loading] = useSession();
+	const [session] = useSession();
 	return <Header session={session}></Header>;
 };
 
