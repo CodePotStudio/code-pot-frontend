@@ -2,22 +2,20 @@ import { useState } from "react";
 import * as S from "./style";
 import { Avatar, NavigationMenu } from "components";
 import routes from "common/constants/routes";
-
+import { Session } from "next-auth";
 interface Props {
-	isLoggedIn: boolean;
-	// 노출할 avatar URL
-	avatarURL?: string | undefined | null;
+	session?: Session | null;
 }
 
-const NavigationBar = ({ isLoggedIn, avatarURL }: Props) => {
+const NavigationBar = ({ session }: Props) => {
 	const [showNav, setShowNav] = useState<boolean>(false);
 	return (
 		<S.NavigationBarWrapper>
-			{isLoggedIn ? (
+			{session && session.user.isActive ? (
 				<>
 					<S.NavigationBarItem>
 						<Avatar
-							src={avatarURL!}
+							src={session?.user?.image || undefined}
 							alt="navigation avatar"
 							size={48}
 							onClick={() => setShowNav((showNav) => !showNav)}

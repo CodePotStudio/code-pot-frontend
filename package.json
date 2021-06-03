@@ -6,7 +6,6 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"local": "yarn build && yarn start",
 		"storybook": "start-storybook -p 6006 -s ./public",
 		"build-storybook": "build-storybook",
 		"generate": "DOTENV_CONFIG_PATH=.env.local graphql-codegen --config codegen.yml -r dotenv/config"
@@ -17,6 +16,7 @@
 		"graphql": "^15.5.0",
 		"moment": "^2.29.1",
 		"next": "^10.0.0",
+		"next-auth": "^3.23.3",
 		"react": "17.0.1",
 		"react-dom": "17.0.1",
 		"react-hook-form": "^7.5.3",

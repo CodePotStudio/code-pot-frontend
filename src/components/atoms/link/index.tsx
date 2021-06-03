@@ -1,5 +1,4 @@
 import * as S from "./style";
-import Link from "next/link";
 
 interface Props {
 	children: React.ReactNode;
@@ -19,10 +18,11 @@ const CustomLink = ({ children, to, href, onClick, ...props }: Props) => {
 			</S.Anchor>
 		);
 	} else if (to) {
+		// TODO: Hover 시에 색깔 안변함
 		return (
-			<Link href={to} passHref>
+			<S.Link href={to} passHref>
 				<S.Anchor {...props}>{children}</S.Anchor>
-			</Link>
+			</S.Link>
 		);
 	} else {
 		return (

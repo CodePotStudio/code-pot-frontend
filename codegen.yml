@@ -3,7 +3,7 @@ schema:
   - ${NEXT_PUBLIC_GRAPHQL_SERVER_URL}
 documents: "./src/**/*.{tsx,ts}"
 generates:
-  src/types/graphql/generated.d.ts:
+  src/types/graphql/generated-types.ts:
     plugins:
       - "typescript"
       - "typescript-operations"

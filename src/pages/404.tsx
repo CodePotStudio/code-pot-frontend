@@ -7,4 +7,5 @@ const NotFound = () => (
 		<NotFoundTemplate></NotFoundTemplate>
 	</>
 );
+
 export default NotFound;
