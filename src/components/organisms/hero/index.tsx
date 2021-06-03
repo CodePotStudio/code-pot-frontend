@@ -15,7 +15,7 @@ const Hero = () => (
 			<br />
 			모두 함께 꾸준히 코딩하는 습관을 만들어 봐요!
 		</Text>
-		<Button variant="primary" to="/challanges">
+		<Button variant="primary" to="/#challanges">
 			4주 코딩 챌린지 도전하기
 		</Button>
 	</S.Wrapper>
