@@ -3,12 +3,12 @@ import nextLink from "next/link";
 import { palette } from "styled-tools";
 
 const LinkStyle = css`
-	:hover,
-	:focus {
+	&:hover,
+	&:focus {
 		color: ${palette("primary")};
 		text-decoration-color: ${palette("primary")};
 	}
-	:visited {
+	&:visited {
 		color: inherit;
 	}
 `;
