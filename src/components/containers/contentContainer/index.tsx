@@ -1,6 +1,8 @@
 import * as S from "./sytle";
 
 interface Props extends S.ContainerStyleProps {
+	// hash router에서 사용할 id
+	id?: string;
 	children: React.ReactNode;
 }
 
