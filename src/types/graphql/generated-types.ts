@@ -12,7 +12,21 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  /** Date custom scalar type */
+  Date: any;
 };
+
+export type Challange = {
+  __typename?: 'Challange';
+  id: Scalars['Int'];
+  thumbnail: Scalars['String'];
+  name: Scalars['String'];
+  remarks: Scalars['String'];
+  status: Scalars['String'];
+  startDateTime: Scalars['Date'];
+  endDateTime: Scalars['Date'];
+};
+
 
 export type Mutation = {
   __typename?: 'Mutation';
@@ -51,11 +65,12 @@ export type Profile = {
 export type Query = {
   __typename?: 'Query';
   me?: Maybe<Me>;
-  user?: Maybe<User>;
+  findChallanges: Array<Maybe<Challange>>;
+  getChallange?: Maybe<Challange>;
 };
 
 
-export type QueryUserArgs = {
+export type QueryGetChallangeArgs = {
   id: Scalars['Int'];
 };
 
@@ -86,6 +101,11 @@ export type Me = {
   user: User;
   profile?: Maybe<Profile>;
 };
+
+export type ChallangeFieldsFragment = (
+  { __typename?: 'Challange' }
+  & Pick<Challange, 'id' | 'thumbnail' | 'name' | 'remarks' | 'status' | 'startDateTime' | 'endDateTime'>
+);
 
 export type UserFieldsFragment = (
   { __typename?: 'User' }
@@ -125,6 +145,30 @@ export type CreateUserMutation = (
   ) }
 );
 
+export type FindChallangesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type FindChallangesQuery = (
+  { __typename?: 'Query' }
+  & { findChallanges: Array<Maybe<(
+    { __typename?: 'Challange' }
+    & ChallangeFieldsFragment
+  )>> }
+);
+
+export type GetChallangeQueryVariables = Exact<{
+  id: Scalars['Int'];
+}>;
+
+
+export type GetChallangeQuery = (
+  { __typename?: 'Query' }
+  & { getChallange?: Maybe<(
+    { __typename?: 'Challange' }
+    & ChallangeFieldsFragment
+  )> }
+);
+
 export type GetMeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -142,6 +186,17 @@ export type GetMeQuery = (
   )> }
 );
 
+export const ChallangeFieldsFragmentDoc = gql`
+    fragment ChallangeFields on Challange {
+  id
+  thumbnail
+  name
+  remarks
+  status
+  startDateTime
+  endDateTime
+}
+    `;
 export const UserFieldsFragmentDoc = gql`
     fragment UserFields on User {
   id
@@ -224,6 +279,75 @@ export function useCreateUserMutation(baseOptions?: Apollo.MutationHookOptions<C
 export type CreateUserMutationHookResult = ReturnType<typeof useCreateUserMutation>;
 export type CreateUserMutationResult = Apollo.MutationResult<CreateUserMutation>;
 export type CreateUserMutationOptions = Apollo.BaseMutationOptions<CreateUserMutation, CreateUserMutationVariables>;
+export const FindChallangesDocument = gql`
+    query findChallanges {
+  findChallanges {
+    ...ChallangeFields
+  }
+}
+    ${ChallangeFieldsFragmentDoc}`;
+
+/**
+ * __useFindChallangesQuery__
+ *
+ * To run a query within a React component, call `useFindChallangesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFindChallangesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useFindChallangesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useFindChallangesQuery(baseOptions?: Apollo.QueryHookOptions<FindChallangesQuery, FindChallangesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<FindChallangesQuery, FindChallangesQueryVariables>(FindChallangesDocument, options);
+      }
+export function useFindChallangesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<FindChallangesQuery, FindChallangesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<FindChallangesQuery, FindChallangesQueryVariables>(FindChallangesDocument, options);
+        }
+export type FindChallangesQueryHookResult = ReturnType<typeof useFindChallangesQuery>;
+export type FindChallangesLazyQueryHookResult = ReturnType<typeof useFindChallangesLazyQuery>;
+export type FindChallangesQueryResult = Apollo.QueryResult<FindChallangesQuery, FindChallangesQueryVariables>;
+export const GetChallangeDocument = gql`
+    query getChallange($id: Int!) {
+  getChallange(id: $id) {
+    ...ChallangeFields
+  }
+}
+    ${ChallangeFieldsFragmentDoc}`;
+
+/**
+ * __useGetChallangeQuery__
+ *
+ * To run a query within a React component, call `useGetChallangeQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetChallangeQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetChallangeQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useGetChallangeQuery(baseOptions: Apollo.QueryHookOptions<GetChallangeQuery, GetChallangeQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetChallangeQuery, GetChallangeQueryVariables>(GetChallangeDocument, options);
+      }
+export function useGetChallangeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetChallangeQuery, GetChallangeQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetChallangeQuery, GetChallangeQueryVariables>(GetChallangeDocument, options);
+        }
+export type GetChallangeQueryHookResult = ReturnType<typeof useGetChallangeQuery>;
+export type GetChallangeLazyQueryHookResult = ReturnType<typeof useGetChallangeLazyQuery>;
+export type GetChallangeQueryResult = Apollo.QueryResult<GetChallangeQuery, GetChallangeQueryVariables>;
 export const GetMeDocument = gql`
     query getMe {
   me {
