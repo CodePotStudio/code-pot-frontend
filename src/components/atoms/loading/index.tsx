@@ -1,4 +1,3 @@
-import { BaseTemplate } from "components";
 import * as S from "./style";
 
 const Loading = () => {
