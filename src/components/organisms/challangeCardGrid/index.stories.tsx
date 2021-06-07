@@ -45,3 +45,4 @@ const sampleCards: CHCardProps[] = [
 ];
 
 export const Default = () => <ChallangeCardGrid CHCards={sampleCards} />;
+export const LoadingData = () => <ChallangeCardGrid loading={true} />;
