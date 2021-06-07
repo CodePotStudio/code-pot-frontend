@@ -2,7 +2,6 @@ import { CHBanner, RegisterBanner, ChallangeDetailTemplate } from "components";
 import Seo from "components/molecules/Seo";
 import { DESCRIPTION } from "components/templates/challangeDetail/constants";
 import moment from "moment";
-import { GetStaticPaths } from "next";
 import { ComponentWithAuth } from "pages/_app";
 import { ChallangeCardType } from "types/data";
 
