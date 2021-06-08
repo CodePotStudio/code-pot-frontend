@@ -2,6 +2,11 @@ overwrite: true
 schema:
   - ${NEXT_PUBLIC_GRAPHQL_SERVER_URL}
 documents: "./src/**/*.{tsx,ts}"
+config:
+  # custom scalar type 강제로 지정
+  strictScalars: true
+  scalars:
+    Date: Date
 generates:
   src/types/graphql/generated-types.ts:
     plugins:

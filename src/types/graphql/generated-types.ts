@@ -13,7 +13,7 @@ export type Scalars = {
   Int: number;
   Float: number;
   /** Date custom scalar type */
-  Date: any;
+  Date: Date;
 };
 
 export type Challange = {
