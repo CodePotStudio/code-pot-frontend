@@ -1,5 +1,6 @@
 import ChallangeCardGrid from ".";
 import { CHCardProps } from "components/molecules/ChallangeCard";
+import { ChallangeStatus } from "types/graphql/generated-types";
 
 export default {
 	title: "Organisms/Challange Card Grid",
@@ -8,39 +9,49 @@ export default {
 
 const sampleCards: CHCardProps[] = [
 	{
-		id: "1",
-		language: "typescript",
-		status: "close",
-		start_at: new Date(),
-		to: "/",
+		id: 1,
+		status: ChallangeStatus.Preparing,
+		remarks: "단단한 javascript를 만들고 싶다면",
+		name: "typescript",
+		thumbnail: "/languages/typescript.svg",
+		startDateTime: new Date(),
+		endDateTime: new Date(),
 	},
 	{
-		id: "2",
-		language: "python",
-		status: "inProgress",
-		start_at: new Date(),
-		to: "/",
+		id: 2,
+		status: ChallangeStatus.Inprogress,
+		remarks: "단단한 javascript를 만들고 싶다면",
+		name: "python",
+		thumbnail: "/languages/python.svg",
+		startDateTime: new Date(),
+		endDateTime: new Date(),
 	},
 	{
-		id: "3",
-		language: "graphql",
-		status: "close",
-		start_at: new Date(),
-		to: "/",
+		id: 3,
+		status: ChallangeStatus.RecruitmentClosed,
+		remarks: "단단한 javascript를 만들고 싶다면",
+		name: "graphql",
+		thumbnail: "/languages/graphql.svg",
+		startDateTime: new Date(),
+		endDateTime: new Date(),
 	},
 	{
-		id: "4",
-		language: "react",
-		status: "inProgress",
-		start_at: new Date(),
-		to: "/",
+		id: 4,
+		status: ChallangeStatus.Recruiting,
+		remarks: "단단한 javascript를 만들고 싶다면",
+		name: "react",
+		thumbnail: "/languages/react.svg",
+		startDateTime: new Date(),
+		endDateTime: new Date(),
 	},
 	{
-		id: "5",
-		language: "typescript",
-		status: "inProgress",
-		start_at: new Date(),
-		to: "/",
+		id: 5,
+		status: ChallangeStatus.Closed,
+		remarks: "단단한 javascript를 만들고 싶다면",
+		name: "react",
+		thumbnail: "/languages/react.svg",
+		startDateTime: new Date(),
+		endDateTime: new Date(),
 	},
 ];
 
