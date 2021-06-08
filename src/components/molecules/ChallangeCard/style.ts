@@ -46,7 +46,7 @@ export const ImageBackground = styled.div<ImageStyleProps>`
 	width: "100%";
 	background-color: ${palette("black")};
 	opacity: ${ifProp(
-		{ status: "close" },
+		{ status: "CLOSED" },
 		palette("opacityscale", 4),
 		palette("opacityscale", 10)
 	)};

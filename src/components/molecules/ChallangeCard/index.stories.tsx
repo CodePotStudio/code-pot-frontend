@@ -9,11 +9,13 @@ export default {
 const Template: Story = (args) => (
 	<div style={{ display: "inline-flex" }}>
 		<ChallangeCard
-			id="1"
-			language="typescript"
-			status="inProgress"
-			to="/home"
-			start_at={new Date()}
+			id={1}
+			status="INPROGRESS"
+			remarks="단단한 javascript를 만들고 싶다면"
+			name="typescript"
+			thumbnail="/languages/typescript.svg"
+			startDateTime={new Date()}
+			endDateTime={new Date()}
 			{...args}
 		></ChallangeCard>
 	</div>
@@ -23,6 +25,6 @@ export const Basic = Template.bind({});
 // default Props 넣기
 Basic.args = {
 	language: "typescript",
-	status: "inProgress",
+	status: "INPROGRESS",
 	to: "/home",
 };

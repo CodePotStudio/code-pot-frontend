@@ -1,8 +1,8 @@
 import { status, language, statusObj, languageObj } from "types/data";
 
 export const StatusSet: Record<status, statusObj> = {
-	inProgress: { text: "모집중", variant: "primary" },
-	close: { text: "모집완료", variant: "secondary" },
+	INPROGRESS: { text: "모집중", variant: "primary" },
+	CLOSED: { text: "모집완료", variant: "secondary" },
 };
 
 export const LanguageSet: Record<language, languageObj> = {

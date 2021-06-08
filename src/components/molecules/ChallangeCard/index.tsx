@@ -3,26 +3,34 @@ import { LanguageSet, StatusSet } from "./constants";
 import * as S from "./style";
 import "moment/locale/ko";
 import moment from "moment";
-import { ChallangeCardType } from "types/data";
+import routes from "common/constants/routes";
+import { Challange } from "types/graphql/generated-types";
 
-export interface CHCardProps extends ChallangeCardType {}
+export interface CHCardProps extends Challange {}
 
-const ChallangeCard = ({ id, language, status, to, start_at }: CHCardProps) => {
-	const { src, desc, title } = LanguageSet[language];
+const ChallangeCard = ({
+	id,
+	thumbnail,
+	name,
+	remarks,
+	status,
+	startDateTime,
+}: CHCardProps) => {
 	const { variant, text: badgeText } = StatusSet[status];
+	console.log(status, variant);
 	return (
-		<S.CardLink to={to} key={id}>
+		<S.CardLink to={routes.CHALLANGE_DETAIL(id)} key={id}>
 			<S.Wrapper>
 				<S.ImageWrapper>
 					<S.CardBadge variant={variant}>{badgeText}</S.CardBadge>
-					<S.CardImage src={src} />
+					<S.CardImage src={thumbnail} />
 					<S.ImageBackground status={status} />
 				</S.ImageWrapper>
 				<S.ContentWrapper>
-					<Heading variant="h5">{title}</Heading>
-					<Heading variant="subtitle1">{desc}</Heading>
+					<Heading variant="h5">{name}</Heading>
+					<Heading variant="subtitle1">{remarks}</Heading>
 					<Text variant="body2">
-						첫 시작일 | {moment(start_at).format("MM/DD(dd)")}
+						첫 시작일 | {moment(startDateTime).format("MM/DD(dd)")}
 					</Text>
 				</S.ContentWrapper>
 			</S.Wrapper>

@@ -1,4 +1,4 @@
-export type status = "inProgress" | "close";
+export type status = "INPROGRESS" | "CLOSED";
 export type language =
 	| "typescript"
 	| "react"
@@ -25,4 +25,14 @@ export interface ChallangeCardType {
 	status: status;
 	to: string;
 	start_at: Date;
+}
+
+export interface Challange {
+	id: number;
+	thumbnail: string;
+	name: string;
+	remarks: string;
+	status: status;
+	startDateTime: Date;
+	endDateTime: Date;
 }
