@@ -27,6 +27,10 @@ export type Challange = {
   endDateTime: Scalars['Date'];
 };
 
+export type ChallangeFilter = {
+  status: ChallangeStatus;
+};
+
 export enum ChallangeStatus {
   Preparing = 'PREPARING',
   Recruiting = 'RECRUITING',
@@ -75,6 +79,11 @@ export type Query = {
   me?: Maybe<Me>;
   findChallanges: Array<Maybe<Challange>>;
   getChallange?: Maybe<Challange>;
+};
+
+
+export type QueryFindChallangesArgs = {
+  filter?: Maybe<ChallangeFilter>;
 };
 
 
