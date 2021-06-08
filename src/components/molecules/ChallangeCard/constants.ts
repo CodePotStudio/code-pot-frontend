@@ -1,8 +1,17 @@
-import { status, language, statusObj, languageObj } from "types/data";
+import { language, variant, languageObj } from "types/data";
+import { ChallangeStatus } from "types/graphql/generated-types";
 
-export const StatusSet: Record<status, statusObj> = {
-	INPROGRESS: { text: "모집중", variant: "primary" },
-	CLOSED: { text: "모집완료", variant: "secondary" },
+type statusObj = {
+	text: string;
+	variant: variant;
+};
+
+export const StatusSet: Record<ChallangeStatus, statusObj> = {
+	INPROGRESS: { text: "진행중", variant: "primary" },
+	CLOSED: { text: "진행완료", variant: "secondary" },
+	RECRUITING: { text: "모집중", variant: "alert" },
+	PREPARING: { text: "모집준비중", variant: "primary" },
+	RECRUITMENT_CLOSED: { text: "모집완료", variant: "secondary" },
 };
 
 export const LanguageSet: Record<language, languageObj> = {

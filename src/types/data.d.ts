@@ -1,15 +1,9 @@
-export type status = "INPROGRESS" | "CLOSED";
 export type language =
 	| "typescript"
 	| "react"
 	| "javascript"
 	| "python"
 	| "graphql";
-
-type statusObj = {
-	text: string;
-	variant: variant;
-};
 
 type languageObj = {
 	src: string;

@@ -22,10 +22,18 @@ export type Challange = {
   thumbnail: Scalars['String'];
   name: Scalars['String'];
   remarks: Scalars['String'];
-  status: Scalars['String'];
+  status: ChallangeStatus;
   startDateTime: Scalars['Date'];
   endDateTime: Scalars['Date'];
 };
+
+export enum ChallangeStatus {
+  Preparing = 'PREPARING',
+  Recruiting = 'RECRUITING',
+  RecruitmentClosed = 'RECRUITMENT_CLOSED',
+  Inprogress = 'INPROGRESS',
+  Closed = 'CLOSED'
+}
 
 
 export type Mutation = {
