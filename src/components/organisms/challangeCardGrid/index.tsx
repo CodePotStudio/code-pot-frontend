@@ -14,13 +14,14 @@ const ChallangeCardGrid = ({ CHCards, loading, ...props }: Props) => (
 				<Loading />
 			</S.LoadingWrapper>
 		) : (
-			CHCards && (
-				<S.Wrapper {...props}>
-					{CHCards.map((CHCard) => (
-						<ChallangeCard {...CHCard}></ChallangeCard>
-					))}
-				</S.Wrapper>
-			)
+			<S.Wrapper {...props}>
+				{Array.isArray(CHCards) && !!CHCards.length ? (
+					CHCards.map((CHCard) => <ChallangeCard {...CHCard}></ChallangeCard>)
+				) : (
+					// TODO: 디자인 추가 필요함
+					<>카드가 없습니다.</>
+				)}
+			</S.Wrapper>
 		)}
 	</>
 );
