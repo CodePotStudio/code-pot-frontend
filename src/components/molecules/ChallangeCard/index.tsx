@@ -26,11 +26,15 @@ const ChallangeCard = ({
 					<S.ImageBackground status={status} />
 				</S.ImageWrapper>
 				<S.ContentWrapper>
-					<Heading variant="h5">{name}</Heading>
-					<Heading variant="subtitle1">{remarks}</Heading>
-					<Text variant="body2">
-						첫 시작일 | {moment(startDateTime).format("MM/DD(dd)")}
-					</Text>
+					<S.ContentTitleWrapper>
+						<Heading variant="h5">{name}</Heading>
+						<Heading variant="subtitle1">{remarks}</Heading>
+					</S.ContentTitleWrapper>
+					<S.ContentTextWrapper>
+						<Text variant="body2">
+							첫 시작일 | {moment(startDateTime).format("MM/DD(dd)")}
+						</Text>
+					</S.ContentTextWrapper>
 				</S.ContentWrapper>
 			</S.Wrapper>
 		</S.CardLink>

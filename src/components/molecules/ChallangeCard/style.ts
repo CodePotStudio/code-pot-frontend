@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { palette, ifProp } from "styled-tools";
 import { Badge, Image, Link } from "components";
-import { status } from "types/data";
+import { ChallangeStatus } from "types/graphql/generated-types";
 
 export interface ImageStyleProps {
-	status: status;
+	status: ChallangeStatus;
 }
 
 export const Wrapper = styled.div`
@@ -57,6 +57,13 @@ export const ContentWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 `;
+
+export const ContentTitleWrapper = styled.div`
+	height: 7rem;
+	margin-bottom: ${palette("spaces", 0)};
+`;
+
+export const ContentTextWrapper = styled.div``;
 
 export const CardLink = styled(Link)`
 	:hover,
