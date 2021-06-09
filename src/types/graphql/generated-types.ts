@@ -77,7 +77,7 @@ export type Profile = {
 export type Query = {
   __typename?: 'Query';
   me?: Maybe<Me>;
-  findChallanges: Array<Maybe<Challange>>;
+  findChallanges: Array<Challange>;
   getChallange?: Maybe<Challange>;
 };
 
@@ -167,10 +167,10 @@ export type FindChallangesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type FindChallangesQuery = (
   { __typename?: 'Query' }
-  & { findChallanges: Array<Maybe<(
+  & { findChallanges: Array<(
     { __typename?: 'Challange' }
     & ChallangeFieldsFragment
-  )>> }
+  )> }
 );
 
 export type GetChallangeQueryVariables = Exact<{

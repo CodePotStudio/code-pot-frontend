@@ -3,8 +3,8 @@ import { CHCardProps } from "components/molecules/ChallangeCard";
 import * as S from "./style";
 
 interface Props {
-	CHCards?: CHCardProps[];
-	loading?: boolean;
+	CHCards: CHCardProps[];
+	loading: boolean;
 }
 
 const ChallangeCardGrid = ({ CHCards, loading, ...props }: Props) => (

@@ -4,9 +4,9 @@ import * as S from "./style";
 import "moment/locale/ko";
 import moment from "moment";
 import routes from "common/constants/routes";
-import { Challange } from "types/graphql/generated-types";
+import { ChallangeFieldsFragment } from "types/graphql/generated-types";
 
-export interface CHCardProps extends Challange {}
+export interface CHCardProps extends ChallangeFieldsFragment {}
 
 const ChallangeCard = ({
 	id,

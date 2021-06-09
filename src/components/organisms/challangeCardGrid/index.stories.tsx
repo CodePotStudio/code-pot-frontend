@@ -55,6 +55,12 @@ const sampleCards: CHCardProps[] = [
 	},
 ];
 
-export const Default = () => <ChallangeCardGrid CHCards={sampleCards} />;
-export const LoadingData = () => <ChallangeCardGrid loading={true} />;
-export const EmptyData = () => <ChallangeCardGrid CHCards={[]} />;
+export const Default = () => (
+	<ChallangeCardGrid CHCards={sampleCards} loading={false} />
+);
+export const LoadingData = () => (
+	<ChallangeCardGrid loading={true} CHCards={[]} />
+);
+export const EmptyData = () => (
+	<ChallangeCardGrid CHCards={[]} loading={false} />
+);
