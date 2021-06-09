@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev",
+		"dev": "concurrently \"next dev\" \"yarn generate --watch\"",
 		"build": "next build",
 		"start": "next start",
 		"storybook": "start-storybook -p 6006 -s ./public",
