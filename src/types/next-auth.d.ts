@@ -4,7 +4,7 @@ declare module "next-auth" {
 	/**
 	 * Returned by `useSession`, `getSession` and received as a prop on the `Provider` React Context
 	 */
-	interface Session {
+	export interface Session {
 		user: {
 			email?: string;
 			id?: number;
@@ -14,7 +14,7 @@ declare module "next-auth" {
 		};
 		accessToken: string;
 	}
-	interface User {
+	export interface User {
 		accessToken: string;
 		id: number;
 		email: string;
@@ -24,7 +24,7 @@ declare module "next-auth" {
 
 declare module "next-auth/jwt" {
 	/** Returned by the `jwt` callback and `getToken`, when using JWT sessions */
-	interface JWT {
+	export interface JWT {
 		/** OpenID ID Token */
 		accessToken: string;
 		id: number;
