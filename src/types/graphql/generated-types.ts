@@ -44,8 +44,6 @@ export type Mutation = {
   __typename?: 'Mutation';
   registerRefundAccount: User;
   activateUser: User;
-  logout?: Maybe<Scalars['Boolean']>;
-  createAuthToken?: Maybe<AccessToken>;
   createUser: CreateUserResponse;
 };
 
