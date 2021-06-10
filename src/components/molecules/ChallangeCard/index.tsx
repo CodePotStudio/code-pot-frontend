@@ -1,5 +1,5 @@
 import { Heading, Text } from "components";
-import { LanguageSet, StatusSet } from "./constants";
+import { StatusSet } from "./constants";
 import * as S from "./style";
 import "moment/locale/ko";
 import moment from "moment";

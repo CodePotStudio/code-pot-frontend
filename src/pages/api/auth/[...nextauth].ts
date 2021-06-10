@@ -21,7 +21,7 @@ export default NextAuth({
 		signIn: "/auth/login",
 	},
 	callbacks: {
-		async signIn(user, account, profile) {
+		async signIn(user: any, account: any) {
 			if (account.provider === "github") {
 				// github에서 email 가져오기
 				const emailRes = await fetch("https://api.github.com/user/emails", {
@@ -44,14 +44,14 @@ export default NextAuth({
 			}
 			return true;
 		},
-		async jwt(token, user) {
+		async jwt(token: any, user: any) {
 			// user에 있는 codepot user id 토큰에 저장하기
 			if (user) {
 				token = { accessToken: user.accessToken, id: user.id };
 			}
 			return token;
 		},
-		async session(session, token) {
+		async session(session: any, token: any) {
 			const { accessToken, id } = token;
 			if (accessToken) {
 				const { user, profile } = await getMe(accessToken);

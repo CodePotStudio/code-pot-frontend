@@ -46,7 +46,7 @@ const errorLink = onError(
 										}
 									)
 									// eslint-disable-next-line no-loop-func
-									.catch((err) => {
+									.catch(() => {
 										// 신규 토큰 발급이 실패 했을 때 (기존 request 전부 삭제)
 										pendingRequests = [];
 										return false;

@@ -15,7 +15,6 @@ const Home: NextPage = () => {
 	const {
 		data: { findChallanges = [] } = {},
 		loading,
-		error,
 	} = useFindChallangesQuery();
 
 	return (

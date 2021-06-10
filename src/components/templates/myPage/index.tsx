@@ -1,7 +1,6 @@
 import {
 	Avatar,
 	BaseTemplate,
-	CHCardGrid,
 	ContentContainer,
 	Heading,
 	Text,

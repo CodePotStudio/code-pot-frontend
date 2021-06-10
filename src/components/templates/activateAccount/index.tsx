@@ -1,5 +1,4 @@
 import { AuthTemplate } from "components";
-import { ICONS } from "components/atoms/icon/constants";
 import * as S from "./style";
 
 interface Props {

@@ -1,4 +1,4 @@
-import { BaseTemplate, Button, ContentContainer, Heading } from "components";
+import { BaseTemplate, ContentContainer, Heading } from "components";
 import * as S from "./style";
 
 interface SectionContainerProps {

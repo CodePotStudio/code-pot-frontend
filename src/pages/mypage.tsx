@@ -1,11 +1,7 @@
 import { LoadingTemplate, MyPageTemplate } from "components";
 import Seo from "components/molecules/Seo";
-import { getSession, useSession } from "next-auth/client";
-import { GetServerSideProps } from "next";
+import { useSession } from "next-auth/client";
 import { ChallangeCardType } from "types/data";
-import { Session } from "next-auth";
-import { ComponentWithAuth } from "pages/_app";
-import { yupResolver } from "@hookform/resolvers/yup";
 
 const inProgressExampleCard: ChallangeCardType[] = [
 	{
@@ -23,10 +19,6 @@ const inProgressExampleCard: ChallangeCardType[] = [
 		to: "/",
 	},
 ];
-
-interface Props {
-	session: Session | null;
-}
 
 const myPage = () => {
 	const [session, loading] = useSession();
