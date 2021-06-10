@@ -1,9 +1,9 @@
 import {
-	MainPageTemplate,
-	Hero,
 	CHCardGrid,
 	DrawerGrid,
 	EPCardGrid,
+	Hero,
+	MainPageTemplate,
 } from "components";
 import { EpilogueCardData } from "components/organisms/epilogueCardGrid/constants";
 import { MainPageFAQ } from "components/organisms/drawerGrid/constants";

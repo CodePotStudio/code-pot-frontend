@@ -1,4 +1,4 @@
-import { Logo, AuthContainer } from "components";
+import { AuthContainer, Logo } from "components";
 import * as S from "./style";
 
 interface Props {

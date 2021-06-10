@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { palette, ifProp } from "styled-tools";
+import { ifProp, palette } from "styled-tools";
 import { Badge, Image, Link } from "components";
 import { ChallangeStatus } from "types/graphql/generated-types";
 

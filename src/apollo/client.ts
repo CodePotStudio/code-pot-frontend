@@ -1,4 +1,4 @@
-import { ApolloClient, from, createHttpLink } from "@apollo/client";
+import { ApolloClient, createHttpLink, from } from "@apollo/client";
 import cache from "./cache";
 import { environment } from "config";
 import authLink from "./authLink";

@@ -1,4 +1,4 @@
-import { Badge, Image, Heading, Text } from "components";
+import { Badge, Heading, Image, Text } from "components";
 import { LanguageSet } from "components/molecules/ChallangeCard/constants";
 import { ChallangeCardType } from "types/data";
 import * as S from "./style";

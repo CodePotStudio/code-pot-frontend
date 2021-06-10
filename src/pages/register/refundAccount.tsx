@@ -1,4 +1,4 @@
-import { RegisterRefundAccountTemplate, RefundAccountForm } from "components";
+import { RefundAccountForm, RegisterRefundAccountTemplate } from "components";
 import Seo from "components/molecules/Seo";
 
 export default () => (

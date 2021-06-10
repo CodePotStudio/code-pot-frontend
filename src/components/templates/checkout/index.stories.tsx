@@ -3,8 +3,8 @@ import {
 	CHBanner,
 	CheckBox,
 	CheckoutSummary,
-	PaymentMethod,
 	FormItem,
+	PaymentMethod,
 } from "components";
 
 export default {

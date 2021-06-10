@@ -1,4 +1,4 @@
-import { Heading, Text, Button } from "components";
+import { Button, Heading, Text } from "components";
 import * as S from "./style";
 
 const Hero = () => (

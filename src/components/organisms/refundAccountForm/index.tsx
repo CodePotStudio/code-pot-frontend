@@ -3,7 +3,7 @@ import * as S from "./style";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { bankNameValidator, bankAccountValidator } from "common/validator";
+import { bankAccountValidator, bankNameValidator } from "common/validator";
 import { BANK_LIST } from "common/constants";
 
 interface RefundAccountFormValues {

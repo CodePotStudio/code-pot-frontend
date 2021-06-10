@@ -1,4 +1,4 @@
-import { Hero, CHCardGrid, EPCardGrid, DrawerGrid } from "components";
+import { CHCardGrid, DrawerGrid, EPCardGrid, Hero } from "components";
 import { ChallangeCardType } from "types/data";
 import MainPageTemplate from ".";
 

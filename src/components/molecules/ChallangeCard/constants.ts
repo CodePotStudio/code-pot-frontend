@@ -1,4 +1,4 @@
-import { language, variant, languageObj } from "types/data";
+import { language, languageObj, variant } from "types/data";
 import { ChallangeStatus } from "types/graphql/generated-types";
 
 type statusObj = {
