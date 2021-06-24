@@ -29,10 +29,10 @@ const secondaryStyle = css`
 const githubStyle = css`
 	border: none;
 	color: ${palette("white")};
-	background-color: ${palette("grayscale", 1)};
+	background-color: ${palette("grayscale", 0)};
 	&:hover {
 		color: ${palette("white")};
-		background-color: ${palette("grayscale", 0)};
+		background-color: ${palette("grayscale", 1)};
 	}
 `;
 
