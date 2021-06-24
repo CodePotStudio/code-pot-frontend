@@ -5,7 +5,7 @@ import { palette } from "styled-tools";
 
 export const ChallangeBannerWrapper = styled(ContentContainer)`
 	padding: ${palette("spaces", 4)} 0px;
-	background-color: ${palette("grayscale", 2)};
+	border-bottom: 0.5px solid ${palette("grayscale", 4)};
 `;
 
 export const ChallangeDescWrapper = styled(ContentContainer)``;
