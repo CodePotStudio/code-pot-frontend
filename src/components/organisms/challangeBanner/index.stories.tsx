@@ -1,5 +1,5 @@
 import ChallangeBanner from ".";
-import { ChallangeStatus } from "types/graphql/generated-types";
+import { dummyChallanges } from "fixture/data";
 
 export default {
 	title: "Organisms/Challange Banner",
@@ -7,13 +7,5 @@ export default {
 };
 
 export const Default = () => (
-	<ChallangeBanner
-		id={1}
-		status={ChallangeStatus.Inprogress}
-		remarks="단단한 javascript를 만들고 싶다면"
-		name="typescript"
-		thumbnail="/languages/typescript.svg"
-		startDateTime={new Date()}
-		endDateTime={new Date()}
-	></ChallangeBanner>
+	<ChallangeBanner {...dummyChallanges[0]}></ChallangeBanner>
 );

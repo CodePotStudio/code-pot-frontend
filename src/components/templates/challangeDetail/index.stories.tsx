@@ -1,5 +1,5 @@
 import { CHBanner, RegisterBanner } from "components";
-import { ChallangeStatus } from "types/graphql/generated-types";
+import { dummyChallanges } from "fixture/data";
 import CHDetailTemplate from ".";
 import { DESCRIPTION } from "./constants";
 
@@ -11,17 +11,7 @@ export default {
 export const Default = () => (
 	<CHDetailTemplate
 		descriptions={DESCRIPTION}
-		challangeBanner={
-			<CHBanner
-				id={1}
-				status={ChallangeStatus.Inprogress}
-				remarks="단단한 javascript를 만들고 싶다면"
-				name="typescript"
-				thumbnail="/languages/typescript.svg"
-				startDateTime={new Date()}
-				endDateTime={new Date()}
-			/>
-		}
+		challangeBanner={<CHBanner {...dummyChallanges[0]} />}
 		registerBannder={<RegisterBanner challangeId={1} />}
 	></CHDetailTemplate>
 );

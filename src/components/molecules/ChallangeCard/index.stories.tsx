@@ -1,6 +1,6 @@
 import ChallangeCard from ".";
 import { Story } from "@storybook/react";
-import { ChallangeStatus } from "types/graphql/generated-types";
+import { dummyChallanges } from "fixture/data";
 
 export default {
 	title: "Mocules/Challange Card",
@@ -9,16 +9,7 @@ export default {
 
 const Template: Story = (args) => (
 	<div style={{ display: "inline-flex" }}>
-		<ChallangeCard
-			id={1}
-			status={ChallangeStatus.Inprogress}
-			remarks="단단한 javascript를 만들고 싶다면"
-			name="typescript"
-			thumbnail="/languages/typescript.svg"
-			startDateTime={new Date()}
-			endDateTime={new Date()}
-			{...args}
-		></ChallangeCard>
+		<ChallangeCard {...dummyChallanges[0]} {...args}></ChallangeCard>
 	</div>
 );
 export const Basic = Template.bind({});
