@@ -4,11 +4,11 @@ import { Image } from "components";
 
 export const Wrapper = styled.div`
 	display: grid;
-	grid-gap: ${palette("spaces", 4)};
+	grid-gap: ${palette("spaces", 5)};
 	grid-template-columns: 1fr;
 	color: ${palette("black")};
 	@media screen and (min-width: 32rem) {
-		grid-template-columns: 256px 1fr;
+		grid-template-columns: 320px 1fr;
 		justify-content: stretch;
 	}
 `;
