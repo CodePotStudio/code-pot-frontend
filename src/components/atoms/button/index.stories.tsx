@@ -26,6 +26,10 @@ export const ButtonWithIcon = () => (
 	</Button>
 );
 
+export const DisableButton = () => (
+	<Button disabled={true}>Disabled Button</Button>
+);
+
 export const GithubButton = () => (
 	<Button variant="github" icon={ICONS.github}>
 		github 버튼

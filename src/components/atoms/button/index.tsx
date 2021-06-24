@@ -15,19 +15,11 @@ interface Props extends S.ButtonStyleProps {
 	icon?: ICONS;
 }
 
-const Button = ({
-	children,
-	variant,
-	to,
-	href,
-	onClick,
-	icon,
-	...props
-}: Props) => {
+const Button = ({ children, to, href, onClick, icon, ...props }: Props) => {
 	if (to) {
 		return (
 			<Link href={to}>
-				<S.Anchor variant={variant} {...props}>
+				<S.Anchor {...props}>
 					{icon && <S.StyledIcon name={icon} size={20}></S.StyledIcon>}
 					{children}
 				</S.Anchor>
@@ -35,14 +27,14 @@ const Button = ({
 		);
 	} else if (href) {
 		return (
-			<S.Anchor href={href} variant={variant} {...props}>
+			<S.Anchor href={href} {...props}>
 				{icon && <S.StyledIcon name={icon} size={20}></S.StyledIcon>}
 				{children}
 			</S.Anchor>
 		);
 	}
 	return (
-		<S.Button variant={variant} onClick={onClick} {...props}>
+		<S.Button onClick={onClick} {...props}>
 			{icon && <S.StyledIcon name={icon} size={20}></S.StyledIcon>}
 			{children}
 		</S.Button>

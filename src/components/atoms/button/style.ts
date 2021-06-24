@@ -4,6 +4,7 @@ import { palette } from "styled-tools";
 
 export interface ButtonStyleProps {
 	variant: "primary" | "secondary" | "github";
+	disabled?: boolean;
 }
 
 const primaryStyle = css`
@@ -36,6 +37,14 @@ const githubStyle = css`
 	}
 `;
 
+const disableStyle = css`
+	background-color: ${palette("grayscale", 4)};
+	border: none;
+	color: ${palette("white")};
+	cursor: default;
+	pointer-events: none;
+`;
+
 const ButtonStyle = css<ButtonStyleProps>`
 	font-weight: 600;
 	margin: 0;
@@ -55,8 +64,12 @@ const ButtonStyle = css<ButtonStyleProps>`
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
-	// variant에 따른 버튼 스타일
-	${({ variant }) => {
+
+	// variant, disable에 따른 버튼 스타일
+	${({ variant, disabled }) => {
+		if (disabled) {
+			return disableStyle;
+		}
 		switch (variant) {
 			case "secondary":
 				return secondaryStyle;
