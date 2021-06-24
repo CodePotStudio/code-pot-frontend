@@ -1,10 +1,10 @@
 import { Badge, Heading, Text } from "components";
-import { CHCardProps } from "components/molecules/ChallangeCard";
 import * as S from "./style";
 import "moment/locale/ko";
 import moment from "moment";
+import { Challange } from "types/graphql/generated-types";
 
-interface Props extends CHCardProps {}
+interface Props extends Challange {}
 
 const ChallangeBanner = ({
 	thumbnail,

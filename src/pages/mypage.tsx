@@ -2,10 +2,9 @@ import { LoadingTemplate, MyPageTemplate } from "components";
 import Seo from "components/molecules/Seo";
 import { useSession } from "next-auth/client";
 import { ComponentWithAuth } from "pages/_app";
-import { ChallangeStatus } from "types/graphql/generated-types";
-import { CHCardProps } from "components/molecules/ChallangeCard";
+import { Challange, ChallangeStatus } from "types/graphql/generated-types";
 
-const inProgressExampleCard: CHCardProps[] = [
+const inProgressExampleCard: Challange[] = [
 	{
 		id: 4,
 		name: "react",

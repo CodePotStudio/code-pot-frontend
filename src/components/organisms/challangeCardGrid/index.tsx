@@ -1,9 +1,9 @@
 import { ChallangeCard, Loading } from "components";
-import { CHCardProps } from "components/molecules/ChallangeCard";
+import { Challange } from "types/graphql/generated-types";
 import * as S from "./style";
 
 interface Props {
-	CHCards: CHCardProps[];
+	CHCards: Challange[];
 	loading: boolean;
 }
 

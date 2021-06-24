@@ -1,13 +1,12 @@
 import ChallangeCardGrid from ".";
-import { CHCardProps } from "components/molecules/ChallangeCard";
-import { ChallangeStatus } from "types/graphql/generated-types";
+import { Challange, ChallangeStatus } from "types/graphql/generated-types";
 
 export default {
 	title: "Organisms/Challange Card Grid",
 	component: [ChallangeCardGrid],
 };
 
-const sampleCards: CHCardProps[] = [
+const sampleCards: Challange[] = [
 	{
 		id: 1,
 		status: ChallangeStatus.Preparing,
