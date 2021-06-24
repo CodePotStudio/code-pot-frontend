@@ -1,26 +1,32 @@
 import { LoadingTemplate, MyPageTemplate } from "components";
 import Seo from "components/molecules/Seo";
 import { useSession } from "next-auth/client";
-import { ChallangeCardType } from "types/data";
+import { ComponentWithAuth } from "pages/_app";
+import { ChallangeStatus } from "types/graphql/generated-types";
+import { CHCardProps } from "components/molecules/ChallangeCard";
 
-const inProgressExampleCard: ChallangeCardType[] = [
+const inProgressExampleCard: CHCardProps[] = [
 	{
-		id: "4",
-		language: "react",
-		status: "inProgress",
-		start_at: new Date(),
-		to: "/",
+		id: 4,
+		name: "react",
+		status: ChallangeStatus.Inprogress,
+		remarks: "테스트",
+		startDateTime: new Date(),
+		endDateTime: new Date(),
+		thumbnail: "/languages/react.svg",
 	},
 	{
-		id: "5",
-		language: "typescript",
-		status: "inProgress",
-		start_at: new Date(),
-		to: "/",
+		id: 5,
+		name: "typescript",
+		status: ChallangeStatus.Inprogress,
+		remarks: "테스트",
+		startDateTime: new Date(),
+		endDateTime: new Date(),
+		thumbnail: "/languages/typescript.svg",
 	},
 ];
 
-const myPage = () => {
+const myPage: ComponentWithAuth = () => {
 	const [session, loading] = useSession();
 	const user = session?.user;
 	return (
