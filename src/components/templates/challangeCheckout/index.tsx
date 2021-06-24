@@ -22,7 +22,7 @@ interface Props {
 	agreement: React.ReactNode;
 }
 
-const CheckoutTemplate = ({
+const ChallangeCheckoutTemplate = ({
 	challangeBanner,
 	checkoutSummary,
 	paymentMethod,
@@ -50,4 +50,4 @@ const CheckoutTemplate = ({
 		</ContentContainer>
 	</BaseTemplate>
 );
-export default CheckoutTemplate;
+export default ChallangeCheckoutTemplate;
