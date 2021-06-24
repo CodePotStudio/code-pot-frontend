@@ -6,7 +6,7 @@ interface Props {
 	checked: boolean;
 	children: React.ReactNode;
 	onClick: (
-		event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+		event: React.MouseEvent<HTMLLabelElement, MouseEvent>,
 		isChecked?: boolean
 	) => void;
 }
@@ -14,15 +14,13 @@ interface Props {
 const CheckBox = ({ checked, onClick, children }: Props) => {
 	const [isChecked, setIsChecked] = useState<boolean>(checked);
 	return (
-		<S.Label>
-			<S.Wrapper
-				onClick={(event) => {
-					onClick && onClick(event, !isChecked);
-					setIsChecked(!isChecked);
-				}}
-			>
-				{isChecked && <FaCheck color={"black"} />}
-			</S.Wrapper>
+		<S.Label
+			onClick={(event) => {
+				onClick && onClick(event, !isChecked);
+				setIsChecked(!isChecked);
+			}}
+		>
+			<S.Wrapper>{isChecked && <FaCheck color={"black"} />}</S.Wrapper>
 			{children}
 		</S.Label>
 	);

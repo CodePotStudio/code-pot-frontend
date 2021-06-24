@@ -23,4 +23,11 @@ export const Label = styled.label`
 	width: 100%;
 	display: flex;
 	align-items: center;
+	cursor: pointer;
+	// disable text selection
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 `;
