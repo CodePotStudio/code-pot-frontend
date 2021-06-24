@@ -40,11 +40,28 @@ export enum ChallangeStatus {
 }
 
 
+export type Enroll = {
+  __typename?: 'Enroll';
+  id: Scalars['Int'];
+  userId: Scalars['Int'];
+  challangeId: Scalars['Int'];
+  status: EnrollStatus;
+  createdAt: Scalars['Date'];
+  updatedAt: Scalars['Date'];
+};
+
+export enum EnrollStatus {
+  Processing = 'PROCESSING',
+  Completed = 'COMPLETED',
+  Canceled = 'CANCELED'
+}
+
 export type Mutation = {
   __typename?: 'Mutation';
   registerRefundAccount: User;
   activateUser: User;
   createUser: CreateUserResponse;
+  enrollChallange: Enroll;
 };
 
 
@@ -64,6 +81,11 @@ export type MutationCreateUserArgs = {
   email: Scalars['String'];
   avatar?: Maybe<Scalars['String']>;
   githubId: Scalars['Int'];
+};
+
+
+export type MutationEnrollChallangeArgs = {
+  challangeId: Scalars['Int'];
 };
 
 export type Profile = {
@@ -122,6 +144,11 @@ export type ChallangeFieldsFragment = (
   & Pick<Challange, 'id' | 'thumbnail' | 'name' | 'remarks' | 'status' | 'startDateTime' | 'endDateTime'>
 );
 
+export type EnrollFieldsFragment = (
+  { __typename?: 'Enroll' }
+  & Pick<Enroll, 'id' | 'challangeId' | 'userId' | 'status' | 'createdAt' | 'updatedAt'>
+);
+
 export type UserFieldsFragment = (
   { __typename?: 'User' }
   & Pick<User, 'id' | 'name' | 'email' | 'mobile' | 'isActive' | 'RBankAccount'>
@@ -157,6 +184,19 @@ export type CreateUserMutation = (
       { __typename?: 'User' }
       & UserFieldsFragment
     ) }
+  ) }
+);
+
+export type EnrollChallangeMutationVariables = Exact<{
+  challangeId: Scalars['Int'];
+}>;
+
+
+export type EnrollChallangeMutation = (
+  { __typename?: 'Mutation' }
+  & { enrollChallange: (
+    { __typename?: 'Enroll' }
+    & EnrollFieldsFragment
   ) }
 );
 
@@ -210,6 +250,16 @@ export const ChallangeFieldsFragmentDoc = gql`
   status
   startDateTime
   endDateTime
+}
+    `;
+export const EnrollFieldsFragmentDoc = gql`
+    fragment EnrollFields on Enroll {
+  id
+  challangeId
+  userId
+  status
+  createdAt
+  updatedAt
 }
     `;
 export const UserFieldsFragmentDoc = gql`
@@ -294,6 +344,39 @@ export function useCreateUserMutation(baseOptions?: Apollo.MutationHookOptions<C
 export type CreateUserMutationHookResult = ReturnType<typeof useCreateUserMutation>;
 export type CreateUserMutationResult = Apollo.MutationResult<CreateUserMutation>;
 export type CreateUserMutationOptions = Apollo.BaseMutationOptions<CreateUserMutation, CreateUserMutationVariables>;
+export const EnrollChallangeDocument = gql`
+    mutation enrollChallange($challangeId: Int!) {
+  enrollChallange(challangeId: $challangeId) {
+    ...EnrollFields
+  }
+}
+    ${EnrollFieldsFragmentDoc}`;
+export type EnrollChallangeMutationFn = Apollo.MutationFunction<EnrollChallangeMutation, EnrollChallangeMutationVariables>;
+
+/**
+ * __useEnrollChallangeMutation__
+ *
+ * To run a mutation, you first call `useEnrollChallangeMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useEnrollChallangeMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [enrollChallangeMutation, { data, loading, error }] = useEnrollChallangeMutation({
+ *   variables: {
+ *      challangeId: // value for 'challangeId'
+ *   },
+ * });
+ */
+export function useEnrollChallangeMutation(baseOptions?: Apollo.MutationHookOptions<EnrollChallangeMutation, EnrollChallangeMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<EnrollChallangeMutation, EnrollChallangeMutationVariables>(EnrollChallangeDocument, options);
+      }
+export type EnrollChallangeMutationHookResult = ReturnType<typeof useEnrollChallangeMutation>;
+export type EnrollChallangeMutationResult = Apollo.MutationResult<EnrollChallangeMutation>;
+export type EnrollChallangeMutationOptions = Apollo.BaseMutationOptions<EnrollChallangeMutation, EnrollChallangeMutationVariables>;
 export const FindChallangesDocument = gql`
     query findChallanges {
   findChallanges {

@@ -20,6 +20,7 @@ interface Props {
 	checkoutSummary: React.ReactNode;
 	paymentMethod: React.ReactNode;
 	agreement: React.ReactNode;
+	onCheckout: (e: any) => void;
 }
 
 const ChallangeCheckoutTemplate = ({
@@ -27,6 +28,7 @@ const ChallangeCheckoutTemplate = ({
 	checkoutSummary,
 	paymentMethod,
 	agreement,
+	onCheckout,
 }: Props) => (
 	<BaseTemplate>
 		<ContentContainer>
@@ -43,7 +45,7 @@ const ChallangeCheckoutTemplate = ({
 			</S.DescriptionWrapper>
 			<S.SectionContentWrapper>{agreement}</S.SectionContentWrapper>
 			<S.ButtonWrapper>
-				<S.StyledButton variant="primary" to="/transfer_guilde">
+				<S.StyledButton variant="primary" onClick={onCheckout}>
 					결제하기
 				</S.StyledButton>
 			</S.ButtonWrapper>

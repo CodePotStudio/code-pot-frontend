@@ -15,6 +15,7 @@ export default {
 
 export const Default = () => (
 	<CheckoutTemplate
+		onCheckout={() => alert("hello")}
 		challangeBanner={<CHBanner {...dummyChallanges[0]} />}
 		checkoutSummary={
 			<CheckoutSummary
