@@ -26,7 +26,7 @@ export const Default = () => (
 		paymentMethod={<PaymentMethod />}
 		agreement={
 			<FormItem>
-				<CheckBox checked={false} onClick={() => console.log("clicked")}>
+				<CheckBox onClick={() => console.log("clicked")}>
 					구매조건 및 개인정보취급방침 동의 (필수)
 				</CheckBox>
 			</FormItem>

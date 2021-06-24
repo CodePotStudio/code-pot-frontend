@@ -3,7 +3,7 @@ import { FaCheck } from "react-icons/fa";
 import * as S from "./style";
 
 interface Props {
-	checked: boolean;
+	checked?: boolean;
 	children: React.ReactNode;
 	onClick: (
 		event: React.MouseEvent<HTMLLabelElement, MouseEvent>,
@@ -11,7 +11,7 @@ interface Props {
 	) => void;
 }
 
-const CheckBox = ({ checked, onClick, children }: Props) => {
+const CheckBox = ({ checked = false, onClick, children }: Props) => {
 	const [isChecked, setIsChecked] = useState<boolean>(checked);
 	return (
 		<S.Label
