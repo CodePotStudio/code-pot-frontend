@@ -18,3 +18,18 @@ export const StyledButton = styled(Button)`
 		width: 400px;
 	}
 `;
+
+export const SectionWrapper = styled.div`
+	display: grid;
+	grid-gap: ${palette("spaces", 3)};
+`;
+
+export const ContentWrapper = styled.div``;
+
+export const DescriptionWrapper = styled.div`
+	display: grid;
+	grid-gap: ${palette("spaces", 6)};
+	padding: ${palette("spaces", 5)} 0px ${palette("spaces", 2)} 0px;
+`;
+
+export const SectionContentWrapper = styled.div``;

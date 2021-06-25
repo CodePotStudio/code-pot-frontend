@@ -1,3 +1,4 @@
+import { dummyChallanges } from "fixture/data";
 import CheckoutForm from ".";
 
 export default {
@@ -6,5 +7,10 @@ export default {
 };
 
 export const Default = () => (
-	<CheckoutForm onSubmit={(data) => console.log(data)} />
+	<CheckoutForm
+		onSubmit={(data) => console.log(data)}
+		challange={dummyChallanges[0]}
+		balance={100000}
+		platformCommission={5000}
+	/>
 );
