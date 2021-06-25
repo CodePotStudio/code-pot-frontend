@@ -55,7 +55,7 @@ const ChallangeDetail: ComponentWithAuth = ({ challange, error }: Props) => {
 			<ChallangeDetailTemplate
 				descriptions={DESCRIPTION}
 				challangeBanner={<CHBanner {...challange} />}
-				registerBannder={<RegisterBanner challangeId={challange.id} />}
+				registerBannder={<RegisterBanner challange={challange} />}
 			></ChallangeDetailTemplate>
 		</>
 	);
