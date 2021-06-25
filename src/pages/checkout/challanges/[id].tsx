@@ -10,14 +10,7 @@ import {
 import client from "apollo/client";
 import Error from "next/error";
 import ChallangeCheckoutTemplate from "components/templates/challangeCheckout";
-import {
-	CHBanner,
-	CheckBox,
-	CheckoutSummary,
-	FormItem,
-	LoadingTemplate,
-	PaymentMethod,
-} from "components";
+import { CheckoutForm, LoadingTemplate } from "components";
 import { useRouter } from "next/router";
 
 interface Props {
@@ -26,16 +19,6 @@ interface Props {
 		message?: string | null;
 	};
 }
-
-const CheckoutAgreement = () => (
-	<FormItem>
-		<CheckBox
-			onChange={() => console.log("clicked")}
-			label="구매조건 및 개인정보취급방침 동의 (필수)"
-			name="agreement"
-		/>
-	</FormItem>
-);
 
 const ChallangeCheckout: ComponentWithAuth = ({ challange, error }: Props) => {
 	const router = useRouter();
@@ -66,16 +49,14 @@ const ChallangeCheckout: ComponentWithAuth = ({ challange, error }: Props) => {
 		<>
 			<Seo></Seo>
 			<ChallangeCheckoutTemplate
-				challangeBanner={<CHBanner {...challange} />}
-				checkoutSummary={
-					<CheckoutSummary
+				checkoutForm={
+					<CheckoutForm
+						challange={challange}
+						onSubmit={onCheckout}
 						balance={100000}
 						platformCommission={5000}
-					></CheckoutSummary>
+					/>
 				}
-				paymentMethod={<PaymentMethod />}
-				agreement={<CheckoutAgreement />}
-				onCheckout={onCheckout}
 			></ChallangeCheckoutTemplate>
 		</>
 	);
