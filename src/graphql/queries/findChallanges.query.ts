@@ -3,8 +3,8 @@ import * as fragments from "../fragments";
 
 export default gql`
 	${fragments.ChallangeFields}
-	query findChallanges {
-		findChallanges {
+	query findChallanges($filter: ChallangeFilter) {
+		findChallanges(filter: $filter) {
 			...ChallangeFields
 		}
 	}

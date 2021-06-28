@@ -28,7 +28,7 @@ export type Challange = {
 };
 
 export type ChallangeFilter = {
-  status: ChallangeStatus;
+  status: Array<ChallangeStatus>;
 };
 
 export enum ChallangeStatus {
@@ -200,7 +200,9 @@ export type EnrollChallangeMutation = (
   ) }
 );
 
-export type FindChallangesQueryVariables = Exact<{ [key: string]: never; }>;
+export type FindChallangesQueryVariables = Exact<{
+  filter?: Maybe<ChallangeFilter>;
+}>;
 
 
 export type FindChallangesQuery = (
@@ -378,8 +380,8 @@ export type EnrollChallangeMutationHookResult = ReturnType<typeof useEnrollChall
 export type EnrollChallangeMutationResult = Apollo.MutationResult<EnrollChallangeMutation>;
 export type EnrollChallangeMutationOptions = Apollo.BaseMutationOptions<EnrollChallangeMutation, EnrollChallangeMutationVariables>;
 export const FindChallangesDocument = gql`
-    query findChallanges {
-  findChallanges {
+    query findChallanges($filter: ChallangeFilter) {
+  findChallanges(filter: $filter) {
     ...ChallangeFields
   }
 }
@@ -397,6 +399,7 @@ export const FindChallangesDocument = gql`
  * @example
  * const { data, loading, error } = useFindChallangesQuery({
  *   variables: {
+ *      filter: // value for 'filter'
  *   },
  * });
  */
