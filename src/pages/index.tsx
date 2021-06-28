@@ -21,7 +21,10 @@ const Home: NextPage = () => {
 	} = useFindChallangesQuery({
 		variables: {
 			filter: {
-				status: [ChallangeStatus.Recruiting, ChallangeStatus.RecruitmentClosed],
+				statuses: [
+					ChallangeStatus.Recruiting,
+					ChallangeStatus.RecruitmentClosed,
+				],
 			},
 		},
 	});

@@ -28,7 +28,7 @@ export type Challange = {
 };
 
 export type ChallangeFilter = {
-  status: Array<ChallangeStatus>;
+  statuses?: Maybe<Array<ChallangeStatus>>;
 };
 
 export enum ChallangeStatus {
@@ -48,6 +48,7 @@ export type Enroll = {
   status: EnrollStatus;
   createdAt: Scalars['Date'];
   updatedAt: Scalars['Date'];
+  challange?: Maybe<Challange>;
 };
 
 export enum EnrollStatus {
@@ -88,6 +89,10 @@ export type MutationEnrollChallangeArgs = {
   challangeId: Scalars['Int'];
 };
 
+export type MyEnrollFillter = {
+  challangeStatuses?: Maybe<Array<ChallangeStatus>>;
+};
+
 export type Profile = {
   __typename?: 'Profile';
   avatar?: Maybe<Scalars['String']>;
@@ -99,16 +104,22 @@ export type Query = {
   me?: Maybe<Me>;
   findChallanges: Array<Challange>;
   getChallange?: Maybe<Challange>;
+  myEnrolls?: Maybe<Array<Enroll>>;
 };
 
 
 export type QueryFindChallangesArgs = {
-  filter?: Maybe<ChallangeFilter>;
+  filter: ChallangeFilter;
 };
 
 
 export type QueryGetChallangeArgs = {
   id: Scalars['Int'];
+};
+
+
+export type QueryMyEnrollsArgs = {
+  filter: MyEnrollFillter;
 };
 
 export type User = {
@@ -201,7 +212,7 @@ export type EnrollChallangeMutation = (
 );
 
 export type FindChallangesQueryVariables = Exact<{
-  filter?: Maybe<ChallangeFilter>;
+  filter: ChallangeFilter;
 }>;
 
 
@@ -380,7 +391,7 @@ export type EnrollChallangeMutationHookResult = ReturnType<typeof useEnrollChall
 export type EnrollChallangeMutationResult = Apollo.MutationResult<EnrollChallangeMutation>;
 export type EnrollChallangeMutationOptions = Apollo.BaseMutationOptions<EnrollChallangeMutation, EnrollChallangeMutationVariables>;
 export const FindChallangesDocument = gql`
-    query findChallanges($filter: ChallangeFilter) {
+    query findChallanges($filter: ChallangeFilter!) {
   findChallanges(filter: $filter) {
     ...ChallangeFields
   }
@@ -403,7 +414,7 @@ export const FindChallangesDocument = gql`
  *   },
  * });
  */
-export function useFindChallangesQuery(baseOptions?: Apollo.QueryHookOptions<FindChallangesQuery, FindChallangesQueryVariables>) {
+export function useFindChallangesQuery(baseOptions: Apollo.QueryHookOptions<FindChallangesQuery, FindChallangesQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
         return Apollo.useQuery<FindChallangesQuery, FindChallangesQueryVariables>(FindChallangesDocument, options);
       }
