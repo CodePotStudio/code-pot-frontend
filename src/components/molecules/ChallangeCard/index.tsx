@@ -16,7 +16,6 @@ const ChallangeCard = ({
 	status,
 	startDateTime,
 }: CHCardProps) => {
-	console.log(status);
 	const { variant, text: badgeText } = StatusSet[status];
 	return (
 		<S.CardLink to={routes.CHALLANGE_DETAIL(id)} key={id}>

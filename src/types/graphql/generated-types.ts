@@ -91,6 +91,7 @@ export type MutationEnrollChallangeArgs = {
 
 export type MyEnrollFillter = {
   challangeStatuses?: Maybe<Array<ChallangeStatus>>;
+  statuses?: Maybe<Array<EnrollStatus>>;
 };
 
 export type Profile = {
@@ -104,7 +105,7 @@ export type Query = {
   me?: Maybe<Me>;
   findChallanges: Array<Challange>;
   getChallange?: Maybe<Challange>;
-  myEnrolls?: Maybe<Array<Enroll>>;
+  myEnrolls: Array<Enroll>;
 };
 
 
@@ -158,6 +159,10 @@ export type ChallangeFieldsFragment = (
 export type EnrollFieldsFragment = (
   { __typename?: 'Enroll' }
   & Pick<Enroll, 'id' | 'challangeId' | 'userId' | 'status' | 'createdAt' | 'updatedAt'>
+  & { challange?: Maybe<(
+    { __typename?: 'Challange' }
+    & ChallangeFieldsFragment
+  )> }
 );
 
 export type UserFieldsFragment = (
@@ -254,6 +259,19 @@ export type GetMeQuery = (
   )> }
 );
 
+export type GetMyEnrollsQueryVariables = Exact<{
+  filter: MyEnrollFillter;
+}>;
+
+
+export type GetMyEnrollsQuery = (
+  { __typename?: 'Query' }
+  & { myEnrolls: Array<(
+    { __typename?: 'Enroll' }
+    & EnrollFieldsFragment
+  )> }
+);
+
 export const ChallangeFieldsFragmentDoc = gql`
     fragment ChallangeFields on Challange {
   id
@@ -273,8 +291,11 @@ export const EnrollFieldsFragmentDoc = gql`
   status
   createdAt
   updatedAt
+  challange {
+    ...ChallangeFields
+  }
 }
-    `;
+    ${ChallangeFieldsFragmentDoc}`;
 export const UserFieldsFragmentDoc = gql`
     fragment UserFields on User {
   id
@@ -499,3 +520,38 @@ export function useGetMeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetM
 export type GetMeQueryHookResult = ReturnType<typeof useGetMeQuery>;
 export type GetMeLazyQueryHookResult = ReturnType<typeof useGetMeLazyQuery>;
 export type GetMeQueryResult = Apollo.QueryResult<GetMeQuery, GetMeQueryVariables>;
+export const GetMyEnrollsDocument = gql`
+    query getMyEnrolls($filter: MyEnrollFillter!) {
+  myEnrolls(filter: $filter) {
+    ...EnrollFields
+  }
+}
+    ${EnrollFieldsFragmentDoc}`;
+
+/**
+ * __useGetMyEnrollsQuery__
+ *
+ * To run a query within a React component, call `useGetMyEnrollsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetMyEnrollsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetMyEnrollsQuery({
+ *   variables: {
+ *      filter: // value for 'filter'
+ *   },
+ * });
+ */
+export function useGetMyEnrollsQuery(baseOptions: Apollo.QueryHookOptions<GetMyEnrollsQuery, GetMyEnrollsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetMyEnrollsQuery, GetMyEnrollsQueryVariables>(GetMyEnrollsDocument, options);
+      }
+export function useGetMyEnrollsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetMyEnrollsQuery, GetMyEnrollsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetMyEnrollsQuery, GetMyEnrollsQueryVariables>(GetMyEnrollsDocument, options);
+        }
+export type GetMyEnrollsQueryHookResult = ReturnType<typeof useGetMyEnrollsQuery>;
+export type GetMyEnrollsLazyQueryHookResult = ReturnType<typeof useGetMyEnrollsLazyQuery>;
+export type GetMyEnrollsQueryResult = Apollo.QueryResult<GetMyEnrollsQuery, GetMyEnrollsQueryVariables>;

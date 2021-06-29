@@ -2,36 +2,35 @@ import { LoadingTemplate, MyPageTemplate } from "components";
 import Seo from "components/molecules/Seo";
 import { useSession } from "next-auth/client";
 import { ComponentWithAuth } from "pages/_app";
-import { Challange, ChallangeStatus } from "types/graphql/generated-types";
-
-const inProgressExampleCard: Challange[] = [
-	{
-		id: 4,
-		name: "react",
-		status: ChallangeStatus.Inprogress,
-		remarks: "테스트",
-		startDateTime: new Date(),
-		endDateTime: new Date(),
-		thumbnail: "/languages/react.svg",
-	},
-	{
-		id: 5,
-		name: "typescript",
-		status: ChallangeStatus.Inprogress,
-		remarks: "테스트",
-		startDateTime: new Date(),
-		endDateTime: new Date(),
-		thumbnail: "/languages/typescript.svg",
-	},
-];
+import {
+	EnrollStatus,
+	useGetMyEnrollsQuery,
+} from "types/graphql/generated-types";
 
 const myPage: ComponentWithAuth = () => {
-	const [session, loading] = useSession();
+	const [session, sessionLoading] = useSession();
 	const user = session?.user;
+	const {
+		data: { myEnrolls: processingEnroll = [] } = {},
+	} = useGetMyEnrollsQuery({
+		variables: {
+			filter: {
+				statuses: [EnrollStatus.Processing],
+			},
+		},
+	});
+	const { data: { myEnrolls: watingEnroll = [] } = {} } = useGetMyEnrollsQuery({
+		variables: {
+			filter: {
+				statuses: [EnrollStatus.Completed],
+			},
+		},
+	});
+
 	return (
 		<div>
 			<Seo></Seo>
-			{loading ? (
+			{sessionLoading ? (
 				<LoadingTemplate></LoadingTemplate>
 			) : (
 				<MyPageTemplate
@@ -40,8 +39,8 @@ const myPage: ComponentWithAuth = () => {
 					image={user?.image!}
 					refundAccountNo="110-217-985246"
 					refundAccountBankName="신한은행"
-					inProgressCards={inProgressExampleCard}
-					waitingDepositCards={inProgressExampleCard}
+					inProgressCards={processingEnroll.map((enroll) => enroll!.challange!)}
+					waitingDepositCards={watingEnroll.map((enroll) => enroll!.challange!)}
 				></MyPageTemplate>
 			)}
 		</div>
