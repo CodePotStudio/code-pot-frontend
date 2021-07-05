@@ -1,12 +1,11 @@
 import {
 	Avatar,
 	BaseTemplate,
-	CHCardGrid,
 	ContentContainer,
 	Heading,
 	Text,
 } from "components";
-import { CHCardProps } from "components/molecules/ChallangeCard";
+import { Challange } from "types/graphql/generated-types";
 import * as S from "./style";
 
 interface Props {
@@ -15,8 +14,8 @@ interface Props {
 	refundAccountNo: string;
 	image?: string;
 	refundAccountBankName: string;
-	inProgressCards: CHCardProps[];
-	waitingDepositCards: CHCardProps[];
+	inProgressCards: Challange[];
+	waitingDepositCards: Challange[];
 }
 
 interface SectionContainerProps {
@@ -61,11 +60,15 @@ const MyPageTemplate = ({
 					</Text>
 				</SectionContainer>
 				<SectionContainer title="참여중인 챌린지">
-					<S.StyledCHCardGrid CHCards={inProgressCards}></S.StyledCHCardGrid>
+					<S.StyledCHCardGrid
+						CHCards={inProgressCards}
+						loading={false}
+					></S.StyledCHCardGrid>
 				</SectionContainer>
 				<SectionContainer title="입금 대기중인 챌린지">
 					<S.StyledCHCardGrid
 						CHCards={waitingDepositCards}
+						loading={false}
 					></S.StyledCHCardGrid>
 				</SectionContainer>
 			</S.Wrapper>

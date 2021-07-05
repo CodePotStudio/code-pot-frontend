@@ -7,4 +7,5 @@ export default {
 	MYPAGE: "/mypage",
 	ACTIVATE: "/register/activate",
 	GITHUB_LOGIN: `${environment.serverURL}/auth/github`,
+	CHALLANGE_DETAIL: (id: number) => `/challanges/${id}`,
 };

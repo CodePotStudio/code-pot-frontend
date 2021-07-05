@@ -22,11 +22,11 @@ interface ActivationFormProps {
 const ActivationForm = ({ onSubmit }: ActivationFormProps) => {
 	const {
 		register,
-		formState: { errors },
+		formState: { errors, isDirty, isValid },
 		handleSubmit,
 	} = useForm<ActivationFormValues>({
 		resolver: yupResolver(activationFormSchema),
-		mode: "onBlur",
+		mode: "onChange",
 	});
 	return (
 		<S.FormWrapper onSubmit={handleSubmit(onSubmit)}>
@@ -46,7 +46,7 @@ const ActivationForm = ({ onSubmit }: ActivationFormProps) => {
 					<Input {...register("mobile")} invalid={!!errors.mobile}></Input>
 				</FormItem>
 			</S.InputWrapper>
-			<Button variant="primary" type="submit">
+			<Button variant="primary" type="submit" disabled={!isDirty || !isValid}>
 				회원 가입하기
 			</Button>
 		</S.FormWrapper>

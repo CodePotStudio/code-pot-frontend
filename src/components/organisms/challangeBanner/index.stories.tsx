@@ -1,4 +1,5 @@
 import ChallangeBanner from ".";
+import { dummyChallanges } from "fixture/data";
 
 export default {
 	title: "Organisms/Challange Banner",
@@ -6,23 +7,5 @@ export default {
 };
 
 export const Default = () => (
-	<ChallangeBanner
-		id="1"
-		language="typescript"
-		status="inProgress"
-		to="/home"
-		start_at={new Date()}
-	></ChallangeBanner>
-);
-
-export const BannerWithColor = () => (
-	<ChallangeBanner
-		id="1"
-		language="typescript"
-		status="inProgress"
-		to="/home"
-		start_at={new Date()}
-		color="black"
-		backgroundColor="white"
-	></ChallangeBanner>
+	<ChallangeBanner {...dummyChallanges[0]}></ChallangeBanner>
 );

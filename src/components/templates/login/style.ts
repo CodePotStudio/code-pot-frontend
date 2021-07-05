@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Heading, Button } from "components";
+import { Button, Heading } from "components";
 import { palette } from "styled-tools";
 
 export const StrongText = styled.span`

@@ -21,6 +21,13 @@ export const Label = styled.label`
 	margin: 0px;
 	min-width: 0px;
 	width: 100%;
-	display: flex;
+	display: inline-flex;
 	align-items: center;
+	cursor: pointer;
+	// disable text selection
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 `;

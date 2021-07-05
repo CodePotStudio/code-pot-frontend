@@ -5,11 +5,10 @@ import GlobalStyles from "../common/style/GlobalStyle";
 import { AppProps } from "next/app";
 import { ApolloProvider } from "@apollo/client/react";
 import client from "apollo/client";
-import { Provider, useSession, signIn } from "next-auth/client";
+import { Provider, useSession } from "next-auth/client";
 import { useEffect } from "react";
 import { NextComponentType, NextPageContext } from "next";
 import { LoadingTemplate } from "components";
-import { useGetMeQuery } from "types/graphql/generated-types";
 import { useRouter } from "next/router";
 import routes from "common/constants/routes";
 interface Props {
@@ -27,11 +26,9 @@ export interface AuthEnabledComponentConfig {
 /**
  * A component with authentication configuration
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type ComponentWithAuth<PropsType = any> = React.FC<PropsType> &
 	AuthEnabledComponentConfig;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any,@typescript-eslint/ban-types
 type NextComponentWithAuth = NextComponentType<NextPageContext, any, {}> &
 	Partial<AuthEnabledComponentConfig>;
 
@@ -43,7 +40,7 @@ function Auth({ children }: Props) {
 	const [session, loading] = useSession();
 	const router = useRouter();
 	const isUser = !!session?.user;
-	const isActive = !!session?.user.isActive;
+	const isActive = !!session?.user?.isActive;
 
 	useEffect(() => {
 		if (loading) return; // Do nothing while loading

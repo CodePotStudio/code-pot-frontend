@@ -1,61 +1,42 @@
 import {
-	MainPageTemplate,
-	Hero,
 	CHCardGrid,
 	DrawerGrid,
 	EPCardGrid,
+	Hero,
+	MainPageTemplate,
 } from "components";
-import { ChallangeCardType } from "types/data";
 import { EpilogueCardData } from "components/organisms/epilogueCardGrid/constants";
 import { MainPageFAQ } from "components/organisms/drawerGrid/constants";
 import Seo from "components/molecules/Seo";
+import {
+	ChallangeStatus,
+	useFindChallangesQuery,
+} from "types/graphql/generated-types";
+import { NextPage } from "next";
 
-// TODO: 임시 데이터
-const sampleCards: ChallangeCardType[] = [
-	{
-		id: "1",
-		language: "typescript",
-		status: "close",
-		start_at: new Date(),
-		to: "/",
-	},
-	{
-		id: "2",
-		language: "python",
-		status: "inProgress",
-		start_at: new Date(),
-		to: "/",
-	},
-	{
-		id: "3",
-		language: "graphql",
-		status: "close",
-		start_at: new Date(),
-		to: "/",
-	},
-	{
-		id: "4",
-		language: "react",
-		status: "inProgress",
-		start_at: new Date(),
-		to: "/",
-	},
-	{
-		id: "5",
-		language: "typescript",
-		status: "inProgress",
-		start_at: new Date(),
-		to: "/",
-	},
-];
+const Home: NextPage = () => {
+	const {
+		data: { findChallanges = [] } = {},
+		loading,
+	} = useFindChallangesQuery({
+		variables: {
+			filter: {
+				statuses: [
+					ChallangeStatus.Recruiting,
+					ChallangeStatus.RecruitmentClosed,
+				],
+			},
+		},
+	});
 
-const Home = () => {
 	return (
 		<>
 			<Seo></Seo>
 			<MainPageTemplate
 				hero={<Hero />}
-				challangeGrid={<CHCardGrid CHCards={sampleCards} />}
+				challangeGrid={
+					<CHCardGrid CHCards={findChallanges} loading={loading} />
+				}
 				epilogueGrid={<EPCardGrid epCards={EpilogueCardData} />}
 				faqGrid={<DrawerGrid drawers={MainPageFAQ} />}
 			></MainPageTemplate>

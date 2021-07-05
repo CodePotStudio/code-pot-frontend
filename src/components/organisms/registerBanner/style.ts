@@ -1,4 +1,4 @@
-import { Heading, Button } from "components";
+import { Button, Heading } from "components";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`

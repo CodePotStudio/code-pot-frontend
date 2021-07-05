@@ -1,47 +1,17 @@
 import ChallangeCardGrid from ".";
-import { CHCardProps } from "components/molecules/ChallangeCard";
+import { dummyChallanges } from "fixture/data";
 
 export default {
 	title: "Organisms/Challange Card Grid",
 	component: [ChallangeCardGrid],
 };
 
-const sampleCards: CHCardProps[] = [
-	{
-		id: "1",
-		language: "typescript",
-		status: "close",
-		start_at: new Date(),
-		to: "/",
-	},
-	{
-		id: "2",
-		language: "python",
-		status: "inProgress",
-		start_at: new Date(),
-		to: "/",
-	},
-	{
-		id: "3",
-		language: "graphql",
-		status: "close",
-		start_at: new Date(),
-		to: "/",
-	},
-	{
-		id: "4",
-		language: "react",
-		status: "inProgress",
-		start_at: new Date(),
-		to: "/",
-	},
-	{
-		id: "5",
-		language: "typescript",
-		status: "inProgress",
-		start_at: new Date(),
-		to: "/",
-	},
-];
-
-export const Default = () => <ChallangeCardGrid CHCards={sampleCards} />;
+export const Default = () => (
+	<ChallangeCardGrid CHCards={dummyChallanges} loading={false} />
+);
+export const LoadingData = () => (
+	<ChallangeCardGrid loading={true} CHCards={[]} />
+);
+export const EmptyData = () => (
+	<ChallangeCardGrid CHCards={[]} loading={false} />
+);

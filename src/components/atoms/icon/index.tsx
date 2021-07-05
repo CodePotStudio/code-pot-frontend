@@ -1,4 +1,4 @@
-import { IconSet, ICONS } from "./constants";
+import { ICONS, IconSet } from "./constants";
 
 export interface Props {
 	size?: number;

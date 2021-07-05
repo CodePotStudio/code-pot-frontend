@@ -8,7 +8,16 @@ export default {
 
 export const Default = () => (
 	<CheckBox
-		checked={false}
-		onClick={() => console.log("Button Clicked")}
-	>약관에 동의</CheckBox>
+		label="약관 동의하기"
+		name="agreement"
+		onChange={() => console.log("hello")}
+	></CheckBox>
+);
+export const DefaultCheckedBox = () => (
+	<CheckBox
+		label="약관 동의"
+		defaultChecked={true}
+		name="agreement"
+		onChange={() => console.log("hello")}
+	></CheckBox>
 );

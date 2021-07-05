@@ -4,6 +4,7 @@ import { palette } from "styled-tools";
 
 export interface ButtonStyleProps {
 	variant: "primary" | "secondary" | "github";
+	disabled?: boolean;
 }
 
 const primaryStyle = css`
@@ -29,11 +30,19 @@ const secondaryStyle = css`
 const githubStyle = css`
 	border: none;
 	color: ${palette("white")};
-	background-color: ${palette("grayscale", 1)};
+	background-color: ${palette("grayscale", 0)};
 	&:hover {
 		color: ${palette("white")};
-		background-color: ${palette("grayscale", 0)};
+		background-color: ${palette("grayscale", 1)};
 	}
+`;
+
+const disableStyle = css`
+	background-color: ${palette("grayscale", 4)};
+	border: none;
+	color: ${palette("white")};
+	cursor: default;
+	pointer-events: none;
 `;
 
 const ButtonStyle = css<ButtonStyleProps>`
@@ -55,8 +64,12 @@ const ButtonStyle = css<ButtonStyleProps>`
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
-	// variant에 따른 버튼 스타일
-	${({ variant }) => {
+
+	// variant, disable에 따른 버튼 스타일
+	${({ variant, disabled }) => {
+		if (disabled) {
+			return disableStyle;
+		}
 		switch (variant) {
 			case "secondary":
 				return secondaryStyle;

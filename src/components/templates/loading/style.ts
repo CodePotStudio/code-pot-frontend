@@ -1,4 +1,3 @@
-import { Image } from "components";
 import styled from "styled-components";
 import { palette } from "styled-tools";
 
@@ -15,10 +14,4 @@ export const Wrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-`;
-
-export const StyledImage = styled(Image)`
-	width: 48px;
-	height: 48px;
-	background-color: "";
 `;

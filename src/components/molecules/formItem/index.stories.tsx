@@ -24,12 +24,10 @@ export const Default = () => (
 			></Select>
 		</FormItem>
 		<FormItem>
-			<CheckBox checked={false} onClick={() => console.log("clicked")}>
-				약관 동의
-			</CheckBox>
+			<CheckBox onClick={() => console.log("clicked")}>약관 동의</CheckBox>
 		</FormItem>
 		<FormItem>
-			<Radio checked={true}>계좌 이체</Radio>
+			<Radio checked>계좌 이체</Radio>
 		</FormItem>
 	</>
 );
@@ -48,12 +46,10 @@ export const AlignRowForm = () => (
 			></Select>
 		</FormItem>
 		<FormItem direction="row">
-			<CheckBox checked={false} onClick={() => console.log("clicked")}>
-				약관 동의
-			</CheckBox>
+			<CheckBox onClick={() => console.log("clicked")}>약관 동의</CheckBox>
 		</FormItem>
 		<FormItem direction="row">
-			<Radio checked={true}>계좌 이체</Radio>
+			<Radio checked>계좌 이체</Radio>
 		</FormItem>
 	</>
 );

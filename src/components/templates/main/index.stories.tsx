@@ -1,49 +1,11 @@
-import { Hero, CHCardGrid, EPCardGrid, DrawerGrid } from "components";
-import { ChallangeCardType } from "types/data";
+import { CHCardGrid, DrawerGrid, EPCardGrid, Hero } from "components";
+import { dummyChallanges } from "fixture/data";
 import MainPageTemplate from ".";
 
 export default {
 	title: "Templates/Main Template",
 	component: [MainPageTemplate],
 };
-
-const sampleCards: ChallangeCardType[] = [
-	{
-		id: "1",
-		language: "typescript",
-		status: "close",
-		start_at: new Date(),
-		to: "/",
-	},
-	{
-		id: "2",
-		language: "python",
-		status: "inProgress",
-		start_at: new Date(),
-		to: "/",
-	},
-	{
-		id: "3",
-		language: "graphql",
-		status: "close",
-		start_at: new Date(),
-		to: "/",
-	},
-	{
-		id: "4",
-		language: "react",
-		status: "inProgress",
-		start_at: new Date(),
-		to: "/",
-	},
-	{
-		id: "5",
-		language: "typescript",
-		status: "inProgress",
-		start_at: new Date(),
-		to: "/",
-	},
-];
 
 const SampleData = [
 	{
@@ -106,7 +68,9 @@ const exampleDrawers = [
 export const Default = () => (
 	<MainPageTemplate
 		hero={<Hero></Hero>}
-		challangeGrid={<CHCardGrid CHCards={sampleCards}></CHCardGrid>}
+		challangeGrid={
+			<CHCardGrid CHCards={dummyChallanges} loading={false}></CHCardGrid>
+		}
 		epilogueGrid={<EPCardGrid epCards={SampleData}></EPCardGrid>}
 		faqGrid={<DrawerGrid drawers={exampleDrawers}></DrawerGrid>}
 	></MainPageTemplate>

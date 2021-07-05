@@ -1,3 +1,4 @@
+import { dummyChallanges } from "fixture/data";
 import RegisterBanner from ".";
 
 export default {
@@ -5,4 +6,4 @@ export default {
 	component: [RegisterBanner],
 };
 
-export const Default = () => <RegisterBanner challangeId="1" />;
+export const Default = () => <RegisterBanner challange={dummyChallanges[0]} />;

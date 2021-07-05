@@ -12,6 +12,7 @@ export { default as Link } from "./atoms/link";
 export { default as Select } from "./atoms/select";
 export { default as Radio } from "./atoms/radio";
 export { default as Image } from "./atoms/image";
+export { default as Loading } from "./atoms/loading";
 export { Heading, Text } from "./atoms/typography";
 
 // molecules
@@ -37,6 +38,7 @@ export { default as CheckoutSummary } from "./organisms/checkoutSummary";
 export { default as PaymentMethod } from "./organisms/paymentMethod";
 export { default as RefundAccountForm } from "./organisms/refundAccountForm";
 export { default as RegisterBanner } from "./organisms/registerBanner";
+export { default as CheckoutForm } from "./organisms/checkoutForm";
 
 //templates
 export { default as BaseTemplate } from "./templates/baseTemplate";
@@ -45,7 +47,7 @@ export { default as MainPageTemplate } from "./templates/main";
 export { default as NotFoundTemplate } from "./templates/notFound";
 export { default as ChallangeDetailTemplate } from "./templates/challangeDetail";
 export { default as MyPageTemplate } from "./templates/myPage";
-export { default as CheckoutTemplate } from "./templates/checkout";
+export { default as CheckoutTemplate } from "./templates/challangeCheckout";
 export { default as TransferGuideTemplate } from "./templates/transferGuide";
 export { default as SignupTemplate } from "./templates/signUp";
 export { default as LoginTemplate } from "./templates/login";

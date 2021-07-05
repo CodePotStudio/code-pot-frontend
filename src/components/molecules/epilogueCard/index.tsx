@@ -1,4 +1,4 @@
-import { Heading, Text, Avatar } from "components";
+import { Avatar, Heading, Text } from "components";
 import * as S from "./style";
 export interface EpilogueCardProps {
 	key: number;

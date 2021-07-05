@@ -12,15 +12,57 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  /** Date custom scalar type */
+  Date: Date;
 };
+
+export type Challange = {
+  __typename?: 'Challange';
+  id: Scalars['Int'];
+  thumbnail: Scalars['String'];
+  name: Scalars['String'];
+  remarks: Scalars['String'];
+  status: ChallangeStatus;
+  startDateTime: Scalars['Date'];
+  endDateTime: Scalars['Date'];
+};
+
+export type ChallangeFilter = {
+  statuses?: Maybe<Array<ChallangeStatus>>;
+};
+
+export enum ChallangeStatus {
+  Preparing = 'PREPARING',
+  Recruiting = 'RECRUITING',
+  RecruitmentClosed = 'RECRUITMENT_CLOSED',
+  Inprogress = 'INPROGRESS',
+  Closed = 'CLOSED'
+}
+
+
+export type Enroll = {
+  __typename?: 'Enroll';
+  id: Scalars['Int'];
+  userId: Scalars['Int'];
+  challangeId: Scalars['Int'];
+  status: EnrollStatus;
+  createdAt: Scalars['Date'];
+  updatedAt: Scalars['Date'];
+  challange?: Maybe<Challange>;
+};
+
+export enum EnrollStatus {
+  Processing = 'PROCESSING',
+  Completed = 'COMPLETED',
+  Canceled = 'CANCELED'
+}
 
 export type Mutation = {
   __typename?: 'Mutation';
   registerRefundAccount: User;
   activateUser: User;
-  logout?: Maybe<Scalars['Boolean']>;
-  createAuthToken?: Maybe<AccessToken>;
   createUser: CreateUserResponse;
+  enrollChallange: Enroll;
 };
 
 
@@ -42,6 +84,16 @@ export type MutationCreateUserArgs = {
   githubId: Scalars['Int'];
 };
 
+
+export type MutationEnrollChallangeArgs = {
+  challangeId: Scalars['Int'];
+};
+
+export type MyEnrollFillter = {
+  challangeStatuses?: Maybe<Array<ChallangeStatus>>;
+  statuses?: Maybe<Array<EnrollStatus>>;
+};
+
 export type Profile = {
   __typename?: 'Profile';
   avatar?: Maybe<Scalars['String']>;
@@ -51,12 +103,24 @@ export type Profile = {
 export type Query = {
   __typename?: 'Query';
   me?: Maybe<Me>;
-  user?: Maybe<User>;
+  findChallanges: Array<Challange>;
+  getChallange?: Maybe<Challange>;
+  myEnrolls: Array<Enroll>;
 };
 
 
-export type QueryUserArgs = {
+export type QueryFindChallangesArgs = {
+  filter: ChallangeFilter;
+};
+
+
+export type QueryGetChallangeArgs = {
   id: Scalars['Int'];
+};
+
+
+export type QueryMyEnrollsArgs = {
+  filter: MyEnrollFillter;
 };
 
 export type User = {
@@ -86,6 +150,20 @@ export type Me = {
   user: User;
   profile?: Maybe<Profile>;
 };
+
+export type ChallangeFieldsFragment = (
+  { __typename?: 'Challange' }
+  & Pick<Challange, 'id' | 'thumbnail' | 'name' | 'remarks' | 'status' | 'startDateTime' | 'endDateTime'>
+);
+
+export type EnrollFieldsFragment = (
+  { __typename?: 'Enroll' }
+  & Pick<Enroll, 'id' | 'challangeId' | 'userId' | 'status' | 'createdAt' | 'updatedAt'>
+  & { challange?: Maybe<(
+    { __typename?: 'Challange' }
+    & ChallangeFieldsFragment
+  )> }
+);
 
 export type UserFieldsFragment = (
   { __typename?: 'User' }
@@ -125,6 +203,45 @@ export type CreateUserMutation = (
   ) }
 );
 
+export type EnrollChallangeMutationVariables = Exact<{
+  challangeId: Scalars['Int'];
+}>;
+
+
+export type EnrollChallangeMutation = (
+  { __typename?: 'Mutation' }
+  & { enrollChallange: (
+    { __typename?: 'Enroll' }
+    & EnrollFieldsFragment
+  ) }
+);
+
+export type FindChallangesQueryVariables = Exact<{
+  filter: ChallangeFilter;
+}>;
+
+
+export type FindChallangesQuery = (
+  { __typename?: 'Query' }
+  & { findChallanges: Array<(
+    { __typename?: 'Challange' }
+    & ChallangeFieldsFragment
+  )> }
+);
+
+export type GetChallangeQueryVariables = Exact<{
+  id: Scalars['Int'];
+}>;
+
+
+export type GetChallangeQuery = (
+  { __typename?: 'Query' }
+  & { getChallange?: Maybe<(
+    { __typename?: 'Challange' }
+    & ChallangeFieldsFragment
+  )> }
+);
+
 export type GetMeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -142,6 +259,43 @@ export type GetMeQuery = (
   )> }
 );
 
+export type GetMyEnrollsQueryVariables = Exact<{
+  filter: MyEnrollFillter;
+}>;
+
+
+export type GetMyEnrollsQuery = (
+  { __typename?: 'Query' }
+  & { myEnrolls: Array<(
+    { __typename?: 'Enroll' }
+    & EnrollFieldsFragment
+  )> }
+);
+
+export const ChallangeFieldsFragmentDoc = gql`
+    fragment ChallangeFields on Challange {
+  id
+  thumbnail
+  name
+  remarks
+  status
+  startDateTime
+  endDateTime
+}
+    `;
+export const EnrollFieldsFragmentDoc = gql`
+    fragment EnrollFields on Enroll {
+  id
+  challangeId
+  userId
+  status
+  createdAt
+  updatedAt
+  challange {
+    ...ChallangeFields
+  }
+}
+    ${ChallangeFieldsFragmentDoc}`;
 export const UserFieldsFragmentDoc = gql`
     fragment UserFields on User {
   id
@@ -224,6 +378,109 @@ export function useCreateUserMutation(baseOptions?: Apollo.MutationHookOptions<C
 export type CreateUserMutationHookResult = ReturnType<typeof useCreateUserMutation>;
 export type CreateUserMutationResult = Apollo.MutationResult<CreateUserMutation>;
 export type CreateUserMutationOptions = Apollo.BaseMutationOptions<CreateUserMutation, CreateUserMutationVariables>;
+export const EnrollChallangeDocument = gql`
+    mutation enrollChallange($challangeId: Int!) {
+  enrollChallange(challangeId: $challangeId) {
+    ...EnrollFields
+  }
+}
+    ${EnrollFieldsFragmentDoc}`;
+export type EnrollChallangeMutationFn = Apollo.MutationFunction<EnrollChallangeMutation, EnrollChallangeMutationVariables>;
+
+/**
+ * __useEnrollChallangeMutation__
+ *
+ * To run a mutation, you first call `useEnrollChallangeMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useEnrollChallangeMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [enrollChallangeMutation, { data, loading, error }] = useEnrollChallangeMutation({
+ *   variables: {
+ *      challangeId: // value for 'challangeId'
+ *   },
+ * });
+ */
+export function useEnrollChallangeMutation(baseOptions?: Apollo.MutationHookOptions<EnrollChallangeMutation, EnrollChallangeMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<EnrollChallangeMutation, EnrollChallangeMutationVariables>(EnrollChallangeDocument, options);
+      }
+export type EnrollChallangeMutationHookResult = ReturnType<typeof useEnrollChallangeMutation>;
+export type EnrollChallangeMutationResult = Apollo.MutationResult<EnrollChallangeMutation>;
+export type EnrollChallangeMutationOptions = Apollo.BaseMutationOptions<EnrollChallangeMutation, EnrollChallangeMutationVariables>;
+export const FindChallangesDocument = gql`
+    query findChallanges($filter: ChallangeFilter!) {
+  findChallanges(filter: $filter) {
+    ...ChallangeFields
+  }
+}
+    ${ChallangeFieldsFragmentDoc}`;
+
+/**
+ * __useFindChallangesQuery__
+ *
+ * To run a query within a React component, call `useFindChallangesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFindChallangesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useFindChallangesQuery({
+ *   variables: {
+ *      filter: // value for 'filter'
+ *   },
+ * });
+ */
+export function useFindChallangesQuery(baseOptions: Apollo.QueryHookOptions<FindChallangesQuery, FindChallangesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<FindChallangesQuery, FindChallangesQueryVariables>(FindChallangesDocument, options);
+      }
+export function useFindChallangesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<FindChallangesQuery, FindChallangesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<FindChallangesQuery, FindChallangesQueryVariables>(FindChallangesDocument, options);
+        }
+export type FindChallangesQueryHookResult = ReturnType<typeof useFindChallangesQuery>;
+export type FindChallangesLazyQueryHookResult = ReturnType<typeof useFindChallangesLazyQuery>;
+export type FindChallangesQueryResult = Apollo.QueryResult<FindChallangesQuery, FindChallangesQueryVariables>;
+export const GetChallangeDocument = gql`
+    query getChallange($id: Int!) {
+  getChallange(id: $id) {
+    ...ChallangeFields
+  }
+}
+    ${ChallangeFieldsFragmentDoc}`;
+
+/**
+ * __useGetChallangeQuery__
+ *
+ * To run a query within a React component, call `useGetChallangeQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetChallangeQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetChallangeQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useGetChallangeQuery(baseOptions: Apollo.QueryHookOptions<GetChallangeQuery, GetChallangeQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetChallangeQuery, GetChallangeQueryVariables>(GetChallangeDocument, options);
+      }
+export function useGetChallangeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetChallangeQuery, GetChallangeQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetChallangeQuery, GetChallangeQueryVariables>(GetChallangeDocument, options);
+        }
+export type GetChallangeQueryHookResult = ReturnType<typeof useGetChallangeQuery>;
+export type GetChallangeLazyQueryHookResult = ReturnType<typeof useGetChallangeLazyQuery>;
+export type GetChallangeQueryResult = Apollo.QueryResult<GetChallangeQuery, GetChallangeQueryVariables>;
 export const GetMeDocument = gql`
     query getMe {
   me {
@@ -263,3 +520,38 @@ export function useGetMeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetM
 export type GetMeQueryHookResult = ReturnType<typeof useGetMeQuery>;
 export type GetMeLazyQueryHookResult = ReturnType<typeof useGetMeLazyQuery>;
 export type GetMeQueryResult = Apollo.QueryResult<GetMeQuery, GetMeQueryVariables>;
+export const GetMyEnrollsDocument = gql`
+    query getMyEnrolls($filter: MyEnrollFillter!) {
+  myEnrolls(filter: $filter) {
+    ...EnrollFields
+  }
+}
+    ${EnrollFieldsFragmentDoc}`;
+
+/**
+ * __useGetMyEnrollsQuery__
+ *
+ * To run a query within a React component, call `useGetMyEnrollsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetMyEnrollsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetMyEnrollsQuery({
+ *   variables: {
+ *      filter: // value for 'filter'
+ *   },
+ * });
+ */
+export function useGetMyEnrollsQuery(baseOptions: Apollo.QueryHookOptions<GetMyEnrollsQuery, GetMyEnrollsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetMyEnrollsQuery, GetMyEnrollsQueryVariables>(GetMyEnrollsDocument, options);
+      }
+export function useGetMyEnrollsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetMyEnrollsQuery, GetMyEnrollsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetMyEnrollsQuery, GetMyEnrollsQueryVariables>(GetMyEnrollsDocument, options);
+        }
+export type GetMyEnrollsQueryHookResult = ReturnType<typeof useGetMyEnrollsQuery>;
+export type GetMyEnrollsLazyQueryHookResult = ReturnType<typeof useGetMyEnrollsLazyQuery>;
+export type GetMyEnrollsQueryResult = Apollo.QueryResult<GetMyEnrollsQuery, GetMyEnrollsQueryVariables>;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ifProp, prop, palette } from "styled-tools";
+import { ifProp, palette, prop } from "styled-tools";
 import { Text } from "../../atoms/typography";
 
 export interface FormItemStyleProps {

@@ -1,4 +1,5 @@
 import { CHBanner, RegisterBanner } from "components";
+import { dummyChallanges } from "fixture/data";
 import CHDetailTemplate from ".";
 import { DESCRIPTION } from "./constants";
 
@@ -10,15 +11,7 @@ export default {
 export const Default = () => (
 	<CHDetailTemplate
 		descriptions={DESCRIPTION}
-		challangeBanner={
-			<CHBanner
-				id="1"
-				language="typescript"
-				status="inProgress"
-				to="/home"
-				start_at={new Date()}
-			/>
-		}
-		registerBannder={<RegisterBanner challangeId="1" />}
+		challangeBanner={<CHBanner {...dummyChallanges[0]} />}
+		registerBannder={<RegisterBanner challangeId={1} />}
 	></CHDetailTemplate>
 );
