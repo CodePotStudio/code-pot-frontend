@@ -10,7 +10,6 @@
     - [install package](#install-package)
   - [Usage](#usage)
     - [start local server](#start-local-server)
-    - [deploy to dev, prd](#deploy-to-dev-prd)
   - [Contact](#contact)
   <!-- * [License](#license) -->
 
